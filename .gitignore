@@ -6,3 +6,6 @@ _*
 
 data/.*
 
+results/*.png
+results/*.csv
+
