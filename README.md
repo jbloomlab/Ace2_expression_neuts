@@ -15,7 +15,9 @@ The experimental steps are as follows:
 Sera that is used in these experiments comes from Helen Chu's HAARVI study and is from individuals who have been infected with SARS-CoV-2 and subsequently received two doses of Phizer or Moderna vaccines. 
 
 To run the analysis type:
-	sbatch run_Hutch_cluster.bash
+```
+sbatch run_Hutch_cluster.bash
+```
 
 After the run is finished analysis results are found in [results](./results) folder
 
