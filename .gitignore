@@ -1,4 +1,5 @@
 .*
+
 !.gitignore
 
 _*
@@ -9,4 +10,6 @@ data/.*
 results/*.png
 results/*.pdf
 results/*.csv
+
+results/*.
 

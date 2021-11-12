@@ -1,11 +1,20 @@
-# Specify configuration 
+# Specify configuration
 
 elisa_input_files:
   - data/RBD_depletion_RLU/RBDdepletion_ELISAlayout_091121.csv
 
+depletion_neuts:
+   data/RBD_depletion_neuts/depletion_neuts_consensus_kozak.csv: HEK293T_Ace2_consensus_Kozak
+   data/RBD_depletion_neuts/depletion_neuts_clone_C.csv: HEK293T_Ace2_clone_C
+
 virus_titers: data/virus_titer_RLU/ACE2clones_Wu_1_RLU.csv
+
+sample_information: data/serum_sample_info/sample_information.csv
 
 resultsdir: results/
 
 summary_dir: results/summary
 
+
+# the neutralization limit of detection is equal to the starting dilution
+NT50_LOD: 25
