@@ -1,4 +1,4 @@
-# Calculate titers of RBD mutant spike-pseudotyped lentiviruses
+# Calculate titers of spike-pseudotyped lentiviruses on different cell lines
 
 
 ```python
@@ -40,171 +40,6 @@ Make output directory if needed
 resultsdir=config['resultsdir']
 os.makedirs(resultsdir, exist_ok=True)
 ```
-
-
-```python
-pd.read_csv('data/virus_titer_RLU/ACE2clones_Wu_1_RLU.csv')
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>plasmid</th>
-      <th>replicate</th>
-      <th>virus</th>
-      <th>dilution</th>
-      <th>uL_virus</th>
-      <th>RLU_per_well</th>
-      <th>date</th>
-      <th>cells</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2800</td>
-      <td>rep1</td>
-      <td>Wuhan1_614G</td>
-      <td>0.250000</td>
-      <td>25.000000</td>
-      <td>4085192</td>
-      <td>241021</td>
-      <td>293T_consensus_kozak</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2800</td>
-      <td>rep1</td>
-      <td>Wuhan1_614G</td>
-      <td>0.125000</td>
-      <td>12.500000</td>
-      <td>613486</td>
-      <td>241021</td>
-      <td>293T_consensus_kozak</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2800</td>
-      <td>rep1</td>
-      <td>Wuhan1_614G</td>
-      <td>0.062500</td>
-      <td>6.250000</td>
-      <td>128746</td>
-      <td>241021</td>
-      <td>293T_consensus_kozak</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2800</td>
-      <td>rep1</td>
-      <td>Wuhan1_614G</td>
-      <td>0.031250</td>
-      <td>3.125000</td>
-      <td>45646</td>
-      <td>241021</td>
-      <td>293T_consensus_kozak</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2800</td>
-      <td>rep1</td>
-      <td>Wuhan1_614G</td>
-      <td>0.015625</td>
-      <td>1.562500</td>
-      <td>24070</td>
-      <td>241021</td>
-      <td>293T_consensus_kozak</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>111</th>
-      <td>2800</td>
-      <td>rep2</td>
-      <td>Wuhan1_614G</td>
-      <td>0.003906</td>
-      <td>0.390625</td>
-      <td>6673</td>
-      <td>241021</td>
-      <td>293T_ACE2_Clone_G</td>
-    </tr>
-    <tr>
-      <th>112</th>
-      <td>2800</td>
-      <td>rep2</td>
-      <td>Wuhan1_614G</td>
-      <td>0.001953</td>
-      <td>0.195312</td>
-      <td>5191</td>
-      <td>241021</td>
-      <td>293T_ACE2_Clone_G</td>
-    </tr>
-    <tr>
-      <th>113</th>
-      <td>2800</td>
-      <td>rep2</td>
-      <td>Wuhan1_614G</td>
-      <td>0.000977</td>
-      <td>0.097656</td>
-      <td>2915</td>
-      <td>241021</td>
-      <td>293T_ACE2_Clone_G</td>
-    </tr>
-    <tr>
-      <th>114</th>
-      <td>2800</td>
-      <td>rep2</td>
-      <td>Wuhan1_614G</td>
-      <td>0.000488</td>
-      <td>0.048828</td>
-      <td>1228</td>
-      <td>241021</td>
-      <td>293T_ACE2_Clone_G</td>
-    </tr>
-    <tr>
-      <th>115</th>
-      <td>2800</td>
-      <td>rep2</td>
-      <td>Wuhan1_614G</td>
-      <td>0.000244</td>
-      <td>0.024414</td>
-      <td>261</td>
-      <td>241021</td>
-      <td>293T_ACE2_Clone_G</td>
-    </tr>
-  </tbody>
-</table>
-<p>116 rows × 8 columns</p>
-</div>
-
-
 
 
 ```python
@@ -314,18 +149,11 @@ p = (ggplot(titers.dropna()
      )
 
 _ = p.draw()
-
-plotfile = os.path.join(resultsdir, 'RLU-vs-uL.pdf')
-print(f"Saving to {plotfile}")
-p.save(plotfile, verbose=False)
 ```
-
-    Saving to results/RLU-vs-uL.pdf
-
 
 
     
-![png](virus_titers_files/virus_titers_9_1.png)
+![png](virus_titers_files/virus_titers_8_0.png)
     
 
 
@@ -346,22 +174,15 @@ p = (ggplot(titers.dropna()
      )
 
 _ = p.draw()
-
-plotfile = os.path.join(resultsdir, 'RLUperuL.pdf')
-print(f"Saving to {plotfile}")
-p.save(plotfile, verbose=False)
 ```
 
-    Saving to results/RLUperuL.pdf
-
-
 
     
-![png](virus_titers_files/virus_titers_10_1.png)
+![png](virus_titers_files/virus_titers_9_0.png)
     
 
 
-From visual inspection of the above plots, it appears that only the 6 highest dilutions (i.e., >1.5uL of virus per well) are reliable enough to calculate titers. 
+From visual inspection of the above plots, it appears that only the 5 highest dilutions (i.e., >1uL of virus per well) are reliable enough to calculate titers. 
 
 
 ```python
@@ -445,18 +266,11 @@ p = (ggplot(average_titers,
     )
 
 _ = p.draw()
-
-plotfile = os.path.join(resultsdir, 'virus_titers.pdf')
-print(f"Saving to {plotfile}")
-p.save(plotfile, verbose=False)
 ```
-
-    Saving to results/virus_titers.pdf
-
 
 
     
-![png](virus_titers_files/virus_titers_13_1.png)
+![png](virus_titers_files/virus_titers_12_0.png)
     
 
 
@@ -569,9 +383,4 @@ display(HTML(dilute_virus.head().to_html(index=False)))
 
 ```python
 # !jupyter nbconvert calculate_titer.ipynb --to HTML
-```
-
-
-```python
-
 ```

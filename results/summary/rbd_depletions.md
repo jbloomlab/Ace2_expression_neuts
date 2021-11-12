@@ -1,14 +1,4 @@
-# Analysis and plotting of RBD absorptions for vaccine-elicited sera
-
-We used commercially-available magnetic beads conjugated to SARS-CoV-2 RBD to deplete serum of RBD-binding antibodies. 
-This dilutes the serum 1:4 (because I added 25 uL serum + 75 uL of bead suspension at 1mg/mL). 
-Depletions were performed **twice** because one round of depletion was not sufficient to deplete all RBD-binding antibodies.
-
-The pre-depletion serum was also diluted 1:4 in PBS + 0.05% BSA. 
-
-SARS-CoV-2 RBD and spike ELISAs were performed on these samples to verify the degree of RBD antibody depletion.
-
-Here, I calculate the AUC for pre- vs. post-depletion samples and the fold-change in AUC. 
+# Analysis and plotting of RBD depletions for sera samles
 
 ### Set up Analysis
 
@@ -37,8 +27,6 @@ import numpy as np
 import pandas as pd
 from plotnine import *
 
-import scipy.stats
-
 import yaml
 ```
 
@@ -59,7 +47,7 @@ Use seaborn theme and change font:
 
 
 ```python
-theme_set(theme_seaborn(style='white', context='talk', font='FreeSans', font_scale=1))
+theme_set(theme_seaborn(style='white', context='talk', font_scale=1))
 plt.style.use('seaborn-white')
 ```
 
@@ -67,11 +55,6 @@ plt.style.use('seaborn-white')
 ```python
 resultsdir=config['resultsdir']
 os.makedirs(resultsdir, exist_ok=True)
-```
-
-
-```python
-pd.options.display.max_rows = 100
 ```
 
 ## Titration ELISAs
@@ -242,19 +225,11 @@ p = (
     )
 
 _ = p.draw()
-
-p.save(f'{resultsdir}/rbd_depletion_elisa.pdf')
 ```
-
-    findfont: Font family ['FreeSans'] not found. Falling back to DejaVu Sans.
-    findfont: Font family ['FreeSans'] not found. Falling back to DejaVu Sans.
-    findfont: Font family ['FreeSans'] not found. Falling back to DejaVu Sans.
-    findfont: Font family ['FreeSans'] not found. Falling back to DejaVu Sans.
-
 
 
     
-![png](rbd_depletions_files/rbd_depletions_12_1.png)
+![png](rbd_depletions_files/rbd_depletions_11_0.png)
     
 
 

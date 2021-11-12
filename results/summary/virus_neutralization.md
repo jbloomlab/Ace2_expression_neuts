@@ -1,8 +1,6 @@
-# Analysis of neutalisation in different Ace2 clones
+# Analysis of SARS-COV-2 virus neutalization in different Ace2 clones
 
 ### Set up Analysis
-
-Import packages.
 
 
 ```python
@@ -15,10 +13,8 @@ import warnings
 from IPython.display import display, HTML
 
 import matplotlib
-from matplotlib.backends.backend_pdf import PdfPages
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-from mizani.formatters import scientific_format
 import natsort
 
 import numpy as np
@@ -28,9 +24,6 @@ import seaborn
 
 import neutcurve
 from neutcurve.colorschemes import CBMARKERS, CBPALETTE
-
-import sklearn
-import scipy.stats
 
 import yaml
 ```
@@ -48,11 +41,11 @@ with open('config.yaml') as f:
     config = yaml.safe_load(f)
 ```
 
-Use seaborn theme and change font:
+Set seaborn theme:
 
 
 ```python
-theme_set(theme_seaborn(style='white', context='talk', font='FreeSans', font_scale=1))
+theme_set(theme_seaborn(style='white', context='talk', font_scale=1))
 plt.style.use('seaborn-white')
 ```
 
@@ -60,11 +53,6 @@ plt.style.use('seaborn-white')
 ```python
 resultsdir=config['resultsdir']
 os.makedirs(resultsdir, exist_ok=True)
-```
-
-
-```python
-pd.options.display.max_rows = 100
 ```
 
 ## Read in data
@@ -400,19 +388,11 @@ p = (ggplot(df
 
 _ = p.draw()
 
-
-p.save(f'{resultsdir}/NT50_lineplot_nocolors.pdf')
 ```
-
-    findfont: Font family ['FreeSans'] not found. Falling back to DejaVu Sans.
-    findfont: Font family ['FreeSans'] not found. Falling back to DejaVu Sans.
-    findfont: Font family ['FreeSans'] not found. Falling back to DejaVu Sans.
-    findfont: Font family ['FreeSans'] not found. Falling back to DejaVu Sans.
-
 
 
     
-![png](virus_neutralization_files/virus_neutralization_21_1.png)
+![png](virus_neutralization_files/virus_neutralization_20_0.png)
     
 
 
@@ -429,21 +409,17 @@ for fits in frac_infect_combined:
                               titlesize=12, labelsize=24, ticksize=15, legendfontsize=24, yticklocs=[0,0.5,1],
                               markersize=8, linewidth=2,
                              )
-
-    plotfile = PdfPages(f'{resultsdir}/{fits}_sera_frac_infectivity.pdf')
-    plotfile.savefig(bbox_inches='tight', transparent=True)
-    plotfile.close()
 ```
 
 
     
-![png](virus_neutralization_files/virus_neutralization_23_0.png)
+![png](virus_neutralization_files/virus_neutralization_22_0.png)
     
 
 
 
     
-![png](virus_neutralization_files/virus_neutralization_23_1.png)
+![png](virus_neutralization_files/virus_neutralization_22_1.png)
     
 
 
