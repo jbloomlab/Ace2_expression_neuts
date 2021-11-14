@@ -1,0 +1,15 @@
+.*
+
+!.gitignore
+
+_*
+*.out
+
+data/.*
+
+results/*.png
+results/*.pdf
+results/*.csv
+
+results/*.
+
