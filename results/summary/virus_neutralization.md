@@ -146,37 +146,37 @@ fitparams_combined.head(10)
       <th>0</th>
       <td>192C-day-9__HEK293T_Ace2_consensus_Kozak</td>
       <td>pre-depletion</td>
-      <td>0.007157</td>
+      <td>0.000156</td>
       <td>interpolated</td>
-      <td>139.722571</td>
+      <td>6403.650984</td>
       <td>False</td>
     </tr>
     <tr>
       <th>1</th>
       <td>192C-day-9__HEK293T_Ace2_consensus_Kozak</td>
       <td>post-depletion</td>
-      <td>0.040000</td>
-      <td>lower</td>
-      <td>25.000000</td>
-      <td>True</td>
+      <td>0.008359</td>
+      <td>interpolated</td>
+      <td>119.627096</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>2</th>
       <td>194C-day-8__HEK293T_Ace2_consensus_Kozak</td>
       <td>pre-depletion</td>
-      <td>0.000506</td>
+      <td>0.000103</td>
       <td>interpolated</td>
-      <td>1976.592157</td>
+      <td>9722.735744</td>
       <td>False</td>
     </tr>
     <tr>
       <th>3</th>
       <td>194C-day-8__HEK293T_Ace2_consensus_Kozak</td>
       <td>post-depletion</td>
-      <td>0.029077</td>
-      <td>interpolated</td>
-      <td>34.391149</td>
-      <td>False</td>
+      <td>0.040000</td>
+      <td>lower</td>
+      <td>25.000000</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>4</th>
