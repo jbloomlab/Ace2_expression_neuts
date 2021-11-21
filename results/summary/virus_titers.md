@@ -212,37 +212,37 @@ display(HTML(average_titers.head().to_html(index=False)))
     <tr>
       <td>Wuhan1_614G</td>
       <td>rep1</td>
-      <td>241021</td>
+      <td>201121</td>
       <td>293T_ACE2_Clone_A</td>
-      <td>1771.266667</td>
+      <td>6617.546667</td>
     </tr>
     <tr>
       <td>Wuhan1_614G</td>
       <td>rep1</td>
-      <td>241021</td>
+      <td>201121</td>
       <td>293T_ACE2_Clone_C</td>
-      <td>6343.790000</td>
+      <td>13435.146667</td>
     </tr>
     <tr>
       <td>Wuhan1_614G</td>
       <td>rep1</td>
-      <td>241021</td>
+      <td>201121</td>
       <td>293T_ACE2_Clone_G</td>
-      <td>37624.700000</td>
+      <td>18858.410000</td>
     </tr>
     <tr>
       <td>Wuhan1_614G</td>
       <td>rep1</td>
-      <td>241021</td>
+      <td>201121</td>
+      <td>293T_ACE2_TMPRSS2</td>
+      <td>160942.064000</td>
+    </tr>
+    <tr>
+      <td>Wuhan1_614G</td>
+      <td>rep1</td>
+      <td>201121</td>
       <td>293T_consensus_kozak</td>
-      <td>52619.488000</td>
-    </tr>
-    <tr>
-      <td>Wuhan1_614G</td>
-      <td>rep1</td>
-      <td>241021</td>
-      <td>HEK293T_Ace2</td>
-      <td>67143.120000</td>
+      <td>37778.880000</td>
     </tr>
   </tbody>
 </table>
@@ -323,58 +323,58 @@ display(HTML(dilute_virus.head().to_html(index=False)))
   <tbody>
     <tr>
       <td>Wuhan1_614G</td>
-      <td>241021</td>
+      <td>201121</td>
       <td>293T_ACE2_Clone_A</td>
-      <td>1830.921667</td>
+      <td>6633.666667</td>
       <td>200000.0</td>
       <td>50</td>
-      <td>0.457730</td>
-      <td>17477.536359</td>
-      <td>-9477.536359</td>
+      <td>1.658417</td>
+      <td>4823.878197</td>
+      <td>3176.121803</td>
     </tr>
     <tr>
       <td>Wuhan1_614G</td>
-      <td>241021</td>
+      <td>201121</td>
       <td>293T_ACE2_Clone_C</td>
-      <td>8123.145000</td>
+      <td>12514.403333</td>
       <td>200000.0</td>
       <td>50</td>
-      <td>2.030786</td>
-      <td>3939.360925</td>
-      <td>4060.639075</td>
+      <td>3.128601</td>
+      <td>2557.053592</td>
+      <td>5442.946408</td>
     </tr>
     <tr>
       <td>Wuhan1_614G</td>
-      <td>241021</td>
+      <td>201121</td>
       <td>293T_ACE2_Clone_G</td>
-      <td>39923.311667</td>
+      <td>18691.020000</td>
       <td>200000.0</td>
       <td>50</td>
-      <td>9.980828</td>
-      <td>801.536713</td>
-      <td>7198.463287</td>
+      <td>4.672755</td>
+      <td>1712.052098</td>
+      <td>6287.947902</td>
     </tr>
     <tr>
       <td>Wuhan1_614G</td>
-      <td>241021</td>
+      <td>201121</td>
+      <td>293T_ACE2_TMPRSS2</td>
+      <td>150397.364000</td>
+      <td>200000.0</td>
+      <td>50</td>
+      <td>37.599341</td>
+      <td>212.769687</td>
+      <td>7787.230313</td>
+    </tr>
+    <tr>
+      <td>Wuhan1_614G</td>
+      <td>201121</td>
       <td>293T_consensus_kozak</td>
-      <td>50877.348000</td>
+      <td>32359.316000</td>
       <td>200000.0</td>
       <td>50</td>
-      <td>12.719337</td>
-      <td>628.963601</td>
-      <td>7371.036399</td>
-    </tr>
-    <tr>
-      <td>Wuhan1_614G</td>
-      <td>241021</td>
-      <td>HEK293T_Ace2</td>
-      <td>64376.044000</td>
-      <td>200000.0</td>
-      <td>50</td>
-      <td>16.094011</td>
-      <td>497.079317</td>
-      <td>7502.920683</td>
+      <td>8.089829</td>
+      <td>988.896057</td>
+      <td>7011.103943</td>
     </tr>
   </tbody>
 </table>
