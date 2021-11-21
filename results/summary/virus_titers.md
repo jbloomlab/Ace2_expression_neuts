@@ -169,7 +169,7 @@ p = (ggplot(titers.dropna()
      scale_x_log10(name='uL virus per well') +
      theme_classic() +
      theme(axis_text_x=element_text(angle=90),
-           figure_size=(4 * ncol, 10 * nrow),
+           figure_size=(4 * ncol, 20 * nrow),
            ) 
      )
 
@@ -251,7 +251,7 @@ display(HTML(average_titers.head().to_html(index=False)))
 
 ```python
 p = (ggplot(average_titers, 
-            aes(x='cells', y='mean_RLUperuL', color='replicate')
+            aes(x='cells', y='mean_RLUperuL', color='date')
            ) +
      geom_point(size=2.5, alpha=0.5)+
      theme_classic() +
@@ -299,7 +299,7 @@ print(f"Saving to {titerfile}")
 
 dilute_virus.to_csv(titerfile, index=False)
 
-display(HTML(dilute_virus.head().to_html(index=False)))
+display(HTML(dilute_virus.to_html(index=False)))
 ```
 
     Saving to results/virus_titers.csv
@@ -376,6 +376,61 @@ display(HTML(dilute_virus.head().to_html(index=False)))
       <td>988.896057</td>
       <td>7011.103943</td>
     </tr>
+    <tr>
+      <td>Wuhan1_614G</td>
+      <td>241021</td>
+      <td>293T_ACE2_Clone_A</td>
+      <td>1830.921667</td>
+      <td>200000.0</td>
+      <td>50</td>
+      <td>0.457730</td>
+      <td>17477.536359</td>
+      <td>-9477.536359</td>
+    </tr>
+    <tr>
+      <td>Wuhan1_614G</td>
+      <td>241021</td>
+      <td>293T_ACE2_Clone_C</td>
+      <td>8123.145000</td>
+      <td>200000.0</td>
+      <td>50</td>
+      <td>2.030786</td>
+      <td>3939.360925</td>
+      <td>4060.639075</td>
+    </tr>
+    <tr>
+      <td>Wuhan1_614G</td>
+      <td>241021</td>
+      <td>293T_ACE2_Clone_G</td>
+      <td>39923.311667</td>
+      <td>200000.0</td>
+      <td>50</td>
+      <td>9.980828</td>
+      <td>801.536713</td>
+      <td>7198.463287</td>
+    </tr>
+    <tr>
+      <td>Wuhan1_614G</td>
+      <td>241021</td>
+      <td>293T_consensus_kozak</td>
+      <td>50877.348000</td>
+      <td>200000.0</td>
+      <td>50</td>
+      <td>12.719337</td>
+      <td>628.963601</td>
+      <td>7371.036399</td>
+    </tr>
+    <tr>
+      <td>Wuhan1_614G</td>
+      <td>241021</td>
+      <td>HEK293T_Ace2</td>
+      <td>64376.044000</td>
+      <td>200000.0</td>
+      <td>50</td>
+      <td>16.094011</td>
+      <td>497.079317</td>
+      <td>7502.920683</td>
+    </tr>
   </tbody>
 </table>
 
@@ -383,4 +438,9 @@ display(HTML(dilute_virus.head().to_html(index=False)))
 
 ```python
 # !jupyter nbconvert calculate_titer.ipynb --to HTML
+```
+
+
+```python
+
 ```
