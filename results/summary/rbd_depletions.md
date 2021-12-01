@@ -210,7 +210,8 @@ p = (
            ),
            aes('dilution', 
                'OD450', 
-               color='round')) +
+               color='round'
+              )) +
     geom_point(size=3) +
     geom_path(aes(color='round', linetype='depleted'), size=0.75) +
     scale_x_log10(name='serum dilution', labels=scientific_format(digits=0)) +
