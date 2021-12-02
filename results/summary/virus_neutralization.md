@@ -146,72 +146,90 @@ fitparams_combined.head(10)
       <th>0</th>
       <td>192C-day-9__HEK293T_Ace2_consensus_Kozak</td>
       <td>pre-depletion</td>
-      <td>0.000156</td>
+      <td>0.000175</td>
       <td>interpolated</td>
-      <td>6403.650984</td>
+      <td>5722.934706</td>
       <td>False</td>
     </tr>
     <tr>
       <th>1</th>
       <td>192C-day-9__HEK293T_Ace2_consensus_Kozak</td>
       <td>post-depletion</td>
-      <td>0.008359</td>
+      <td>0.016155</td>
       <td>interpolated</td>
-      <td>119.627096</td>
+      <td>61.901412</td>
       <td>False</td>
     </tr>
     <tr>
       <th>2</th>
       <td>194C-day-8__HEK293T_Ace2_consensus_Kozak</td>
       <td>pre-depletion</td>
-      <td>0.000103</td>
+      <td>0.000112</td>
       <td>interpolated</td>
-      <td>9722.735744</td>
+      <td>8893.406359</td>
       <td>False</td>
     </tr>
     <tr>
       <th>3</th>
       <td>194C-day-8__HEK293T_Ace2_consensus_Kozak</td>
       <td>post-depletion</td>
-      <td>0.040000</td>
-      <td>lower</td>
-      <td>25.000000</td>
-      <td>True</td>
+      <td>0.034145</td>
+      <td>interpolated</td>
+      <td>29.287022</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>4</th>
       <td>192C-day-9__HEK293T_Ace2_clone_C</td>
       <td>pre-depletion</td>
-      <td>0.007157</td>
+      <td>0.000112</td>
       <td>interpolated</td>
-      <td>139.722571</td>
+      <td>8966.286438</td>
       <td>False</td>
     </tr>
     <tr>
       <th>5</th>
       <td>192C-day-9__HEK293T_Ace2_clone_C</td>
       <td>post-depletion</td>
-      <td>0.040000</td>
-      <td>lower</td>
-      <td>25.000000</td>
-      <td>True</td>
+      <td>0.006997</td>
+      <td>interpolated</td>
+      <td>142.919038</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>6</th>
       <td>194C-day-8__HEK293T_Ace2_clone_C</td>
       <td>pre-depletion</td>
-      <td>0.000506</td>
+      <td>0.000088</td>
       <td>interpolated</td>
-      <td>1976.592157</td>
+      <td>11393.328246</td>
       <td>False</td>
     </tr>
     <tr>
       <th>7</th>
       <td>194C-day-8__HEK293T_Ace2_clone_C</td>
       <td>post-depletion</td>
-      <td>0.029077</td>
+      <td>0.003657</td>
       <td>interpolated</td>
-      <td>34.391149</td>
+      <td>273.483223</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>192C-day-9__HEK293T_Ace2_clone_A</td>
+      <td>pre-depletion</td>
+      <td>0.000106</td>
+      <td>interpolated</td>
+      <td>9469.561397</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>192C-day-9__HEK293T_Ace2_clone_A</td>
+      <td>post-depletion</td>
+      <td>0.001138</td>
+      <td>interpolated</td>
+      <td>878.878272</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -289,37 +307,37 @@ foldchange.head(2)
   <tbody>
     <tr>
       <th>0</th>
-      <td>192C-day-9__HEK293T_Ace2_clone_C</td>
-      <td>0.04</td>
-      <td>0.007157</td>
-      <td>5.588903</td>
-      <td>82</td>
-      <td>139.722571</td>
-      <td>25.0</td>
-      <td>True</td>
-      <td>&gt;82%</td>
+      <td>192C-day-9__HEK293T_Ace2_clone_A</td>
+      <td>0.001138</td>
+      <td>0.000106</td>
+      <td>10.7746</td>
+      <td>90</td>
+      <td>9469.561397</td>
+      <td>878.878272</td>
+      <td>False</td>
+      <td>90%</td>
       <td>pre-depletion</td>
-      <td>0.007157</td>
+      <td>0.000106</td>
       <td>interpolated</td>
-      <td>139.722571</td>
+      <td>9469.561397</td>
       <td>False</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>192C-day-9__HEK293T_Ace2_clone_C</td>
-      <td>0.04</td>
-      <td>0.007157</td>
-      <td>5.588903</td>
-      <td>82</td>
-      <td>139.722571</td>
-      <td>25.0</td>
-      <td>True</td>
-      <td>&gt;82%</td>
+      <td>192C-day-9__HEK293T_Ace2_clone_A</td>
+      <td>0.001138</td>
+      <td>0.000106</td>
+      <td>10.7746</td>
+      <td>90</td>
+      <td>9469.561397</td>
+      <td>878.878272</td>
+      <td>False</td>
+      <td>90%</td>
       <td>post-depletion</td>
-      <td>0.040000</td>
-      <td>lower</td>
-      <td>25.000000</td>
-      <td>True</td>
+      <td>0.001138</td>
+      <td>interpolated</td>
+      <td>878.878272</td>
+      <td>False</td>
     </tr>
   </tbody>
 </table>
@@ -420,6 +438,18 @@ for fits in frac_infect_combined:
 
     
 ![png](virus_neutralization_files/virus_neutralization_22_1.png)
+    
+
+
+
+    
+![png](virus_neutralization_files/virus_neutralization_22_2.png)
+    
+
+
+
+    
+![png](virus_neutralization_files/virus_neutralization_22_3.png)
     
 
 
