@@ -108,7 +108,7 @@ for fits in frac_infect_combined:
 
 fitparams_combined['ic50_is_bound'] = fitparams_combined['ic50_bound'].apply(lambda x: True if x!='interpolated' else False)
 
-fitparams_combined.head(10)
+fitparams_combined
 
 ```
 
@@ -144,38 +144,38 @@ fitparams_combined.head(10)
   <tbody>
     <tr>
       <th>0</th>
-      <td>192C-day-9__HEK293T_Ace2_consensus_Kozak</td>
+      <td>192C-day-9__HEK293T_Ace2_clone_A</td>
       <td>pre-depletion</td>
-      <td>0.000175</td>
+      <td>0.000106</td>
       <td>interpolated</td>
-      <td>5722.934706</td>
+      <td>9469.561397</td>
       <td>False</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>192C-day-9__HEK293T_Ace2_consensus_Kozak</td>
+      <td>192C-day-9__HEK293T_Ace2_clone_A</td>
       <td>post-depletion</td>
-      <td>0.016155</td>
+      <td>0.001138</td>
       <td>interpolated</td>
-      <td>61.901412</td>
+      <td>878.878272</td>
       <td>False</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>194C-day-8__HEK293T_Ace2_consensus_Kozak</td>
+      <td>194C-day-8__HEK293T_Ace2_clone_A</td>
       <td>pre-depletion</td>
-      <td>0.000112</td>
+      <td>0.000014</td>
       <td>interpolated</td>
-      <td>8893.406359</td>
+      <td>71600.095322</td>
       <td>False</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>194C-day-8__HEK293T_Ace2_consensus_Kozak</td>
+      <td>194C-day-8__HEK293T_Ace2_clone_A</td>
       <td>post-depletion</td>
-      <td>0.034145</td>
+      <td>0.000062</td>
       <td>interpolated</td>
-      <td>29.287022</td>
+      <td>16254.673402</td>
       <td>False</td>
     </tr>
     <tr>
@@ -216,20 +216,74 @@ fitparams_combined.head(10)
     </tr>
     <tr>
       <th>8</th>
-      <td>192C-day-9__HEK293T_Ace2_clone_A</td>
+      <td>192C-day-9__HEK293T_Ace2_clone_G</td>
       <td>pre-depletion</td>
-      <td>0.000106</td>
+      <td>0.000112</td>
       <td>interpolated</td>
-      <td>9469.561397</td>
+      <td>8890.238689</td>
       <td>False</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>192C-day-9__HEK293T_Ace2_clone_A</td>
+      <td>192C-day-9__HEK293T_Ace2_clone_G</td>
       <td>post-depletion</td>
-      <td>0.001138</td>
+      <td>0.003548</td>
       <td>interpolated</td>
-      <td>878.878272</td>
+      <td>281.810410</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>194C-day-8__HEK293T_Ace2_clone_G</td>
+      <td>pre-depletion</td>
+      <td>0.000049</td>
+      <td>interpolated</td>
+      <td>20476.449970</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>194C-day-8__HEK293T_Ace2_clone_G</td>
+      <td>post-depletion</td>
+      <td>0.001008</td>
+      <td>interpolated</td>
+      <td>991.608293</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>192C-day-9__HEK293T_Ace2_consensus_Kozak</td>
+      <td>pre-depletion</td>
+      <td>0.000175</td>
+      <td>interpolated</td>
+      <td>5722.934706</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>192C-day-9__HEK293T_Ace2_consensus_Kozak</td>
+      <td>post-depletion</td>
+      <td>0.016155</td>
+      <td>interpolated</td>
+      <td>61.901412</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>194C-day-8__HEK293T_Ace2_consensus_Kozak</td>
+      <td>pre-depletion</td>
+      <td>0.000112</td>
+      <td>interpolated</td>
+      <td>8893.406359</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>194C-day-8__HEK293T_Ace2_consensus_Kozak</td>
+      <td>post-depletion</td>
+      <td>0.034145</td>
+      <td>interpolated</td>
+      <td>29.287022</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -264,7 +318,7 @@ foldchange = (
     )
 
 foldchange['perc_RBD_str'] = np.where(foldchange['post_ic50_bound'], '>'+foldchange['perc_RBD_str']+'%', foldchange['perc_RBD_str']+'%')
-foldchange.head(2)
+foldchange
 ```
 
 
@@ -310,7 +364,7 @@ foldchange.head(2)
       <td>192C-day-9__HEK293T_Ace2_clone_A</td>
       <td>0.001138</td>
       <td>0.000106</td>
-      <td>10.7746</td>
+      <td>10.774600</td>
       <td>90</td>
       <td>9469.561397</td>
       <td>878.878272</td>
@@ -327,7 +381,7 @@ foldchange.head(2)
       <td>192C-day-9__HEK293T_Ace2_clone_A</td>
       <td>0.001138</td>
       <td>0.000106</td>
-      <td>10.7746</td>
+      <td>10.774600</td>
       <td>90</td>
       <td>9469.561397</td>
       <td>878.878272</td>
@@ -337,6 +391,244 @@ foldchange.head(2)
       <td>0.001138</td>
       <td>interpolated</td>
       <td>878.878272</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>192C-day-9__HEK293T_Ace2_clone_C</td>
+      <td>0.006997</td>
+      <td>0.000112</td>
+      <td>62.736823</td>
+      <td>98</td>
+      <td>8966.286438</td>
+      <td>142.919038</td>
+      <td>False</td>
+      <td>98%</td>
+      <td>pre-depletion</td>
+      <td>0.000112</td>
+      <td>interpolated</td>
+      <td>8966.286438</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>192C-day-9__HEK293T_Ace2_clone_C</td>
+      <td>0.006997</td>
+      <td>0.000112</td>
+      <td>62.736823</td>
+      <td>98</td>
+      <td>8966.286438</td>
+      <td>142.919038</td>
+      <td>False</td>
+      <td>98%</td>
+      <td>post-depletion</td>
+      <td>0.006997</td>
+      <td>interpolated</td>
+      <td>142.919038</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>192C-day-9__HEK293T_Ace2_clone_G</td>
+      <td>0.003548</td>
+      <td>0.000112</td>
+      <td>31.546878</td>
+      <td>96</td>
+      <td>8890.238689</td>
+      <td>281.810410</td>
+      <td>False</td>
+      <td>96%</td>
+      <td>pre-depletion</td>
+      <td>0.000112</td>
+      <td>interpolated</td>
+      <td>8890.238689</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>192C-day-9__HEK293T_Ace2_clone_G</td>
+      <td>0.003548</td>
+      <td>0.000112</td>
+      <td>31.546878</td>
+      <td>96</td>
+      <td>8890.238689</td>
+      <td>281.810410</td>
+      <td>False</td>
+      <td>96%</td>
+      <td>post-depletion</td>
+      <td>0.003548</td>
+      <td>interpolated</td>
+      <td>281.810410</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>192C-day-9__HEK293T_Ace2_consensus_Kozak</td>
+      <td>0.016155</td>
+      <td>0.000175</td>
+      <td>92.452410</td>
+      <td>98</td>
+      <td>5722.934706</td>
+      <td>61.901412</td>
+      <td>False</td>
+      <td>98%</td>
+      <td>pre-depletion</td>
+      <td>0.000175</td>
+      <td>interpolated</td>
+      <td>5722.934706</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>192C-day-9__HEK293T_Ace2_consensus_Kozak</td>
+      <td>0.016155</td>
+      <td>0.000175</td>
+      <td>92.452410</td>
+      <td>98</td>
+      <td>5722.934706</td>
+      <td>61.901412</td>
+      <td>False</td>
+      <td>98%</td>
+      <td>post-depletion</td>
+      <td>0.016155</td>
+      <td>interpolated</td>
+      <td>61.901412</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>194C-day-8__HEK293T_Ace2_clone_A</td>
+      <td>0.000062</td>
+      <td>0.000014</td>
+      <td>4.404893</td>
+      <td>77</td>
+      <td>71600.095322</td>
+      <td>16254.673402</td>
+      <td>False</td>
+      <td>77%</td>
+      <td>pre-depletion</td>
+      <td>0.000014</td>
+      <td>interpolated</td>
+      <td>71600.095322</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>194C-day-8__HEK293T_Ace2_clone_A</td>
+      <td>0.000062</td>
+      <td>0.000014</td>
+      <td>4.404893</td>
+      <td>77</td>
+      <td>71600.095322</td>
+      <td>16254.673402</td>
+      <td>False</td>
+      <td>77%</td>
+      <td>post-depletion</td>
+      <td>0.000062</td>
+      <td>interpolated</td>
+      <td>16254.673402</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>194C-day-8__HEK293T_Ace2_clone_C</td>
+      <td>0.003657</td>
+      <td>0.000088</td>
+      <td>41.660063</td>
+      <td>97</td>
+      <td>11393.328246</td>
+      <td>273.483223</td>
+      <td>False</td>
+      <td>97%</td>
+      <td>pre-depletion</td>
+      <td>0.000088</td>
+      <td>interpolated</td>
+      <td>11393.328246</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>194C-day-8__HEK293T_Ace2_clone_C</td>
+      <td>0.003657</td>
+      <td>0.000088</td>
+      <td>41.660063</td>
+      <td>97</td>
+      <td>11393.328246</td>
+      <td>273.483223</td>
+      <td>False</td>
+      <td>97%</td>
+      <td>post-depletion</td>
+      <td>0.003657</td>
+      <td>interpolated</td>
+      <td>273.483223</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>194C-day-8__HEK293T_Ace2_clone_G</td>
+      <td>0.001008</td>
+      <td>0.000049</td>
+      <td>20.649737</td>
+      <td>95</td>
+      <td>20476.449970</td>
+      <td>991.608293</td>
+      <td>False</td>
+      <td>95%</td>
+      <td>pre-depletion</td>
+      <td>0.000049</td>
+      <td>interpolated</td>
+      <td>20476.449970</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>194C-day-8__HEK293T_Ace2_clone_G</td>
+      <td>0.001008</td>
+      <td>0.000049</td>
+      <td>20.649737</td>
+      <td>95</td>
+      <td>20476.449970</td>
+      <td>991.608293</td>
+      <td>False</td>
+      <td>95%</td>
+      <td>post-depletion</td>
+      <td>0.001008</td>
+      <td>interpolated</td>
+      <td>991.608293</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>194C-day-8__HEK293T_Ace2_consensus_Kozak</td>
+      <td>0.034145</td>
+      <td>0.000112</td>
+      <td>303.663727</td>
+      <td>99</td>
+      <td>8893.406359</td>
+      <td>29.287022</td>
+      <td>False</td>
+      <td>99%</td>
+      <td>pre-depletion</td>
+      <td>0.000112</td>
+      <td>interpolated</td>
+      <td>8893.406359</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>194C-day-8__HEK293T_Ace2_consensus_Kozak</td>
+      <td>0.034145</td>
+      <td>0.000112</td>
+      <td>303.663727</td>
+      <td>99</td>
+      <td>8893.406359</td>
+      <td>29.287022</td>
+      <td>False</td>
+      <td>99%</td>
+      <td>post-depletion</td>
+      <td>0.034145</td>
+      <td>interpolated</td>
+      <td>29.287022</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -391,7 +683,7 @@ p = (ggplot(df
                ha='right',
                size=9,
               ) +
-     theme(figure_size=(9,0.5*df['serum'].nunique()),
+     theme(figure_size=(15,2*df['serum'].nunique()),
            axis_text=element_text(size=12),
            legend_text=element_text(size=12),
            legend_title=element_text(size=12),
@@ -414,6 +706,415 @@ _ = p.draw()
     
 
 
+
+```python
+df
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>serum</th>
+      <th>post-depletion_ic50</th>
+      <th>pre-depletion_ic50</th>
+      <th>fold_change</th>
+      <th>percent_RBD</th>
+      <th>NT50_pre</th>
+      <th>NT50_post</th>
+      <th>post_ic50_bound</th>
+      <th>perc_RBD_str</th>
+      <th>depletion</th>
+      <th>ic50</th>
+      <th>ic50_bound</th>
+      <th>NT50</th>
+      <th>ic50_is_bound</th>
+      <th>fill_color</th>
+      <th>cells</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>192C-day-9</td>
+      <td>0.001138</td>
+      <td>0.000106</td>
+      <td>10.774600</td>
+      <td>90</td>
+      <td>9469.561397</td>
+      <td>878.878272</td>
+      <td>False</td>
+      <td>90%</td>
+      <td>pre</td>
+      <td>0.000106</td>
+      <td>interpolated</td>
+      <td>9469.561397</td>
+      <td>False</td>
+      <td>pre-depletion</td>
+      <td>HEK293T_Ace2_clone_A</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>192C-day-9</td>
+      <td>0.001138</td>
+      <td>0.000106</td>
+      <td>10.774600</td>
+      <td>90</td>
+      <td>9469.561397</td>
+      <td>878.878272</td>
+      <td>False</td>
+      <td>90%</td>
+      <td>post</td>
+      <td>0.001138</td>
+      <td>interpolated</td>
+      <td>878.878272</td>
+      <td>False</td>
+      <td>post-depletion</td>
+      <td>HEK293T_Ace2_clone_A</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>192C-day-9</td>
+      <td>0.006997</td>
+      <td>0.000112</td>
+      <td>62.736823</td>
+      <td>98</td>
+      <td>8966.286438</td>
+      <td>142.919038</td>
+      <td>False</td>
+      <td>98%</td>
+      <td>pre</td>
+      <td>0.000112</td>
+      <td>interpolated</td>
+      <td>8966.286438</td>
+      <td>False</td>
+      <td>pre-depletion</td>
+      <td>HEK293T_Ace2_clone_C</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>192C-day-9</td>
+      <td>0.006997</td>
+      <td>0.000112</td>
+      <td>62.736823</td>
+      <td>98</td>
+      <td>8966.286438</td>
+      <td>142.919038</td>
+      <td>False</td>
+      <td>98%</td>
+      <td>post</td>
+      <td>0.006997</td>
+      <td>interpolated</td>
+      <td>142.919038</td>
+      <td>False</td>
+      <td>post-depletion</td>
+      <td>HEK293T_Ace2_clone_C</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>192C-day-9</td>
+      <td>0.003548</td>
+      <td>0.000112</td>
+      <td>31.546878</td>
+      <td>96</td>
+      <td>8890.238689</td>
+      <td>281.810410</td>
+      <td>False</td>
+      <td>96%</td>
+      <td>pre</td>
+      <td>0.000112</td>
+      <td>interpolated</td>
+      <td>8890.238689</td>
+      <td>False</td>
+      <td>pre-depletion</td>
+      <td>HEK293T_Ace2_clone_G</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>192C-day-9</td>
+      <td>0.003548</td>
+      <td>0.000112</td>
+      <td>31.546878</td>
+      <td>96</td>
+      <td>8890.238689</td>
+      <td>281.810410</td>
+      <td>False</td>
+      <td>96%</td>
+      <td>post</td>
+      <td>0.003548</td>
+      <td>interpolated</td>
+      <td>281.810410</td>
+      <td>False</td>
+      <td>post-depletion</td>
+      <td>HEK293T_Ace2_clone_G</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>192C-day-9</td>
+      <td>0.016155</td>
+      <td>0.000175</td>
+      <td>92.452410</td>
+      <td>98</td>
+      <td>5722.934706</td>
+      <td>61.901412</td>
+      <td>False</td>
+      <td>98%</td>
+      <td>pre</td>
+      <td>0.000175</td>
+      <td>interpolated</td>
+      <td>5722.934706</td>
+      <td>False</td>
+      <td>pre-depletion</td>
+      <td>HEK293T_Ace2_consensus_Kozak</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>192C-day-9</td>
+      <td>0.016155</td>
+      <td>0.000175</td>
+      <td>92.452410</td>
+      <td>98</td>
+      <td>5722.934706</td>
+      <td>61.901412</td>
+      <td>False</td>
+      <td>98%</td>
+      <td>post</td>
+      <td>0.016155</td>
+      <td>interpolated</td>
+      <td>61.901412</td>
+      <td>False</td>
+      <td>post-depletion</td>
+      <td>HEK293T_Ace2_consensus_Kozak</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>194C-day-8</td>
+      <td>0.000062</td>
+      <td>0.000014</td>
+      <td>4.404893</td>
+      <td>77</td>
+      <td>71600.095322</td>
+      <td>16254.673402</td>
+      <td>False</td>
+      <td>77%</td>
+      <td>pre</td>
+      <td>0.000014</td>
+      <td>interpolated</td>
+      <td>71600.095322</td>
+      <td>False</td>
+      <td>pre-depletion</td>
+      <td>HEK293T_Ace2_clone_A</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>194C-day-8</td>
+      <td>0.000062</td>
+      <td>0.000014</td>
+      <td>4.404893</td>
+      <td>77</td>
+      <td>71600.095322</td>
+      <td>16254.673402</td>
+      <td>False</td>
+      <td>77%</td>
+      <td>post</td>
+      <td>0.000062</td>
+      <td>interpolated</td>
+      <td>16254.673402</td>
+      <td>False</td>
+      <td>post-depletion</td>
+      <td>HEK293T_Ace2_clone_A</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>194C-day-8</td>
+      <td>0.003657</td>
+      <td>0.000088</td>
+      <td>41.660063</td>
+      <td>97</td>
+      <td>11393.328246</td>
+      <td>273.483223</td>
+      <td>False</td>
+      <td>97%</td>
+      <td>pre</td>
+      <td>0.000088</td>
+      <td>interpolated</td>
+      <td>11393.328246</td>
+      <td>False</td>
+      <td>pre-depletion</td>
+      <td>HEK293T_Ace2_clone_C</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>194C-day-8</td>
+      <td>0.003657</td>
+      <td>0.000088</td>
+      <td>41.660063</td>
+      <td>97</td>
+      <td>11393.328246</td>
+      <td>273.483223</td>
+      <td>False</td>
+      <td>97%</td>
+      <td>post</td>
+      <td>0.003657</td>
+      <td>interpolated</td>
+      <td>273.483223</td>
+      <td>False</td>
+      <td>post-depletion</td>
+      <td>HEK293T_Ace2_clone_C</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>194C-day-8</td>
+      <td>0.001008</td>
+      <td>0.000049</td>
+      <td>20.649737</td>
+      <td>95</td>
+      <td>20476.449970</td>
+      <td>991.608293</td>
+      <td>False</td>
+      <td>95%</td>
+      <td>pre</td>
+      <td>0.000049</td>
+      <td>interpolated</td>
+      <td>20476.449970</td>
+      <td>False</td>
+      <td>pre-depletion</td>
+      <td>HEK293T_Ace2_clone_G</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>194C-day-8</td>
+      <td>0.001008</td>
+      <td>0.000049</td>
+      <td>20.649737</td>
+      <td>95</td>
+      <td>20476.449970</td>
+      <td>991.608293</td>
+      <td>False</td>
+      <td>95%</td>
+      <td>post</td>
+      <td>0.001008</td>
+      <td>interpolated</td>
+      <td>991.608293</td>
+      <td>False</td>
+      <td>post-depletion</td>
+      <td>HEK293T_Ace2_clone_G</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>194C-day-8</td>
+      <td>0.034145</td>
+      <td>0.000112</td>
+      <td>303.663727</td>
+      <td>99</td>
+      <td>8893.406359</td>
+      <td>29.287022</td>
+      <td>False</td>
+      <td>99%</td>
+      <td>pre</td>
+      <td>0.000112</td>
+      <td>interpolated</td>
+      <td>8893.406359</td>
+      <td>False</td>
+      <td>pre-depletion</td>
+      <td>HEK293T_Ace2_consensus_Kozak</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>194C-day-8</td>
+      <td>0.034145</td>
+      <td>0.000112</td>
+      <td>303.663727</td>
+      <td>99</td>
+      <td>8893.406359</td>
+      <td>29.287022</td>
+      <td>False</td>
+      <td>99%</td>
+      <td>post</td>
+      <td>0.034145</td>
+      <td>interpolated</td>
+      <td>29.287022</td>
+      <td>False</td>
+      <td>post-depletion</td>
+      <td>HEK293T_Ace2_consensus_Kozak</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+NT50_lines = (ggplot(df, aes(x='depletion', y='NT50', group='serum')) +
+              geom_point(size=2.5, alpha=0.25) +
+              geom_line(alpha=0.25) +
+              facet_grid('~cells', ) +
+             theme(figure_size=(15,2*df['serum'].nunique()),
+                   axis_text=element_text(size=12),
+                   legend_text=element_text(size=12),
+                   legend_title=element_text(size=12),
+                   strip_text = element_text(size=12)
+                  ) +
+              scale_y_log10(name='neutralization titer (NT50)') +
+              xlab('pre- or post-depletion\nof RBD antibodies')
+                 )
+
+_ = NT50_lines.draw()
+NT50_lines.save(f'./{resultsdir}/NT50_lines.pdf')
+```
+
+
+    
+![png](virus_neutralization_files/virus_neutralization_22_0.png)
+    
+
+
+
+```python
+NT50_lines = (ggplot(df, aes(x='cells', y='NT50', colour='serum')) +
+              geom_point(size=3) +
+              facet_grid('~depletion', ) +
+             theme(figure_size=(15,2*df['serum'].nunique()),
+                   axis_text=element_text(size=12),
+                   axis_text_x=element_text(size=12, angle= 45),
+                   legend_text=element_text(size=12),
+                   legend_title=element_text(size=12),
+                   axis_title_x=element_text(size=12),
+                   strip_text = element_text(size=12)
+                  ) +
+              scale_y_log10(name='neutralization titer (NT50)') +
+              xlab('pre- or post-depletion\nof RBD antibodies') +
+             scale_color_manual(values=CBPALETTE[1:])
+                 )
+
+_ = NT50_lines.draw()
+NT50_lines.save(f'./{resultsdir}/NT50_lines.pdf')
+```
+
+
+    
+![png](virus_neutralization_files/virus_neutralization_23_0.png)
+    
+
+
 ## Plot neut curves for all samples
 
 
@@ -431,27 +1132,32 @@ for fits in frac_infect_combined:
 
 
     
-![png](virus_neutralization_files/virus_neutralization_22_0.png)
+![png](virus_neutralization_files/virus_neutralization_25_0.png)
     
 
 
 
     
-![png](virus_neutralization_files/virus_neutralization_22_1.png)
+![png](virus_neutralization_files/virus_neutralization_25_1.png)
     
 
 
 
     
-![png](virus_neutralization_files/virus_neutralization_22_2.png)
+![png](virus_neutralization_files/virus_neutralization_25_2.png)
     
 
 
 
     
-![png](virus_neutralization_files/virus_neutralization_22_3.png)
+![png](virus_neutralization_files/virus_neutralization_25_3.png)
     
 
+
+
+```python
+
+```
 
 
 ```python

@@ -4,10 +4,10 @@ elisa_input_files:
   - data/RBD_depletion_RLU/RBDdepletion_ELISAlayout_091121.csv
 
 depletion_neuts:
-   data/RBD_depletion_neuts/depletion_neuts_consensus_kozak.csv: HEK293T_Ace2_consensus_Kozak
-   data/RBD_depletion_neuts/depletion_neuts_clone_C.csv: HEK293T_Ace2_clone_C
    data/RBD_depletion_neuts/depletion_neuts_clone_A.csv: HEK293T_Ace2_clone_A
+   data/RBD_depletion_neuts/depletion_neuts_clone_C.csv: HEK293T_Ace2_clone_C
    data/RBD_depletion_neuts/depletion_neuts_clone_G.csv: HEK293T_Ace2_clone_G
+   data/RBD_depletion_neuts/depletion_neuts_consensus_kozak.csv: HEK293T_Ace2_consensus_Kozak
 
 virus_titers: data/virus_titer_RLU/ACE2clones_Wu_1_RLU.csv
 
