@@ -1,3 +1,7 @@
 day,age,vaccine,subject_name,serum,gender
-9,18-55y,Phizer,192C,192C-day-9,Female
-8,18-55y,Phizer,194C,194C-day-8,Male
+9,18-55y,Pfizer,192C,192C-day-9,Female
+8,18-55y,Pfizer,194C,194C-day-8,Male
+10,18-55y,Pfizer,63C,63C-day-10,Female
+15,>55,Pfizer,64C,64C-day-15,Female
+27,18-55y,Pfizer,99C,99C-day-27,Male
+18,>55,Pfizer,108C,108C-day-18,Female
