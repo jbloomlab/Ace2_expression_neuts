@@ -33,6 +33,7 @@ rule all:
         'results/summary/virus_titers.md',
         'results/summary/rbd_depletions.md',
         'results/summary/virus_neutralization.md',
+        'results/summary/virus_neutralization_mAbs.md'
         
 
 
