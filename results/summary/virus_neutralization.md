@@ -78,6 +78,101 @@ for df in frac_infect:
     df['serum'] = df['serum'] + '__' + df['cells']
 ```
 
+
+```python
+sample_information
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>day</th>
+      <th>age</th>
+      <th>vaccine</th>
+      <th>subject_name</th>
+      <th>serum</th>
+      <th>gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>9</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>192C</td>
+      <td>192C-day-9</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>194C</td>
+      <td>194C-day-8</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>63C</td>
+      <td>63C-day-10</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>15</td>
+      <td>&gt;55</td>
+      <td>Pfizer</td>
+      <td>64C</td>
+      <td>64C-day-15</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>27</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>99C</td>
+      <td>99C-day-27</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>18</td>
+      <td>&gt;55</td>
+      <td>Pfizer</td>
+      <td>108C</td>
+      <td>108C-day-18</td>
+      <td>Female</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 ## Fit Hill curve to data using [`neutcurve`](https://jbloomlab.github.io/neutcurve/)
 
 
@@ -601,7 +696,7 @@ _ = p.draw()
 
 
     
-![png](virus_neutralization_files/virus_neutralization_20_0.png)
+![png](virus_neutralization_files/virus_neutralization_21_0.png)
     
 
 
@@ -650,7 +745,7 @@ _ = p.draw()
 
 
     
-![png](virus_neutralization_files/virus_neutralization_21_0.png)
+![png](virus_neutralization_files/virus_neutralization_22_0.png)
     
 
 
@@ -676,7 +771,7 @@ NT50_lines.save(f'./{resultsdir}/NT50_lines.pdf')
 
 
     
-![png](virus_neutralization_files/virus_neutralization_22_0.png)
+![png](virus_neutralization_files/virus_neutralization_23_0.png)
     
 
 
@@ -704,7 +799,7 @@ NT50_lines.save(f'./{resultsdir}/NT50_lines.pdf')
 
 
     
-![png](virus_neutralization_files/virus_neutralization_23_0.png)
+![png](virus_neutralization_files/virus_neutralization_24_0.png)
     
 
 
@@ -725,25 +820,25 @@ for fits in frac_infect_combined:
 
 
     
-![png](virus_neutralization_files/virus_neutralization_25_0.png)
+![png](virus_neutralization_files/virus_neutralization_26_0.png)
     
 
 
 
     
-![png](virus_neutralization_files/virus_neutralization_25_1.png)
+![png](virus_neutralization_files/virus_neutralization_26_1.png)
     
 
 
 
     
-![png](virus_neutralization_files/virus_neutralization_25_2.png)
+![png](virus_neutralization_files/virus_neutralization_26_2.png)
     
 
 
 
     
-![png](virus_neutralization_files/virus_neutralization_25_3.png)
+![png](virus_neutralization_files/virus_neutralization_26_3.png)
     
 
 
