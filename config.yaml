@@ -9,6 +9,11 @@ depletion_neuts:
    data/RBD_depletion_neuts/depletion_neuts_clone_G.csv: HEK293T_Ace2_clone_G
    data/RBD_depletion_neuts/depletion_neuts_consensus_kozak.csv: HEK293T_Ace2_consensus_Kozak
 
+mAb_neuts:
+   data/mAb_neuts/mAB_neut_91221_cloneA_fractinfect.csv: HEK293T_Ace2_clone_A
+   data/mAb_neuts/mAB_neut_91221_cloneC_fractinfect.csv: HEK293T_Ace2_clone_C
+   data/mAb_neuts/mAB_neut_91221_consensuskozak_fractinfect.csv: HEK293T_Ace2_consensus_Kozak
+
 virus_titers: data/virus_titer_RLU/ACE2clones_Wu_1_RLU.csv
 
 sample_information: data/serum_sample_info/sample_information.csv
