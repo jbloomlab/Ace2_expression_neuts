@@ -127,7 +127,7 @@ display(titration_df.head())  # display first few lines
   </thead>
   <tbody>
     <tr>
-      <th>10</th>
+      <th>20</th>
       <td>63C</td>
       <td>10</td>
       <td>63C-day-10</td>
@@ -140,7 +140,7 @@ display(titration_df.head())  # display first few lines
       <td>0.01</td>
     </tr>
     <tr>
-      <th>11</th>
+      <th>21</th>
       <td>63C</td>
       <td>10</td>
       <td>63C-day-10</td>
@@ -153,7 +153,7 @@ display(titration_df.head())  # display first few lines
       <td>0.01</td>
     </tr>
     <tr>
-      <th>12</th>
+      <th>22</th>
       <td>63C</td>
       <td>10</td>
       <td>63C-day-10</td>
@@ -166,7 +166,7 @@ display(titration_df.head())  # display first few lines
       <td>0.01</td>
     </tr>
     <tr>
-      <th>13</th>
+      <th>23</th>
       <td>63C</td>
       <td>10</td>
       <td>63C-day-10</td>
@@ -179,7 +179,7 @@ display(titration_df.head())  # display first few lines
       <td>0.01</td>
     </tr>
     <tr>
-      <th>14</th>
+      <th>24</th>
       <td>63C</td>
       <td>10</td>
       <td>63C-day-10</td>
