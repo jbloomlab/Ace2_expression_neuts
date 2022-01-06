@@ -73,14 +73,14 @@ rule plot_neuts:
     shell:
         "python scripts/run_nb.py {params.nb} {output.nb_markdown}"
 
-rule plot_mAb_neuts:
-    """plot neut curves"""
-    input:
-        depletion_neuts=config['mAb_neuts']
-    output:
-        nb_markdown=nb_markdown('virus_neutralization_mAbs.ipynb')
-    params:
-        nb='virus_neutralization_mAbs.ipynb'
-    shell:
-        "python scripts/run_nb.py {params.nb} {output.nb_markdown}"
+# rule plot_mAb_neuts:
+#     """plot neut curves"""
+#     input:
+#         depletion_neuts=config['mAb_neuts']
+#     output:
+#         nb_markdown=nb_markdown('virus_neutralization_mAbs.ipynb')
+#     params:
+#         nb='virus_neutralization_mAbs.ipynb'
+#     shell:
+#         "python scripts/run_nb.py {params.nb} {output.nb_markdown}"
 
