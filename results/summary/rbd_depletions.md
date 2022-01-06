@@ -127,68 +127,68 @@ display(titration_df.head())  # display first few lines
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>192C</td>
-      <td>9</td>
-      <td>192C-day-9</td>
+      <th>10</th>
+      <td>63C</td>
+      <td>10</td>
+      <td>63C-day-10</td>
       <td>pre</td>
       <td>no_depletion</td>
       <td>RBD</td>
-      <td>91121</td>
+      <td>5122</td>
       <td>100</td>
-      <td>3.7513</td>
+      <td>3.8844</td>
       <td>0.01</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>192C</td>
-      <td>9</td>
-      <td>192C-day-9</td>
+      <th>11</th>
+      <td>63C</td>
+      <td>10</td>
+      <td>63C-day-10</td>
       <td>post</td>
       <td>round_1</td>
       <td>RBD</td>
-      <td>91121</td>
+      <td>5122</td>
       <td>100</td>
-      <td>3.9545</td>
+      <td>3.5529</td>
       <td>0.01</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>192C</td>
-      <td>9</td>
-      <td>192C-day-9</td>
+      <th>12</th>
+      <td>63C</td>
+      <td>10</td>
+      <td>63C-day-10</td>
       <td>post</td>
       <td>round_2</td>
       <td>RBD</td>
-      <td>91121</td>
+      <td>5122</td>
       <td>100</td>
-      <td>1.1357</td>
+      <td>0.5100</td>
       <td>0.01</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>192C</td>
-      <td>9</td>
-      <td>192C-day-9</td>
+      <th>13</th>
+      <td>63C</td>
+      <td>10</td>
+      <td>63C-day-10</td>
       <td>post</td>
       <td>round_3</td>
       <td>RBD</td>
-      <td>91121</td>
+      <td>5122</td>
       <td>100</td>
-      <td>0.5324</td>
+      <td>0.3863</td>
       <td>0.01</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>192C</td>
-      <td>9</td>
-      <td>192C-day-9</td>
+      <th>14</th>
+      <td>63C</td>
+      <td>10</td>
+      <td>63C-day-10</td>
       <td>post</td>
       <td>round_4</td>
       <td>RBD</td>
-      <td>91121</td>
+      <td>5122</td>
       <td>100</td>
-      <td>0.5513</td>
+      <td>0.3559</td>
       <td>0.01</td>
     </tr>
   </tbody>

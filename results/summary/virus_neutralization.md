@@ -180,56 +180,56 @@ fitparams_combined.head(10)
     </tr>
     <tr>
       <th>4</th>
-      <td>192C-day-9__HEK293T_Ace2_clone_C</td>
+      <td>63C-day-10__HEK293T_Ace2_consensus_Kozak</td>
       <td>pre-depletion</td>
-      <td>0.000112</td>
+      <td>0.000050</td>
       <td>interpolated</td>
-      <td>8966.286438</td>
+      <td>20116.212471</td>
       <td>False</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>192C-day-9__HEK293T_Ace2_clone_C</td>
+      <td>63C-day-10__HEK293T_Ace2_consensus_Kozak</td>
       <td>post-depletion</td>
-      <td>0.006997</td>
+      <td>0.003415</td>
       <td>interpolated</td>
-      <td>142.919038</td>
+      <td>292.791612</td>
       <td>False</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>194C-day-8__HEK293T_Ace2_clone_C</td>
+      <td>64C-day-15__HEK293T_Ace2_consensus_Kozak</td>
       <td>pre-depletion</td>
-      <td>0.000088</td>
+      <td>0.000063</td>
       <td>interpolated</td>
-      <td>11393.328246</td>
+      <td>15933.479636</td>
       <td>False</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>194C-day-8__HEK293T_Ace2_clone_C</td>
+      <td>64C-day-15__HEK293T_Ace2_consensus_Kozak</td>
       <td>post-depletion</td>
-      <td>0.003657</td>
+      <td>0.003203</td>
       <td>interpolated</td>
-      <td>273.483223</td>
+      <td>312.228522</td>
       <td>False</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>192C-day-9__HEK293T_Ace2_clone_A</td>
+      <td>108C-day-18__HEK293T_Ace2_consensus_Kozak</td>
       <td>pre-depletion</td>
-      <td>0.000106</td>
+      <td>0.000042</td>
       <td>interpolated</td>
-      <td>9469.561397</td>
+      <td>23581.048970</td>
       <td>False</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>192C-day-9__HEK293T_Ace2_clone_A</td>
+      <td>108C-day-18__HEK293T_Ace2_consensus_Kozak</td>
       <td>post-depletion</td>
-      <td>0.001138</td>
+      <td>0.000714</td>
       <td>interpolated</td>
-      <td>878.878272</td>
+      <td>1399.923027</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -307,37 +307,37 @@ foldchange.head(2)
   <tbody>
     <tr>
       <th>0</th>
-      <td>192C-day-9__HEK293T_Ace2_clone_A</td>
-      <td>0.001138</td>
-      <td>0.000106</td>
-      <td>10.7746</td>
-      <td>90</td>
-      <td>9469.561397</td>
-      <td>878.878272</td>
-      <td>False</td>
-      <td>90%</td>
+      <td>108C-day-18__HEK293T_Ace2_clone_A</td>
+      <td>0.000002</td>
+      <td>0.000002</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>409836.065574</td>
+      <td>409836.065574</td>
+      <td>True</td>
+      <td>&gt;0%</td>
       <td>pre-depletion</td>
-      <td>0.000106</td>
-      <td>interpolated</td>
-      <td>9469.561397</td>
-      <td>False</td>
+      <td>0.000002</td>
+      <td>upper</td>
+      <td>409836.065574</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>192C-day-9__HEK293T_Ace2_clone_A</td>
-      <td>0.001138</td>
-      <td>0.000106</td>
-      <td>10.7746</td>
-      <td>90</td>
-      <td>9469.561397</td>
-      <td>878.878272</td>
-      <td>False</td>
-      <td>90%</td>
+      <td>108C-day-18__HEK293T_Ace2_clone_A</td>
+      <td>0.000002</td>
+      <td>0.000002</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>409836.065574</td>
+      <td>409836.065574</td>
+      <td>True</td>
+      <td>&gt;0%</td>
       <td>post-depletion</td>
-      <td>0.001138</td>
-      <td>interpolated</td>
-      <td>878.878272</td>
-      <td>False</td>
+      <td>0.000002</td>
+      <td>upper</td>
+      <td>409836.065574</td>
+      <td>True</td>
     </tr>
   </tbody>
 </table>
