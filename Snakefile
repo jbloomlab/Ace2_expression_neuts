@@ -33,7 +33,7 @@ rule all:
         'results/summary/virus_titers.md',
         'results/summary/rbd_depletions.md',
         'results/summary/virus_neutralization.md',
-        # 'results/summary/virus_neutralization_mAbs.md'
+        'results/summary/virus_neutralization_mAbs.md'
         
 
 
@@ -73,14 +73,14 @@ rule plot_neuts:
     shell:
         "python scripts/run_nb.py {params.nb} {output.nb_markdown}"
 
-# rule plot_mAb_neuts:
-#     """plot neut curves"""
-#     input:
-#         depletion_neuts=config['mAb_neuts']
-#     output:
-#         nb_markdown=nb_markdown('virus_neutralization_mAbs.ipynb')
-#     params:
-#         nb='virus_neutralization_mAbs.ipynb'
-#     shell:
-#         "python scripts/run_nb.py {params.nb} {output.nb_markdown}"
+rule plot_mAb_neuts:
+    """plot neut curves"""
+    input:
+        depletion_neuts=config['mAb_neuts']
+    output:
+        nb_markdown=nb_markdown('virus_neutralization_mAbs.ipynb')
+    params:
+        nb='virus_neutralization_mAbs.ipynb'
+    shell:
+        "python scripts/run_nb.py {params.nb} {output.nb_markdown}"
 
