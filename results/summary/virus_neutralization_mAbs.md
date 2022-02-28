@@ -195,7 +195,7 @@ frac_infect
 
 
 ```python
-fits = neutcurve.CurveFits(frac_infect)
+fits = neutcurve.CurveFits(frac_infect, fixbottom= False,fixtop = False)
 ```
 
 
@@ -223,7 +223,7 @@ fig, axes = fits.plotSera(
                           ncol=6,
                           widthscale=2,
                           heightscale=2,
-                          titlesize=12, labelsize=24, ticksize=15, legendfontsize=24, yticklocs=[0,0.5,1],
+                          titlesize=20, labelsize=24, ticksize=15, legendfontsize=24, yticklocs=[0,0.5,1],
                           markersize=8, linewidth=2,
                          )
 ```
@@ -233,3 +233,8 @@ fig, axes = fits.plotSera(
 ![png](virus_neutralization_mAbs_files/virus_neutralization_mAbs_17_0.png)
     
 
+
+
+```python
+
+```
