@@ -6,7 +6,7 @@ elisa_input_files:
 depletion_neuts:
    data/RBD_depletion_neuts/depletion_neuts_clone_A.csv: HEK293T_Ace2_clone_A
    data/RBD_depletion_neuts/depletion_neuts_clone_C.csv: HEK293T_Ace2_clone_C
-   data/RBD_depletion_neuts/depletion_neuts_clone_G.csv: HEK293T_Ace2_clone_G
+   # data/RBD_depletion_neuts/depletion_neuts_clone_G.csv: HEK293T_Ace2_clone_G
    data/RBD_depletion_neuts/depletion_neuts_consensus_kozak.csv: HEK293T_Ace2_consensus_Kozak
 
 mAb_neuts: data/mAb_neuts/mAB_neuts_frac_infectivity.csv
@@ -19,6 +19,7 @@ resultsdir: results/
 
 summary_dir: results/summary
 
+neuts: results/neuts.csv
 
 # the neutralization limit of detection is equal to the starting dilution
 NT50_LOD: 25
