@@ -342,10 +342,10 @@ NT50_lines = (ggplot(df, aes(x='depletion', y='NT50', group='serum')) +
               geom_point(size=2.5, alpha=0.25) +
               geom_line(alpha=0.25) +
               facet_grid('~cells', ) +
-             theme(figure_size=(15,2*df['serum'].nunique()),
+             theme(figure_size=(12,2*df['serum'].nunique()),
                    axis_text=element_text(size=12),
-                   legend_text=element_text(size=12),
-                   legend_title=element_text(size=12),
+                   legend_text=element_text(size=16),
+                   legend_title=element_text(size=16),
                    strip_text = element_text(size=12)
                   ) +
               scale_y_log10(name='neutralization titer (NT50)') +
@@ -367,11 +367,11 @@ NT50_lines.save(f'./{resultsdir}/NT50_lines.pdf')
 NT50_lines = (ggplot(df, aes(x='cells', y='NT50', colour='serum')) +
               geom_point(size=3) +
               facet_grid('~depletion', ) +
-             theme(figure_size=(15,1.5*df['serum'].nunique()),
+             theme(figure_size=(10,1.5*df['serum'].nunique()),
                    axis_text=element_text(size=12),
                    axis_text_x=element_text(size=12, angle= 45),
                    legend_text=element_text(size=12),
-                   legend_title=element_text(size=12),
+                   legend_title=element_text(size=16),
                    axis_title_x=element_text(size=12),
                    strip_text = element_text(size=12)
                   ) +
@@ -422,6 +422,11 @@ for fits in frac_infect_combined:
 ![png](virus_neutralization_files/virus_neutralization_26_2.png)
     
 
+
+
+```python
+
+```
 
 
 ```python
