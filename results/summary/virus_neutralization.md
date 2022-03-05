@@ -190,6 +190,416 @@ fitparams_combined.to_csv(config['neuts'], index=False)
 
 ```
 
+
+```python
+fitparams_combined
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>serum</th>
+      <th>depletion</th>
+      <th>ic50</th>
+      <th>ic50_bound</th>
+      <th>NT50</th>
+      <th>ic50_is_bound</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>63C-day-10__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000032</td>
+      <td>interpolated</td>
+      <td>30780.804278</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>63C-day-10__very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000454</td>
+      <td>interpolated</td>
+      <td>2200.668387</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>64C-day-15__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000057</td>
+      <td>interpolated</td>
+      <td>17456.245958</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>64C-day-15__very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000193</td>
+      <td>interpolated</td>
+      <td>5169.599503</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>63C-day-10__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000041</td>
+      <td>interpolated</td>
+      <td>24097.903532</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>63C-day-10__low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000707</td>
+      <td>interpolated</td>
+      <td>1413.935250</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>64C-day-15__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000079</td>
+      <td>interpolated</td>
+      <td>12708.732700</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>64C-day-15__low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000265</td>
+      <td>interpolated</td>
+      <td>3772.434003</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>63C-day-10__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000148</td>
+      <td>interpolated</td>
+      <td>6759.613871</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>63C-day-10__high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.012612</td>
+      <td>interpolated</td>
+      <td>79.289795</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>64C-day-15__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000384</td>
+      <td>interpolated</td>
+      <td>2602.096264</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>64C-day-15__high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.040000</td>
+      <td>lower</td>
+      <td>25.000000</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+fitparams_combined[['sample', 'cells']] = fitparams_combined['serum'].str.split('__', 1, expand=True)
+
+```
+
+## Plot IC50 values
+
+
+```python
+IC50 = (ggplot(fitparams_combined, aes(x='cells', y='ic50', colour='depletion')) +
+              geom_point(size=3) +
+             theme(figure_size=(4,1.5*df['serum'].nunique()),
+                   axis_text=element_text(size=12),
+                   axis_text_x=element_text(size=12, angle= 45),
+                   legend_text=element_text(size=12),
+                   legend_title=element_text(size=12),
+                   axis_title_x=element_text(size=12),
+                   strip_text = element_text(size=12)
+                  ) +
+              scale_y_log10(name='IC50') +
+              xlab('cell clone') +
+             scale_color_manual(values=CBPALETTE[1:])
+                 )
+
+_ = IC50.draw()
+# IC50.save(f'./{resultsdir}/IC50.pdf')
+```
+
+
+    
+![png](virus_neutralization_files/virus_neutralization_19_0.png)
+    
+
+
+
+```python
+IC50 = (ggplot(fitparams_combined, aes(x='cells', y='NT50', colour='sample')) +
+              geom_point(size=3) +
+             theme(figure_size=(4,1.5*df['serum'].nunique()),
+                   axis_text=element_text(size=12),
+                   axis_text_x=element_text(size=12, angle= 45),
+                   legend_text=element_text(size=12),
+                   legend_title=element_text(size=12),
+                   axis_title_x=element_text(size=12),
+                   strip_text = element_text(size=12)
+                  ) +
+              scale_y_log10(name='IC50') +
+              xlab('cell clone') +
+             scale_color_manual(values=CBPALETTE[1:])
+                 )
+
+_ = IC50.draw()
+# IC50.save(f'./{resultsdir}/IC50.pdf')
+```
+
+
+    
+![png](virus_neutralization_files/virus_neutralization_20_0.png)
+    
+
+
+## IC50 fold change
+
+
+```python
+df_pre = fitparams_combined.loc[fitparams_combined['depletion'] == 'pre-depletion']
+df_post = fitparams_combined.loc[fitparams_combined['depletion'] == 'post-depletion']
+df_mege = pd.merge(df_pre, df_post, on="serum")
+df_mege['IC50_fold_change'] = df_mege['ic50_x']/df_mege['ic50_y']
+df_mege
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>serum</th>
+      <th>depletion_x</th>
+      <th>ic50_x</th>
+      <th>ic50_bound_x</th>
+      <th>NT50_x</th>
+      <th>ic50_is_bound_x</th>
+      <th>sample_x</th>
+      <th>cells_x</th>
+      <th>depletion_y</th>
+      <th>ic50_y</th>
+      <th>ic50_bound_y</th>
+      <th>NT50_y</th>
+      <th>ic50_is_bound_y</th>
+      <th>sample_y</th>
+      <th>cells_y</th>
+      <th>IC50_fold_change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>63C-day-10__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000032</td>
+      <td>interpolated</td>
+      <td>30780.804278</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000454</td>
+      <td>interpolated</td>
+      <td>2200.668387</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>very_low_ACE2</td>
+      <td>0.071495</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>64C-day-15__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000057</td>
+      <td>interpolated</td>
+      <td>17456.245958</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000193</td>
+      <td>interpolated</td>
+      <td>5169.599503</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>very_low_ACE2</td>
+      <td>0.296146</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>63C-day-10__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000041</td>
+      <td>interpolated</td>
+      <td>24097.903532</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000707</td>
+      <td>interpolated</td>
+      <td>1413.935250</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>low_ACE2</td>
+      <td>0.058675</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>64C-day-15__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000079</td>
+      <td>interpolated</td>
+      <td>12708.732700</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000265</td>
+      <td>interpolated</td>
+      <td>3772.434003</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>low_ACE2</td>
+      <td>0.296838</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>63C-day-10__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000148</td>
+      <td>interpolated</td>
+      <td>6759.613871</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.012612</td>
+      <td>interpolated</td>
+      <td>79.289795</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>high_ACE2</td>
+      <td>0.011730</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>64C-day-15__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000384</td>
+      <td>interpolated</td>
+      <td>2602.096264</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.040000</td>
+      <td>lower</td>
+      <td>25.000000</td>
+      <td>True</td>
+      <td>64C-day-15</td>
+      <td>high_ACE2</td>
+      <td>0.009608</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+IC50_fc = (ggplot(df_mege, aes(x='cells_y', y='IC50_fold_change', colour = 'sample_y')) +
+              geom_point(size=3) +
+             theme(figure_size=(4,1.5*df['serum'].nunique()),
+                   axis_text=element_text(size=10),
+                   axis_text_x=element_text(size=10),
+                   legend_text=element_text(size=10),
+                   legend_title=element_text(size=10),
+                   axis_title_x=element_text(size=10),
+                   axis_title_y=element_text(size=10),
+                   strip_text = element_text(size=10)
+                  ) +
+              scale_y_log10(name='IC50 fold change (pre-depletion/post-depletion)') +
+              xlab('cell clone') +
+             scale_color_manual(values=CBPALETTE[1:])
+                 )
+
+_ = IC50_fc.draw()
+# IC50.save(f'./{resultsdir}/IC50.pdf')
+```
+
+
+    
+![png](virus_neutralization_files/virus_neutralization_23_0.png)
+    
+
+
 ## Make horizontal line plot connecting pre- and post-IC50
 * Order with greatest fold-change at the top
 * Put labels on far right with the % of neutralizing activity targeting the RBD (percent_RBD = 1-(1/foldchange))
@@ -247,7 +657,6 @@ p = (ggplot(df
                 y='serum',
                 fill='depletion',
                 group='serum',
-                shape='cells',
                 label='perc_RBD_str'
                )) +
      scale_x_log10(name='neutralization titer 50% (NT50)', 
@@ -283,7 +692,7 @@ _ = p.draw()
 
 
     
-![png](virus_neutralization_files/virus_neutralization_21_0.png)
+![png](virus_neutralization_files/virus_neutralization_29_0.png)
     
 
 
@@ -297,7 +706,7 @@ p = (ggplot(df
             aes(x='NT50',
                 y='cells',
                 fill='depletion',
-                group='cells'
+                group='cells',
                )) +
      scale_x_log10(name='neutralization titer 50% (NT50)', 
                    limits=[config['NT50_LOD'],df['NT50'].max()*3]) +
@@ -332,7 +741,7 @@ _ = p.draw()
 
 
     
-![png](virus_neutralization_files/virus_neutralization_22_0.png)
+![png](virus_neutralization_files/virus_neutralization_30_0.png)
     
 
 
@@ -358,7 +767,7 @@ NT50_lines.save(f'./{resultsdir}/NT50_lines.pdf')
 
 
     
-![png](virus_neutralization_files/virus_neutralization_23_0.png)
+![png](virus_neutralization_files/virus_neutralization_31_0.png)
     
 
 
@@ -386,7 +795,7 @@ NT50_lines.save(f'./{resultsdir}/NT50_lines.pdf')
 
 
     
-![png](virus_neutralization_files/virus_neutralization_24_0.png)
+![png](virus_neutralization_files/virus_neutralization_32_0.png)
     
 
 
@@ -407,23 +816,18 @@ for fits in frac_infect_combined:
 
 
     
-![png](virus_neutralization_files/virus_neutralization_26_0.png)
+![png](virus_neutralization_files/virus_neutralization_34_0.png)
     
 
 
 
     
-![png](virus_neutralization_files/virus_neutralization_26_1.png)
+![png](virus_neutralization_files/virus_neutralization_34_1.png)
     
 
 
 
     
-![png](virus_neutralization_files/virus_neutralization_26_2.png)
+![png](virus_neutralization_files/virus_neutralization_34_2.png)
     
 
-
-
-```python
-
-```
