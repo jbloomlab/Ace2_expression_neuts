@@ -1,65 +1,65 @@
 ,serum,virus,replicate,concentration,fraction infectivity,cells
-0,63C-day-10,pre-depletion,1,0.04,5.94E-06,HEK293T_Ace2_clone_A
-1,63C-day-10,pre-depletion,1,0.01,3.62E-06,HEK293T_Ace2_clone_A
-2,63C-day-10,pre-depletion,1,0.0025,5.86E-06,HEK293T_Ace2_clone_A
-3,63C-day-10,pre-depletion,1,0.000625,9.30E-06,HEK293T_Ace2_clone_A
-4,63C-day-10,pre-depletion,1,0.0001563,0.044448692,HEK293T_Ace2_clone_A
-5,63C-day-10,pre-depletion,1,3.91E-05,0.477437875,HEK293T_Ace2_clone_A
-6,63C-day-10,pre-depletion,1,9.77E-06,0.859171705,HEK293T_Ace2_clone_A
-7,63C-day-10,pre-depletion,1,2.44E-06,0.986526888,HEK293T_Ace2_clone_A
-8,63C-day-10,pre-depletion,2,0.04,7.52E-06,HEK293T_Ace2_clone_A
-9,63C-day-10,pre-depletion,2,0.01,2.81E-06,HEK293T_Ace2_clone_A
-10,63C-day-10,pre-depletion,2,0.0025,6.64E-06,HEK293T_Ace2_clone_A
-11,63C-day-10,pre-depletion,2,0.000625,4.45E-06,HEK293T_Ace2_clone_A
-12,63C-day-10,pre-depletion,2,0.0001563,0.062167249,HEK293T_Ace2_clone_A
-13,63C-day-10,pre-depletion,2,3.91E-05,0.434593669,HEK293T_Ace2_clone_A
-14,63C-day-10,pre-depletion,2,9.77E-06,0.74840695,HEK293T_Ace2_clone_A
-15,63C-day-10,pre-depletion,2,2.44E-06,0.934340003,HEK293T_Ace2_clone_A
-16,63C-day-10,post-depletion,1,0.04,0.036954898,HEK293T_Ace2_clone_A
-17,63C-day-10,post-depletion,1,0.01,0.107311982,HEK293T_Ace2_clone_A
-18,63C-day-10,post-depletion,1,0.0025,0.210319988,HEK293T_Ace2_clone_A
-19,63C-day-10,post-depletion,1,0.000625,0.415434523,HEK293T_Ace2_clone_A
-20,63C-day-10,post-depletion,1,0.0001563,0.763800179,HEK293T_Ace2_clone_A
-21,63C-day-10,post-depletion,1,3.91E-05,0.858317915,HEK293T_Ace2_clone_A
-22,63C-day-10,post-depletion,1,9.77E-06,0.912936581,HEK293T_Ace2_clone_A
-23,63C-day-10,post-depletion,1,2.44E-06,1.025348023,HEK293T_Ace2_clone_A
-24,63C-day-10,post-depletion,2,0.04,0.045993006,HEK293T_Ace2_clone_A
-25,63C-day-10,post-depletion,2,0.01,0.096042128,HEK293T_Ace2_clone_A
-26,63C-day-10,post-depletion,2,0.0025,0.213297163,HEK293T_Ace2_clone_A
-27,63C-day-10,post-depletion,2,0.000625,0.402363823,HEK293T_Ace2_clone_A
-28,63C-day-10,post-depletion,2,0.0001563,0.743824306,HEK293T_Ace2_clone_A
-29,63C-day-10,post-depletion,2,3.91E-05,0.820694153,HEK293T_Ace2_clone_A
-30,63C-day-10,post-depletion,2,9.77E-06,0.932942136,HEK293T_Ace2_clone_A
-31,63C-day-10,post-depletion,2,2.44E-06,1.024499479,HEK293T_Ace2_clone_A
-32,64C-day-15,pre-depletion,1,0.04,6.73E-06,HEK293T_Ace2_clone_A
-33,64C-day-15,pre-depletion,1,0.01,3.62E-06,HEK293T_Ace2_clone_A
-34,64C-day-15,pre-depletion,1,0.0025,3.51E-06,HEK293T_Ace2_clone_A
-35,64C-day-15,pre-depletion,1,0.000625,0.017613216,HEK293T_Ace2_clone_A
-36,64C-day-15,pre-depletion,1,0.0001563,0.343106555,HEK293T_Ace2_clone_A
-37,64C-day-15,pre-depletion,1,3.91E-05,0.608910891,HEK293T_Ace2_clone_A
-38,64C-day-15,pre-depletion,1,9.77E-06,0.850144819,HEK293T_Ace2_clone_A
-39,64C-day-15,pre-depletion,1,2.44E-06,1.117106643,HEK293T_Ace2_clone_A
-40,64C-day-15,pre-depletion,2,0.04,8.31E-06,HEK293T_Ace2_clone_A
-41,64C-day-15,pre-depletion,2,0.01,3.62E-06,HEK293T_Ace2_clone_A
-42,64C-day-15,pre-depletion,2,0.0025,3.91E-07,HEK293T_Ace2_clone_A
-43,64C-day-15,pre-depletion,2,0.000625,0.014260012,HEK293T_Ace2_clone_A
-44,64C-day-15,pre-depletion,2,0.0001563,0.299571231,HEK293T_Ace2_clone_A
-45,64C-day-15,pre-depletion,2,3.91E-05,0.591031913,HEK293T_Ace2_clone_A
-46,64C-day-15,pre-depletion,2,9.77E-06,0.886493185,HEK293T_Ace2_clone_A
-47,64C-day-15,pre-depletion,2,2.44E-06,1.046592709,HEK293T_Ace2_clone_A
-48,64C-day-15,post-depletion,1,0.04,0.063087423,HEK293T_Ace2_clone_A
-49,64C-day-15,post-depletion,1,0.01,0.152547332,HEK293T_Ace2_clone_A
-50,64C-day-15,post-depletion,1,0.0025,0.223147144,HEK293T_Ace2_clone_A
-51,64C-day-15,post-depletion,1,0.000625,0.289527628,HEK293T_Ace2_clone_A
-52,64C-day-15,post-depletion,1,0.0001563,0.583478874,HEK293T_Ace2_clone_A
-53,64C-day-15,post-depletion,1,3.91E-05,0.809772299,HEK293T_Ace2_clone_A
-54,64C-day-15,post-depletion,1,9.77E-06,0.965688616,HEK293T_Ace2_clone_A
-55,64C-day-15,post-depletion,1,2.44E-06,1.1310158,HEK293T_Ace2_clone_A
-56,64C-day-15,post-depletion,2,0.04,0.051925774,HEK293T_Ace2_clone_A
-57,64C-day-15,post-depletion,2,0.01,0.144405001,HEK293T_Ace2_clone_A
-58,64C-day-15,post-depletion,2,0.0025,0.204692877,HEK293T_Ace2_clone_A
-59,64C-day-15,post-depletion,2,0.000625,0.257669766,HEK293T_Ace2_clone_A
-60,64C-day-15,post-depletion,2,0.0001563,0.521866894,HEK293T_Ace2_clone_A
-61,64C-day-15,post-depletion,2,3.91E-05,0.796059969,HEK293T_Ace2_clone_A
-62,64C-day-15,post-depletion,2,9.77E-06,0.925011552,HEK293T_Ace2_clone_A
-63,64C-day-15,post-depletion,2,2.44E-06,1.067690476,HEK293T_Ace2_clone_A
+0,63C-day-10,pre-depletion,1,0.04,5.94E-06,very low ACE2
+1,63C-day-10,pre-depletion,1,0.01,3.62E-06,very low ACE2
+2,63C-day-10,pre-depletion,1,0.0025,5.86E-06,very low ACE2
+3,63C-day-10,pre-depletion,1,0.000625,9.30E-06,very low ACE2
+4,63C-day-10,pre-depletion,1,0.0001563,0.044448692,very low ACE2
+5,63C-day-10,pre-depletion,1,3.91E-05,0.477437875,very low ACE2
+6,63C-day-10,pre-depletion,1,9.77E-06,0.859171705,very low ACE2
+7,63C-day-10,pre-depletion,1,2.44E-06,0.986526888,very low ACE2
+8,63C-day-10,pre-depletion,2,0.04,7.52E-06,very low ACE2
+9,63C-day-10,pre-depletion,2,0.01,2.81E-06,very low ACE2
+10,63C-day-10,pre-depletion,2,0.0025,6.64E-06,very low ACE2
+11,63C-day-10,pre-depletion,2,0.000625,4.45E-06,very low ACE2
+12,63C-day-10,pre-depletion,2,0.0001563,0.062167249,very low ACE2
+13,63C-day-10,pre-depletion,2,3.91E-05,0.434593669,very low ACE2
+14,63C-day-10,pre-depletion,2,9.77E-06,0.74840695,very low ACE2
+15,63C-day-10,pre-depletion,2,2.44E-06,0.934340003,very low ACE2
+16,63C-day-10,post-depletion,1,0.04,0.036954898,very low ACE2
+17,63C-day-10,post-depletion,1,0.01,0.107311982,very low ACE2
+18,63C-day-10,post-depletion,1,0.0025,0.210319988,very low ACE2
+19,63C-day-10,post-depletion,1,0.000625,0.415434523,very low ACE2
+20,63C-day-10,post-depletion,1,0.0001563,0.763800179,very low ACE2
+21,63C-day-10,post-depletion,1,3.91E-05,0.858317915,very low ACE2
+22,63C-day-10,post-depletion,1,9.77E-06,0.912936581,very low ACE2
+23,63C-day-10,post-depletion,1,2.44E-06,1.025348023,very low ACE2
+24,63C-day-10,post-depletion,2,0.04,0.045993006,very low ACE2
+25,63C-day-10,post-depletion,2,0.01,0.096042128,very low ACE2
+26,63C-day-10,post-depletion,2,0.0025,0.213297163,very low ACE2
+27,63C-day-10,post-depletion,2,0.000625,0.402363823,very low ACE2
+28,63C-day-10,post-depletion,2,0.0001563,0.743824306,very low ACE2
+29,63C-day-10,post-depletion,2,3.91E-05,0.820694153,very low ACE2
+30,63C-day-10,post-depletion,2,9.77E-06,0.932942136,very low ACE2
+31,63C-day-10,post-depletion,2,2.44E-06,1.024499479,very low ACE2
+32,64C-day-15,pre-depletion,1,0.04,6.73E-06,very low ACE2
+33,64C-day-15,pre-depletion,1,0.01,3.62E-06,very low ACE2
+34,64C-day-15,pre-depletion,1,0.0025,3.51E-06,very low ACE2
+35,64C-day-15,pre-depletion,1,0.000625,0.017613216,very low ACE2
+36,64C-day-15,pre-depletion,1,0.0001563,0.343106555,very low ACE2
+37,64C-day-15,pre-depletion,1,3.91E-05,0.608910891,very low ACE2
+38,64C-day-15,pre-depletion,1,9.77E-06,0.850144819,very low ACE2
+39,64C-day-15,pre-depletion,1,2.44E-06,1.117106643,very low ACE2
+40,64C-day-15,pre-depletion,2,0.04,8.31E-06,very low ACE2
+41,64C-day-15,pre-depletion,2,0.01,3.62E-06,very low ACE2
+42,64C-day-15,pre-depletion,2,0.0025,3.91E-07,very low ACE2
+43,64C-day-15,pre-depletion,2,0.000625,0.014260012,very low ACE2
+44,64C-day-15,pre-depletion,2,0.0001563,0.299571231,very low ACE2
+45,64C-day-15,pre-depletion,2,3.91E-05,0.591031913,very low ACE2
+46,64C-day-15,pre-depletion,2,9.77E-06,0.886493185,very low ACE2
+47,64C-day-15,pre-depletion,2,2.44E-06,1.046592709,very low ACE2
+48,64C-day-15,post-depletion,1,0.04,0.063087423,very low ACE2
+49,64C-day-15,post-depletion,1,0.01,0.152547332,very low ACE2
+50,64C-day-15,post-depletion,1,0.0025,0.223147144,very low ACE2
+51,64C-day-15,post-depletion,1,0.000625,0.289527628,very low ACE2
+52,64C-day-15,post-depletion,1,0.0001563,0.583478874,very low ACE2
+53,64C-day-15,post-depletion,1,3.91E-05,0.809772299,very low ACE2
+54,64C-day-15,post-depletion,1,9.77E-06,0.965688616,very low ACE2
+55,64C-day-15,post-depletion,1,2.44E-06,1.1310158,very low ACE2
+56,64C-day-15,post-depletion,2,0.04,0.051925774,very low ACE2
+57,64C-day-15,post-depletion,2,0.01,0.144405001,very low ACE2
+58,64C-day-15,post-depletion,2,0.0025,0.204692877,very low ACE2
+59,64C-day-15,post-depletion,2,0.000625,0.257669766,very low ACE2
+60,64C-day-15,post-depletion,2,0.0001563,0.521866894,very low ACE2
+61,64C-day-15,post-depletion,2,3.91E-05,0.796059969,very low ACE2
+62,64C-day-15,post-depletion,2,9.77E-06,0.925011552,very low ACE2
+63,64C-day-15,post-depletion,2,2.44E-06,1.067690476,very low ACE2
