@@ -6,7 +6,7 @@ elisa_input_files:
 depletion_neuts:
    data/RBD_depletion_neuts/depletion_neuts_clone_A.csv: very_low_ACE2
    data/RBD_depletion_neuts/depletion_neuts_clone_C.csv: low_ACE2
-   # data/RBD_depletion_neuts/depletion_neuts_clone_G.csv: medium_ACE2
+   data/RBD_depletion_neuts/depletion_neuts_clone_G.csv: medium_ACE2
    data/RBD_depletion_neuts/depletion_neuts_consensus_kozak.csv: high_ACE2
 
 mAb_neuts: data/mAb_neuts/mAB_neuts_frac_infectivity.csv
