@@ -69,7 +69,7 @@ for f in config['depletion_neuts'].keys():
     df = (pd.read_csv(f, index_col=0).assign(cells=config['depletion_neuts'][f]))
     df = df.merge(sample_information, on='serum')
     frac_infect.append(df)  
-    
+
 ```
 
 
@@ -210,263 +210,6 @@ fitparams_combined.to_csv(config['neuts'], index=False)
 
 
 ```python
-fitparams_combined
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>serum</th>
-      <th>depletion</th>
-      <th>ic50</th>
-      <th>ic50_bound</th>
-      <th>NT50</th>
-      <th>ic50_is_bound</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>63C-day-10__very_low_ACE2</td>
-      <td>pre-depletion</td>
-      <td>0.000031</td>
-      <td>interpolated</td>
-      <td>31968.943613</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>63C-day-10__very_low_ACE2</td>
-      <td>post-depletion</td>
-      <td>0.000454</td>
-      <td>interpolated</td>
-      <td>2200.799322</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>64C-day-15__very_low_ACE2</td>
-      <td>pre-depletion</td>
-      <td>0.000064</td>
-      <td>interpolated</td>
-      <td>15594.993852</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>64C-day-15__very_low_ACE2</td>
-      <td>post-depletion</td>
-      <td>0.000199</td>
-      <td>interpolated</td>
-      <td>5029.538042</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>99C-day-27__very_low_ACE2</td>
-      <td>pre-depletion</td>
-      <td>0.000096</td>
-      <td>interpolated</td>
-      <td>10374.149491</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>99C-day-27__very_low_ACE2</td>
-      <td>post-depletion</td>
-      <td>0.000435</td>
-      <td>interpolated</td>
-      <td>2296.488086</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>108C-day-18__very_low_ACE2</td>
-      <td>pre-depletion</td>
-      <td>0.000038</td>
-      <td>interpolated</td>
-      <td>26336.105034</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>108C-day-18__very_low_ACE2</td>
-      <td>post-depletion</td>
-      <td>0.000225</td>
-      <td>interpolated</td>
-      <td>4450.299723</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>63C-day-10__low_ACE2</td>
-      <td>pre-depletion</td>
-      <td>0.000040</td>
-      <td>interpolated</td>
-      <td>24852.475407</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>63C-day-10__low_ACE2</td>
-      <td>post-depletion</td>
-      <td>0.000704</td>
-      <td>interpolated</td>
-      <td>1420.647038</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>64C-day-15__low_ACE2</td>
-      <td>pre-depletion</td>
-      <td>0.000081</td>
-      <td>interpolated</td>
-      <td>12328.306795</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>64C-day-15__low_ACE2</td>
-      <td>post-depletion</td>
-      <td>0.000262</td>
-      <td>interpolated</td>
-      <td>3823.459538</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>99C-day-27__low_ACE2</td>
-      <td>pre-depletion</td>
-      <td>0.000110</td>
-      <td>interpolated</td>
-      <td>9071.489070</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>99C-day-27__low_ACE2</td>
-      <td>post-depletion</td>
-      <td>0.000418</td>
-      <td>interpolated</td>
-      <td>2392.117387</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>108C-day-18__low_ACE2</td>
-      <td>pre-depletion</td>
-      <td>0.000065</td>
-      <td>interpolated</td>
-      <td>15482.242047</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>108C-day-18__low_ACE2</td>
-      <td>post-depletion</td>
-      <td>0.000487</td>
-      <td>interpolated</td>
-      <td>2052.442693</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>63C-day-10__high_ACE2</td>
-      <td>pre-depletion</td>
-      <td>0.000102</td>
-      <td>interpolated</td>
-      <td>9830.591738</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>63C-day-10__high_ACE2</td>
-      <td>post-depletion</td>
-      <td>0.012598</td>
-      <td>interpolated</td>
-      <td>79.377273</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>64C-day-15__high_ACE2</td>
-      <td>pre-depletion</td>
-      <td>0.000377</td>
-      <td>interpolated</td>
-      <td>2656.009243</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>64C-day-15__high_ACE2</td>
-      <td>post-depletion</td>
-      <td>0.040000</td>
-      <td>lower</td>
-      <td>25.000000</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>99C-day-27__high_ACE2</td>
-      <td>pre-depletion</td>
-      <td>0.000377</td>
-      <td>interpolated</td>
-      <td>2655.584701</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>99C-day-27__high_ACE2</td>
-      <td>post-depletion</td>
-      <td>0.040000</td>
-      <td>lower</td>
-      <td>25.000000</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>108C-day-18__high_ACE2</td>
-      <td>pre-depletion</td>
-      <td>0.000208</td>
-      <td>interpolated</td>
-      <td>4814.580041</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>108C-day-18__high_ACE2</td>
-      <td>post-depletion</td>
-      <td>0.010558</td>
-      <td>interpolated</td>
-      <td>94.715361</td>
-      <td>False</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
 fitparams_combined[['sample', 'cells']] = fitparams_combined['serum'].str.split('__', 1, expand=True)
 
 ```
@@ -497,7 +240,7 @@ _ = IC50.draw()
 
 
     
-![png](virus_neutralization_files/virus_neutralization_19_0.png)
+![png](virus_neutralization_files/virus_neutralization_18_0.png)
     
 
 
@@ -528,7 +271,7 @@ _ = NT50.draw()
 
 
     
-![png](virus_neutralization_files/virus_neutralization_21_0.png)
+![png](virus_neutralization_files/virus_neutralization_20_0.png)
     
 
 
@@ -567,7 +310,7 @@ _ = IC50_fc.draw()
 
 
     
-![png](virus_neutralization_files/virus_neutralization_24_0.png)
+![png](virus_neutralization_files/virus_neutralization_23_0.png)
     
 
 
@@ -609,7 +352,7 @@ _ = p.draw()
 
 
     
-![png](virus_neutralization_files/virus_neutralization_26_0.png)
+![png](virus_neutralization_files/virus_neutralization_25_0.png)
     
 
 
@@ -617,35 +360,28 @@ _ = p.draw()
 
 
 ```python
-for fits in frac_infect_combined:
-    fig, axes = fits.plotSera(
-                              xlabel='serum dilution',
-                              ncol=4,
-                              widthscale=2,
-                              heightscale=2,
-                              titlesize=20, labelsize=24, ticksize=15, legendfontsize=24, yticklocs=[0,0.5,1],
-                              markersize=8, linewidth=2,
-                              virus_to_color_marker={
-                              'pre-depletion': ('#56B4E9', 'o'),
-                              'post-depletion': ('#E69F00', 'o')}
-                             )
+frac_infect_2 = pd.concat(frac_infect)
+fits = neutcurve.CurveFits(frac_infect_2, fixbottom= False)
+```
+
+
+```python
+fig, axes = fits.plotSera(
+                          xlabel='serum dilution',
+                          ncol=4,
+                          widthscale=2,
+                          heightscale=2,
+                          titlesize=25, labelsize=25, ticksize=15, legendfontsize=24, yticklocs=[0,0.5,1],
+                          markersize=8, linewidth=2,
+                          virus_to_color_marker={
+                          'pre-depletion': ('#56B4E9', 'o'),
+                          'post-depletion': ('#E69F00', 'o')}
+                         )
 ```
 
 
     
 ![png](virus_neutralization_files/virus_neutralization_28_0.png)
-    
-
-
-
-    
-![png](virus_neutralization_files/virus_neutralization_28_1.png)
-    
-
-
-
-    
-![png](virus_neutralization_files/virus_neutralization_28_2.png)
     
 
 
