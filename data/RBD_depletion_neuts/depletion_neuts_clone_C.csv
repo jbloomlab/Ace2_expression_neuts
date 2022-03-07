@@ -1,65 +1,129 @@
 ,serum,virus,replicate,concentration,fraction infectivity,cells
-0,63C-day-10,pre-depletion,1,0.04,4.43E-06,low ACE2
-1,63C-day-10,pre-depletion,1,0.01,4.37E-06,low ACE2
-2,63C-day-10,pre-depletion,1,0.0025,7.47E-06,low ACE2
-3,63C-day-10,pre-depletion,1,0.000625,0.001020572,low ACE2
-4,63C-day-10,pre-depletion,1,0.0001563,0.052399647,low ACE2
-5,63C-day-10,pre-depletion,1,3.91E-05,0.574097308,low ACE2
-6,63C-day-10,pre-depletion,1,9.77E-06,0.883035179,low ACE2
-7,63C-day-10,pre-depletion,1,2.44E-06,0.986986758,low ACE2
-8,63C-day-10,pre-depletion,2,0.04,6.97E-06,low ACE2
-9,63C-day-10,pre-depletion,2,0.01,1.25E-06,low ACE2
-10,63C-day-10,pre-depletion,2,0.0025,1.25E-06,low ACE2
-11,63C-day-10,pre-depletion,2,0.000625,0.000246037,low ACE2
-12,63C-day-10,pre-depletion,2,0.0001563,0.063719681,low ACE2
-13,63C-day-10,pre-depletion,2,3.91E-05,0.512871014,low ACE2
-14,63C-day-10,pre-depletion,2,9.77E-06,0.830823052,low ACE2
-15,63C-day-10,pre-depletion,2,2.44E-06,0.985165709,low ACE2
-16,63C-day-10,post-depletion,1,0.04,0.052900262,low ACE2
-17,63C-day-10,post-depletion,1,0.01,0.141929878,low ACE2
-18,63C-day-10,post-depletion,1,0.0025,0.269188856,low ACE2
-19,63C-day-10,post-depletion,1,0.000625,0.515620447,low ACE2
-20,63C-day-10,post-depletion,1,0.0001563,0.856287019,low ACE2
-21,63C-day-10,post-depletion,1,3.91E-05,0.864773945,low ACE2
-22,63C-day-10,post-depletion,1,9.77E-06,0.939739738,low ACE2
-23,63C-day-10,post-depletion,1,2.44E-06,0.988493082,low ACE2
-24,63C-day-10,post-depletion,2,0.04,0.043033551,low ACE2
-25,63C-day-10,post-depletion,2,0.01,0.139416242,low ACE2
-26,63C-day-10,post-depletion,2,0.0025,0.240478957,low ACE2
-27,63C-day-10,post-depletion,2,0.000625,0.482964683,low ACE2
-28,63C-day-10,post-depletion,2,0.0001563,0.832650904,low ACE2
-29,63C-day-10,post-depletion,2,3.91E-05,0.876267367,low ACE2
-30,63C-day-10,post-depletion,2,9.77E-06,0.97288961,low ACE2
-31,63C-day-10,post-depletion,2,2.44E-06,0.996159962,low ACE2
-32,64C-day-15,pre-depletion,1,0.04,2.53E-06,low ACE2
-33,64C-day-15,pre-depletion,1,0.01,1.87E-06,low ACE2
-34,64C-day-15,pre-depletion,1,0.0025,6.23E-06,low ACE2
-35,64C-day-15,pre-depletion,1,0.000625,0.025093174,low ACE2
-36,64C-day-15,pre-depletion,1,0.0001563,0.337139457,low ACE2
-37,64C-day-15,pre-depletion,1,3.91E-05,0.709889411,low ACE2
-38,64C-day-15,pre-depletion,1,9.77E-06,0.920896375,low ACE2
-39,64C-day-15,pre-depletion,1,2.44E-06,1.000085114,low ACE2
-40,64C-day-15,pre-depletion,2,0.04,6.33E-06,low ACE2
-41,64C-day-15,pre-depletion,2,0.01,3.75E-06,low ACE2
-42,64C-day-15,pre-depletion,2,0.0025,1.06E-05,low ACE2
-43,64C-day-15,pre-depletion,2,0.000625,0.028998446,low ACE2
-44,64C-day-15,pre-depletion,2,0.0001563,0.305880733,low ACE2
-45,64C-day-15,pre-depletion,2,3.91E-05,0.715434516,low ACE2
-46,64C-day-15,pre-depletion,2,9.77E-06,0.882960498,low ACE2
-47,64C-day-15,pre-depletion,2,2.44E-06,1.096774896,low ACE2
-48,64C-day-15,post-depletion,1,0.04,0.071069449,low ACE2
-49,64C-day-15,post-depletion,1,0.01,0.194033487,low ACE2
-50,64C-day-15,post-depletion,1,0.0025,0.277924972,low ACE2
-51,64C-day-15,post-depletion,1,0.000625,0.313788656,low ACE2
-52,64C-day-15,post-depletion,1,0.0001563,0.624131473,low ACE2
-53,64C-day-15,post-depletion,1,3.91E-05,0.861684716,low ACE2
-54,64C-day-15,post-depletion,1,9.77E-06,0.939874292,low ACE2
-55,64C-day-15,post-depletion,1,2.44E-06,1.107724283,low ACE2
-56,64C-day-15,post-depletion,2,0.04,0.069424786,low ACE2
-57,64C-day-15,post-depletion,2,0.01,0.167970126,low ACE2
-58,64C-day-15,post-depletion,2,0.0025,0.271253133,low ACE2
-59,64C-day-15,post-depletion,2,0.000625,0.323391752,low ACE2
-60,64C-day-15,post-depletion,2,0.0001563,0.574318374,low ACE2
-61,64C-day-15,post-depletion,2,3.91E-05,0.78471948,low ACE2
-62,64C-day-15,post-depletion,2,9.77E-06,0.936721606,low ACE2
-63,64C-day-15,post-depletion,2,2.44E-06,1.159398526,low ACE2
+0,63C-day-10,pre-depletion,1,0.04,4.43E-06,low_ACE2
+1,63C-day-10,pre-depletion,1,0.01,4.37E-06,low_ACE2
+2,63C-day-10,pre-depletion,1,0.0025,7.47E-06,low_ACE2
+3,63C-day-10,pre-depletion,1,0.000625,0.001020572,low_ACE2
+4,63C-day-10,pre-depletion,1,0.0001563,0.052399647,low_ACE2
+5,63C-day-10,pre-depletion,1,3.91E-05,0.574097308,low_ACE2
+6,63C-day-10,pre-depletion,1,9.77E-06,0.883035179,low_ACE2
+7,63C-day-10,pre-depletion,1,2.44E-06,0.986986758,low_ACE2
+8,63C-day-10,pre-depletion,2,0.04,6.97E-06,low_ACE2
+9,63C-day-10,pre-depletion,2,0.01,1.25E-06,low_ACE2
+10,63C-day-10,pre-depletion,2,0.0025,1.25E-06,low_ACE2
+11,63C-day-10,pre-depletion,2,0.000625,0.000246037,low_ACE2
+12,63C-day-10,pre-depletion,2,0.0001563,0.063719681,low_ACE2
+13,63C-day-10,pre-depletion,2,3.91E-05,0.512871014,low_ACE2
+14,63C-day-10,pre-depletion,2,9.77E-06,0.830823052,low_ACE2
+15,63C-day-10,pre-depletion,2,2.44E-06,0.985165709,low_ACE2
+16,63C-day-10,post-depletion,1,0.04,0.052900262,low_ACE2
+17,63C-day-10,post-depletion,1,0.01,0.141929878,low_ACE2
+18,63C-day-10,post-depletion,1,0.0025,0.269188856,low_ACE2
+19,63C-day-10,post-depletion,1,0.000625,0.515620447,low_ACE2
+20,63C-day-10,post-depletion,1,0.0001563,0.856287019,low_ACE2
+21,63C-day-10,post-depletion,1,3.91E-05,0.864773945,low_ACE2
+22,63C-day-10,post-depletion,1,9.77E-06,0.939739738,low_ACE2
+23,63C-day-10,post-depletion,1,2.44E-06,0.988493082,low_ACE2
+24,63C-day-10,post-depletion,2,0.04,0.043033551,low_ACE2
+25,63C-day-10,post-depletion,2,0.01,0.139416242,low_ACE2
+26,63C-day-10,post-depletion,2,0.0025,0.240478957,low_ACE2
+27,63C-day-10,post-depletion,2,0.000625,0.482964683,low_ACE2
+28,63C-day-10,post-depletion,2,0.0001563,0.832650904,low_ACE2
+29,63C-day-10,post-depletion,2,3.91E-05,0.876267367,low_ACE2
+30,63C-day-10,post-depletion,2,9.77E-06,0.97288961,low_ACE2
+31,63C-day-10,post-depletion,2,2.44E-06,0.996159962,low_ACE2
+32,64C-day-15,pre-depletion,1,0.04,2.53E-06,low_ACE2
+33,64C-day-15,pre-depletion,1,0.01,1.87E-06,low_ACE2
+34,64C-day-15,pre-depletion,1,0.0025,6.23E-06,low_ACE2
+35,64C-day-15,pre-depletion,1,0.000625,0.025093174,low_ACE2
+36,64C-day-15,pre-depletion,1,0.0001563,0.337139457,low_ACE2
+37,64C-day-15,pre-depletion,1,3.91E-05,0.709889411,low_ACE2
+38,64C-day-15,pre-depletion,1,9.77E-06,0.920896375,low_ACE2
+39,64C-day-15,pre-depletion,1,2.44E-06,1.000085114,low_ACE2
+40,64C-day-15,pre-depletion,2,0.04,6.33E-06,low_ACE2
+41,64C-day-15,pre-depletion,2,0.01,3.75E-06,low_ACE2
+42,64C-day-15,pre-depletion,2,0.0025,1.06E-05,low_ACE2
+43,64C-day-15,pre-depletion,2,0.000625,0.028998446,low_ACE2
+44,64C-day-15,pre-depletion,2,0.0001563,0.305880733,low_ACE2
+45,64C-day-15,pre-depletion,2,3.91E-05,0.715434516,low_ACE2
+46,64C-day-15,pre-depletion,2,9.77E-06,0.882960498,low_ACE2
+47,64C-day-15,pre-depletion,2,2.44E-06,1.096774896,low_ACE2
+48,64C-day-15,post-depletion,1,0.04,0.071069449,low_ACE2
+49,64C-day-15,post-depletion,1,0.01,0.194033487,low_ACE2
+50,64C-day-15,post-depletion,1,0.0025,0.277924972,low_ACE2
+51,64C-day-15,post-depletion,1,0.000625,0.313788656,low_ACE2
+52,64C-day-15,post-depletion,1,0.0001563,0.624131473,low_ACE2
+53,64C-day-15,post-depletion,1,3.91E-05,0.861684716,low_ACE2
+54,64C-day-15,post-depletion,1,9.77E-06,0.939874292,low_ACE2
+55,64C-day-15,post-depletion,1,2.44E-06,1.107724283,low_ACE2
+56,64C-day-15,post-depletion,2,0.04,0.069424786,low_ACE2
+57,64C-day-15,post-depletion,2,0.01,0.167970126,low_ACE2
+58,64C-day-15,post-depletion,2,0.0025,0.271253133,low_ACE2
+59,64C-day-15,post-depletion,2,0.000625,0.323391752,low_ACE2
+60,64C-day-15,post-depletion,2,0.0001563,0.574318374,low_ACE2
+61,64C-day-15,post-depletion,2,3.91E-05,0.78471948,low_ACE2
+62,64C-day-15,post-depletion,2,9.77E-06,0.936721606,low_ACE2
+63,64C-day-15,post-depletion,2,2.44E-06,1.159398526,low_ACE2
+64,99C-day-27,pre-depletion,1,0.04,8.19E-06,low_ACE2
+65,99C-day-27,pre-depletion,1,0.01,3.04E-06,low_ACE2
+66,99C-day-27,pre-depletion,1,0.0025,2.19E-06,low_ACE2
+67,99C-day-27,pre-depletion,1,0.000625,0.024735654,low_ACE2
+68,99C-day-27,pre-depletion,1,0.0001563,0.405566651,low_ACE2
+69,99C-day-27,pre-depletion,1,3.91E-05,0.78421758,low_ACE2
+70,99C-day-27,pre-depletion,1,9.77E-06,0.977823746,low_ACE2
+71,99C-day-27,pre-depletion,1,2.44E-06,1.085338469,low_ACE2
+72,99C-day-27,pre-depletion,2,0.04,6.17E-06,low_ACE2
+73,99C-day-27,pre-depletion,2,0.01,-2.80E-06,low_ACE2
+74,99C-day-27,pre-depletion,2,0.0025,4.96E-06,low_ACE2
+75,99C-day-27,pre-depletion,2,0.000625,0.035968301,low_ACE2
+76,99C-day-27,pre-depletion,2,0.0001563,0.401786015,low_ACE2
+77,99C-day-27,pre-depletion,2,3.91E-05,0.779368313,low_ACE2
+78,99C-day-27,pre-depletion,2,9.77E-06,1.015057791,low_ACE2
+79,99C-day-27,pre-depletion,2,2.44E-06,1.128769323,low_ACE2
+80,99C-day-27,post-depletion,1,0.04,0.121862076,low_ACE2
+81,99C-day-27,post-depletion,1,0.01,0.292190243,low_ACE2
+82,99C-day-27,post-depletion,1,0.0025,0.304316769,low_ACE2
+83,99C-day-27,post-depletion,1,0.000625,0.417508154,low_ACE2
+84,99C-day-27,post-depletion,1,0.0001563,0.729262273,low_ACE2
+85,99C-day-27,post-depletion,1,3.91E-05,0.93259128,low_ACE2
+86,99C-day-27,post-depletion,1,9.77E-06,1.069211894,low_ACE2
+87,99C-day-27,post-depletion,1,2.44E-06,1.095804277,low_ACE2
+88,99C-day-27,post-depletion,2,0.04,0.12060311,low_ACE2
+89,99C-day-27,post-depletion,2,0.01,0.280316978,low_ACE2
+90,99C-day-27,post-depletion,2,0.0025,0.283748137,low_ACE2
+91,99C-day-27,post-depletion,2,0.000625,0.402943654,low_ACE2
+92,99C-day-27,post-depletion,2,0.0001563,0.69203105,low_ACE2
+93,99C-day-27,post-depletion,2,3.91E-05,0.542432535,low_ACE2
+94,99C-day-27,post-depletion,2,9.77E-06,0.9659837,low_ACE2
+95,99C-day-27,post-depletion,2,2.44E-06,1.12381469,low_ACE2
+96,108C-day-18,pre-depletion,1,0.04,-5.61E-07,low_ACE2
+97,108C-day-18,pre-depletion,1,0.01,3.05E-06,low_ACE2
+98,108C-day-18,pre-depletion,1,0.0025,2.89E-06,low_ACE2
+99,108C-day-18,pre-depletion,1,0.000625,0.000949238,low_ACE2
+100,108C-day-18,pre-depletion,1,0.0001563,0.159215383,low_ACE2
+101,108C-day-18,pre-depletion,1,3.91E-05,0.715100422,low_ACE2
+102,108C-day-18,pre-depletion,1,9.77E-06,0.973664189,low_ACE2
+103,108C-day-18,pre-depletion,1,2.44E-06,1.088112413,low_ACE2
+104,108C-day-18,pre-depletion,2,0.04,-1.23E-06,low_ACE2
+105,108C-day-18,pre-depletion,2,0.01,2.32E-06,low_ACE2
+106,108C-day-18,pre-depletion,2,0.0025,-5.74E-07,low_ACE2
+107,108C-day-18,pre-depletion,2,0.000625,0.001953985,low_ACE2
+108,108C-day-18,pre-depletion,2,0.0001563,0.188723226,low_ACE2
+109,108C-day-18,pre-depletion,2,3.91E-05,0.700019063,low_ACE2
+110,108C-day-18,pre-depletion,2,9.77E-06,0.95723399,low_ACE2
+111,108C-day-18,pre-depletion,2,2.44E-06,1.104218182,low_ACE2
+112,108C-day-18,post-depletion,1,0.04,0.015725409,low_ACE2
+113,108C-day-18,post-depletion,1,0.01,0.101323174,low_ACE2
+114,108C-day-18,post-depletion,1,0.0025,0.223619544,low_ACE2
+115,108C-day-18,post-depletion,1,0.000625,0.424023559,low_ACE2
+116,108C-day-18,post-depletion,1,0.0001563,0.712245994,low_ACE2
+117,108C-day-18,post-depletion,1,3.91E-05,0.929091458,low_ACE2
+118,108C-day-18,post-depletion,1,9.77E-06,1.037748498,low_ACE2
+119,108C-day-18,post-depletion,1,2.44E-06,1.12679901,low_ACE2
+120,108C-day-18,post-depletion,2,0.04,0.015603617,low_ACE2
+121,108C-day-18,post-depletion,2,0.01,0.085189005,low_ACE2
+122,108C-day-18,post-depletion,2,0.0025,0.197496086,low_ACE2
+123,108C-day-18,post-depletion,2,0.000625,0.437061784,low_ACE2
+124,108C-day-18,post-depletion,2,0.0001563,0.759543386,low_ACE2
+125,108C-day-18,post-depletion,2,3.91E-05,0.876269318,low_ACE2
+126,108C-day-18,post-depletion,2,9.77E-06,0.991571219,low_ACE2
+127,108C-day-18,post-depletion,2,2.44E-06,1.076497985,low_ACE2
