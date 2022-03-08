@@ -55,32 +55,57 @@ resultsdir=config['resultsdir']
 os.makedirs(resultsdir, exist_ok=True)
 ```
 
+
+```python
+
+```
+
 ## Read in data
 
 
 ```python
-sample_information = (pd.read_csv(config['sample_information'])
-                      .drop_duplicates()
-                     )
+# sample_information = (pd.read_csv(config['sample_information'])
+#                       .drop_duplicates()
+#                      )
 
 frac_infect = list() # create df list
 
 for f in config['depletion_neuts'].keys():
-    df = (pd.read_csv(f, index_col=0).assign(cells=config['depletion_neuts'][f]))
-    df = df.merge(sample_information, on='serum')
+    df = (pd.read_csv(f, index_col=0))
     frac_infect.append(df)  
+frac_infect = pd.concat(frac_infect)
 
+frac_infect['serum'] = frac_infect['serum'] + '__' + frac_infect['cells']
+fits = neutcurve.CurveFits(frac_infect, fixbottom= False)
+```
+
+## Fit Hill curve to data using [`neutcurve`](https://jbloomlab.github.io/neutcurve/)
+
+
+```python
+# frac_infect_combined = list()
+
+# for cells in frac_infect:
+#     fits = neutcurve.CurveFits(cells, fixbottom= False)
+#     frac_infect_combined.append(fits)
 ```
 
 
 ```python
-for df in frac_infect:
-    df['serum'] = df['serum'] + '__' + df['cells']
-```
+# fitparams_combined = pd.DataFrame() # create empty data frame
 
 
-```python
-sample_information
+fitparams = (
+    fits.fitParams()
+    .rename(columns={'virus': 'depletion'})
+    [['serum', 'depletion', 'ic50', 'ic50_bound']]
+    .assign(NT50=lambda x: 1/x['ic50'])
+
+    )
+# fitparams_combined = fitparams_combined.append(fitparams).reset_index(drop=True)
+fitparams    
+
+
 ```
 
 
@@ -104,68 +129,269 @@ sample_information
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>day</th>
-      <th>age</th>
-      <th>vaccine</th>
-      <th>subject_name</th>
       <th>serum</th>
-      <th>gender</th>
+      <th>depletion</th>
+      <th>ic50</th>
+      <th>ic50_bound</th>
+      <th>NT50</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>9</td>
-      <td>18-55y</td>
-      <td>Pfizer</td>
-      <td>192C</td>
-      <td>192C-day-9</td>
-      <td>Female</td>
+      <td>63C-day-10__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000031</td>
+      <td>interpolated</td>
+      <td>31968.943613</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>8</td>
-      <td>18-55y</td>
-      <td>Pfizer</td>
-      <td>194C</td>
-      <td>194C-day-8</td>
-      <td>Male</td>
+      <td>63C-day-10__very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000454</td>
+      <td>interpolated</td>
+      <td>2200.799322</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>10</td>
-      <td>18-55y</td>
-      <td>Pfizer</td>
-      <td>63C</td>
-      <td>63C-day-10</td>
-      <td>Female</td>
+      <td>64C-day-15__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000064</td>
+      <td>interpolated</td>
+      <td>15594.993852</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>15</td>
-      <td>&gt;55y</td>
-      <td>Pfizer</td>
-      <td>64C</td>
-      <td>64C-day-15</td>
-      <td>Female</td>
+      <td>64C-day-15__very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000199</td>
+      <td>interpolated</td>
+      <td>5029.538042</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>27</td>
-      <td>18-55y</td>
-      <td>Pfizer</td>
-      <td>99C</td>
-      <td>99C-day-27</td>
-      <td>Male</td>
+      <td>99C-day-27__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000096</td>
+      <td>interpolated</td>
+      <td>10374.149491</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>18</td>
-      <td>&gt;55y</td>
-      <td>Pfizer</td>
-      <td>108C</td>
-      <td>108C-day-18</td>
-      <td>Female</td>
+      <td>99C-day-27__very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000435</td>
+      <td>interpolated</td>
+      <td>2296.488086</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>108C-day-18__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000038</td>
+      <td>interpolated</td>
+      <td>26336.105034</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>108C-day-18__very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000225</td>
+      <td>interpolated</td>
+      <td>4450.299723</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>63C-day-10__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000040</td>
+      <td>interpolated</td>
+      <td>24852.475407</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>63C-day-10__low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000704</td>
+      <td>interpolated</td>
+      <td>1420.647038</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>64C-day-15__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000081</td>
+      <td>interpolated</td>
+      <td>12328.306795</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>64C-day-15__low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000262</td>
+      <td>interpolated</td>
+      <td>3823.459538</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>99C-day-27__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000110</td>
+      <td>interpolated</td>
+      <td>9071.489070</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>99C-day-27__low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000418</td>
+      <td>interpolated</td>
+      <td>2392.117387</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>108C-day-18__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000065</td>
+      <td>interpolated</td>
+      <td>15482.242047</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>108C-day-18__low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000487</td>
+      <td>interpolated</td>
+      <td>2052.442693</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>63C-day-10__medium_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000072</td>
+      <td>interpolated</td>
+      <td>13815.374595</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>63C-day-10__medium_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000230</td>
+      <td>interpolated</td>
+      <td>4357.043374</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>64C-day-15__medium_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000056</td>
+      <td>interpolated</td>
+      <td>17903.810965</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>64C-day-15__medium_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000221</td>
+      <td>interpolated</td>
+      <td>4517.361075</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>99C-day-27__medium_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000139</td>
+      <td>interpolated</td>
+      <td>7176.352127</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>99C-day-27__medium_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000913</td>
+      <td>interpolated</td>
+      <td>1095.373755</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>108C-day-18__medium_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000069</td>
+      <td>interpolated</td>
+      <td>14551.386810</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>108C-day-18__medium_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000792</td>
+      <td>interpolated</td>
+      <td>1262.226126</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>63C-day-10__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000102</td>
+      <td>interpolated</td>
+      <td>9830.591738</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>63C-day-10__high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.012598</td>
+      <td>interpolated</td>
+      <td>79.377273</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>64C-day-15__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000377</td>
+      <td>interpolated</td>
+      <td>2656.009243</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>64C-day-15__high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.040000</td>
+      <td>lower</td>
+      <td>25.000000</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>99C-day-27__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000377</td>
+      <td>interpolated</td>
+      <td>2655.584701</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>99C-day-27__high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.040000</td>
+      <td>lower</td>
+      <td>25.000000</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>108C-day-18__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000208</td>
+      <td>interpolated</td>
+      <td>4814.580041</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>108C-day-18__high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.010558</td>
+      <td>interpolated</td>
+      <td>94.715361</td>
     </tr>
   </tbody>
 </table>
@@ -173,100 +399,803 @@ sample_information
 
 
 
-## Fit Hill curve to data using [`neutcurve`](https://jbloomlab.github.io/neutcurve/)
+
+```python
+fitparams['ic50_is_bound'] = fitparams['ic50_bound'].apply(lambda x: True if x!='interpolated' else False)
+fitparams
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>serum</th>
+      <th>depletion</th>
+      <th>ic50</th>
+      <th>ic50_bound</th>
+      <th>NT50</th>
+      <th>ic50_is_bound</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>63C-day-10__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000031</td>
+      <td>interpolated</td>
+      <td>31968.943613</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>63C-day-10__very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000454</td>
+      <td>interpolated</td>
+      <td>2200.799322</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>64C-day-15__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000064</td>
+      <td>interpolated</td>
+      <td>15594.993852</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>64C-day-15__very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000199</td>
+      <td>interpolated</td>
+      <td>5029.538042</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>99C-day-27__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000096</td>
+      <td>interpolated</td>
+      <td>10374.149491</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>99C-day-27__very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000435</td>
+      <td>interpolated</td>
+      <td>2296.488086</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>108C-day-18__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000038</td>
+      <td>interpolated</td>
+      <td>26336.105034</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>108C-day-18__very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000225</td>
+      <td>interpolated</td>
+      <td>4450.299723</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>63C-day-10__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000040</td>
+      <td>interpolated</td>
+      <td>24852.475407</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>63C-day-10__low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000704</td>
+      <td>interpolated</td>
+      <td>1420.647038</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>64C-day-15__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000081</td>
+      <td>interpolated</td>
+      <td>12328.306795</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>64C-day-15__low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000262</td>
+      <td>interpolated</td>
+      <td>3823.459538</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>99C-day-27__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000110</td>
+      <td>interpolated</td>
+      <td>9071.489070</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>99C-day-27__low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000418</td>
+      <td>interpolated</td>
+      <td>2392.117387</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>108C-day-18__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000065</td>
+      <td>interpolated</td>
+      <td>15482.242047</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>108C-day-18__low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000487</td>
+      <td>interpolated</td>
+      <td>2052.442693</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>63C-day-10__medium_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000072</td>
+      <td>interpolated</td>
+      <td>13815.374595</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>63C-day-10__medium_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000230</td>
+      <td>interpolated</td>
+      <td>4357.043374</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>64C-day-15__medium_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000056</td>
+      <td>interpolated</td>
+      <td>17903.810965</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>64C-day-15__medium_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000221</td>
+      <td>interpolated</td>
+      <td>4517.361075</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>99C-day-27__medium_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000139</td>
+      <td>interpolated</td>
+      <td>7176.352127</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>99C-day-27__medium_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000913</td>
+      <td>interpolated</td>
+      <td>1095.373755</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>108C-day-18__medium_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000069</td>
+      <td>interpolated</td>
+      <td>14551.386810</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>108C-day-18__medium_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000792</td>
+      <td>interpolated</td>
+      <td>1262.226126</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>63C-day-10__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000102</td>
+      <td>interpolated</td>
+      <td>9830.591738</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>63C-day-10__high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.012598</td>
+      <td>interpolated</td>
+      <td>79.377273</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>64C-day-15__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000377</td>
+      <td>interpolated</td>
+      <td>2656.009243</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>64C-day-15__high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.040000</td>
+      <td>lower</td>
+      <td>25.000000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>99C-day-27__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000377</td>
+      <td>interpolated</td>
+      <td>2655.584701</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>99C-day-27__high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.040000</td>
+      <td>lower</td>
+      <td>25.000000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>108C-day-18__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000208</td>
+      <td>interpolated</td>
+      <td>4814.580041</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>108C-day-18__high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.010558</td>
+      <td>interpolated</td>
+      <td>94.715361</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 
 ```python
-frac_infect_combined = list()
+#save data
+fitparams.to_csv(config['neuts'], index=False)
 
-for cells in frac_infect:
-    fits = neutcurve.CurveFits(cells, fixbottom= False)
-    frac_infect_combined.append(fits)
 ```
 
 
 ```python
-fitparams_combined = pd.DataFrame() # create empty data frame
-
-for fits in frac_infect_combined:
-    fitparams = (
-        fits.fitParams()
-        .rename(columns={'virus': 'depletion'})
-        # get columns of interest
-        [['serum', 'depletion', 'ic50', 'ic50_bound']]
-        .assign(NT50=lambda x: 1/x['ic50'])
-#         .merge(sample_information, on=['serum'])
-        
-        )
-    fitparams_combined = fitparams_combined.append(fitparams).reset_index(drop=True)
-    
-
-fitparams_combined['ic50_is_bound'] = fitparams_combined['ic50_bound'].apply(lambda x: True if x!='interpolated' else False)
-
-fitparams_combined
-fitparams_combined.to_csv(config['neuts'], index=False)
+fitparams[['sample', 'cells']] = fitparams['serum'].str.split('__', 1, expand=True)
 
 ```
 
 
 ```python
-fitparams_combined[['sample', 'cells']] = fitparams_combined['serum'].str.split('__', 1, expand=True)
-
+#category for cell order so that ggplot does not use alphabetical
+cat_order = ['high_ACE2', 'medium_ACE2', 'low_ACE2', 'very_low_ACE2']
+fitparams['category'] = pd.Categorical(fitparams['cells'], categories=cat_order, ordered=True)
+fitparams
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>serum</th>
+      <th>depletion</th>
+      <th>ic50</th>
+      <th>ic50_bound</th>
+      <th>NT50</th>
+      <th>ic50_is_bound</th>
+      <th>sample</th>
+      <th>cells</th>
+      <th>category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>63C-day-10__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000031</td>
+      <td>interpolated</td>
+      <td>31968.943613</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>very_low_ACE2</td>
+      <td>very_low_ACE2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>63C-day-10__very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000454</td>
+      <td>interpolated</td>
+      <td>2200.799322</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>very_low_ACE2</td>
+      <td>very_low_ACE2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>64C-day-15__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000064</td>
+      <td>interpolated</td>
+      <td>15594.993852</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>very_low_ACE2</td>
+      <td>very_low_ACE2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>64C-day-15__very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000199</td>
+      <td>interpolated</td>
+      <td>5029.538042</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>very_low_ACE2</td>
+      <td>very_low_ACE2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>99C-day-27__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000096</td>
+      <td>interpolated</td>
+      <td>10374.149491</td>
+      <td>False</td>
+      <td>99C-day-27</td>
+      <td>very_low_ACE2</td>
+      <td>very_low_ACE2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>99C-day-27__very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000435</td>
+      <td>interpolated</td>
+      <td>2296.488086</td>
+      <td>False</td>
+      <td>99C-day-27</td>
+      <td>very_low_ACE2</td>
+      <td>very_low_ACE2</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>108C-day-18__very_low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000038</td>
+      <td>interpolated</td>
+      <td>26336.105034</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>very_low_ACE2</td>
+      <td>very_low_ACE2</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>108C-day-18__very_low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000225</td>
+      <td>interpolated</td>
+      <td>4450.299723</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>very_low_ACE2</td>
+      <td>very_low_ACE2</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>63C-day-10__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000040</td>
+      <td>interpolated</td>
+      <td>24852.475407</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>low_ACE2</td>
+      <td>low_ACE2</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>63C-day-10__low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000704</td>
+      <td>interpolated</td>
+      <td>1420.647038</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>low_ACE2</td>
+      <td>low_ACE2</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>64C-day-15__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000081</td>
+      <td>interpolated</td>
+      <td>12328.306795</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>low_ACE2</td>
+      <td>low_ACE2</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>64C-day-15__low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000262</td>
+      <td>interpolated</td>
+      <td>3823.459538</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>low_ACE2</td>
+      <td>low_ACE2</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>99C-day-27__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000110</td>
+      <td>interpolated</td>
+      <td>9071.489070</td>
+      <td>False</td>
+      <td>99C-day-27</td>
+      <td>low_ACE2</td>
+      <td>low_ACE2</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>99C-day-27__low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000418</td>
+      <td>interpolated</td>
+      <td>2392.117387</td>
+      <td>False</td>
+      <td>99C-day-27</td>
+      <td>low_ACE2</td>
+      <td>low_ACE2</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>108C-day-18__low_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000065</td>
+      <td>interpolated</td>
+      <td>15482.242047</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>low_ACE2</td>
+      <td>low_ACE2</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>108C-day-18__low_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000487</td>
+      <td>interpolated</td>
+      <td>2052.442693</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>low_ACE2</td>
+      <td>low_ACE2</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>63C-day-10__medium_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000072</td>
+      <td>interpolated</td>
+      <td>13815.374595</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>medium_ACE2</td>
+      <td>medium_ACE2</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>63C-day-10__medium_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000230</td>
+      <td>interpolated</td>
+      <td>4357.043374</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>medium_ACE2</td>
+      <td>medium_ACE2</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>64C-day-15__medium_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000056</td>
+      <td>interpolated</td>
+      <td>17903.810965</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>medium_ACE2</td>
+      <td>medium_ACE2</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>64C-day-15__medium_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000221</td>
+      <td>interpolated</td>
+      <td>4517.361075</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>medium_ACE2</td>
+      <td>medium_ACE2</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>99C-day-27__medium_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000139</td>
+      <td>interpolated</td>
+      <td>7176.352127</td>
+      <td>False</td>
+      <td>99C-day-27</td>
+      <td>medium_ACE2</td>
+      <td>medium_ACE2</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>99C-day-27__medium_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000913</td>
+      <td>interpolated</td>
+      <td>1095.373755</td>
+      <td>False</td>
+      <td>99C-day-27</td>
+      <td>medium_ACE2</td>
+      <td>medium_ACE2</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>108C-day-18__medium_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000069</td>
+      <td>interpolated</td>
+      <td>14551.386810</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>medium_ACE2</td>
+      <td>medium_ACE2</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>108C-day-18__medium_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.000792</td>
+      <td>interpolated</td>
+      <td>1262.226126</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>medium_ACE2</td>
+      <td>medium_ACE2</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>63C-day-10__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000102</td>
+      <td>interpolated</td>
+      <td>9830.591738</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>high_ACE2</td>
+      <td>high_ACE2</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>63C-day-10__high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.012598</td>
+      <td>interpolated</td>
+      <td>79.377273</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>high_ACE2</td>
+      <td>high_ACE2</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>64C-day-15__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000377</td>
+      <td>interpolated</td>
+      <td>2656.009243</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>high_ACE2</td>
+      <td>high_ACE2</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>64C-day-15__high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.040000</td>
+      <td>lower</td>
+      <td>25.000000</td>
+      <td>True</td>
+      <td>64C-day-15</td>
+      <td>high_ACE2</td>
+      <td>high_ACE2</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>99C-day-27__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000377</td>
+      <td>interpolated</td>
+      <td>2655.584701</td>
+      <td>False</td>
+      <td>99C-day-27</td>
+      <td>high_ACE2</td>
+      <td>high_ACE2</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>99C-day-27__high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.040000</td>
+      <td>lower</td>
+      <td>25.000000</td>
+      <td>True</td>
+      <td>99C-day-27</td>
+      <td>high_ACE2</td>
+      <td>high_ACE2</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>108C-day-18__high_ACE2</td>
+      <td>pre-depletion</td>
+      <td>0.000208</td>
+      <td>interpolated</td>
+      <td>4814.580041</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>high_ACE2</td>
+      <td>high_ACE2</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>108C-day-18__high_ACE2</td>
+      <td>post-depletion</td>
+      <td>0.010558</td>
+      <td>interpolated</td>
+      <td>94.715361</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>high_ACE2</td>
+      <td>high_ACE2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ## Plot IC50 values
 
 
 ```python
-IC50 = (ggplot(fitparams_combined, aes(x='cells', y='ic50', colour='depletion')) +
+IC50 = (ggplot(fitparams, aes(x='category', y='ic50', colour='depletion', group = 'depletion')) +
               geom_point(size=3) +
+        geom_line(alpha=1) +
              theme(figure_size=(15,1*df['serum'].nunique()),
-                   axis_text=element_text(size=10),
-                   axis_text_x=element_text(size=10, angle= 45),
-                   legend_text=element_text(size=10),
-                   legend_title=element_text(size=10),
-                   axis_title_x=element_text(size=10),
-                   strip_text = element_text(size=10)
+                   axis_text=element_text(size=12),
+                   axis_text_x=element_text(size=12, angle= 45),
+                   legend_text=element_text(size=12),
+                   legend_title=element_text(size=12),
+                   axis_title_x=element_text(size=12),
+                   strip_text = element_text(size=12)
                   ) +
               facet_wrap('sample', ncol = 4)+
               scale_y_log10(name='IC50') +
-              xlab('cell clone') +
+              xlab('ACE2 expression') +
              scale_color_manual(values=CBPALETTE[1:])
                  )
 
 _ = IC50.draw()
-# IC50.save(f'./{resultsdir}/IC50.pdf')
-```
-
-
-    
-![png](virus_neutralization_files/virus_neutralization_18_0.png)
-    
-
-
-## Plot NT50 values
-
-
-```python
-NT50 = (ggplot(fitparams_combined, aes(x='cells', y='NT50', colour='depletion')) +
-              geom_point(size=3) +
-             theme(figure_size=(15,1*df['serum'].nunique()),
-                   axis_text=element_text(size=10),
-                   axis_text_x=element_text(size=10, angle= 45),
-                   legend_text=element_text(size=10),
-                   legend_title=element_text(size=10),
-                   axis_title_x=element_text(size=10),
-                   strip_text = element_text(size=10)
-                  ) +
-              facet_wrap('sample', ncol = 4)+
-              scale_y_log10(name='NT50') +
-              xlab('cell clone') +
-             scale_color_manual(values=CBPALETTE[1:])
-                 )
-
-_ = NT50.draw()
-# NT50.save(f'./{resultsdir}/IC50.pdf')
-
+IC50.save(f'./{resultsdir}/IC50.pdf')
 ```
 
 
@@ -275,42 +1204,40 @@ _ = NT50.draw()
     
 
 
-## IC50 fold change
+## Plot NT50 values
 
 
 ```python
-df_pre = fitparams_combined.loc[fitparams_combined['depletion'] == 'pre-depletion']
-df_post = fitparams_combined.loc[fitparams_combined['depletion'] == 'post-depletion']
-df_mege = pd.merge(df_pre, df_post, on="serum")
-df_mege['IC50_fold_change'] = df_mege['ic50_x']/df_mege['ic50_y']
-```
-
-
-```python
-IC50_fc = (ggplot(df_mege, aes(x='cells_y', y='IC50_fold_change')) +
+NT50 = (ggplot(fitparams, aes(x='category', y='NT50', colour='depletion', group = 'depletion')) +
               geom_point(size=3) +
+             geom_line(alpha=1) +
              theme(figure_size=(15,1*df['serum'].nunique()),
-                   axis_text=element_text(size=10),
-                   axis_text_x=element_text(size=10, angle= 45),
-                   legend_text=element_text(size=10),
-                   legend_title=element_text(size=10),
-                   axis_title_x=element_text(size=10),
-                   axis_title_y=element_text(size=10),
-                   strip_text = element_text(size=10)
+                   axis_text=element_text(size=12),
+                   axis_text_x=element_text(size=12, angle= 45),
+                   legend_text=element_text(size=12),
+                   legend_title=element_text(size=12),
+                   axis_title_x=element_text(size=12),
+                   strip_text = element_text(size=12)
                   ) +
-              facet_wrap('sample_y', ncol = 4)+
-              scale_y_log10(name='IC50 fold change (pre-depletion/post-depletion)') +
+                geom_hline(yintercept=config['NT50_LOD'], 
+                linetype='dotted', 
+                size=1, 
+                alpha=0.6, 
+                color=CBPALETTE[7]) +
+              facet_wrap('sample', ncol = 4)+
+              scale_y_log10(name='NT50') +
               xlab('cell clone') +
              scale_color_manual(values=CBPALETTE[1:])
                  )
 
-_ = IC50_fc.draw()
-# IC50.save(f'./{resultsdir}/IC50.pdf')
+_ = NT50.draw()
+NT50.save(f'./{resultsdir}/NT50.pdf')
+
 ```
 
 
     
-![png](virus_neutralization_files/virus_neutralization_23_0.png)
+![png](virus_neutralization_files/virus_neutralization_22_0.png)
     
 
 
@@ -318,14 +1245,14 @@ _ = IC50_fc.draw()
 
 
 ```python
-p = (ggplot(fitparams_combined, 
+p = (ggplot(fitparams, 
             aes(x='NT50',
                 y='cells',
                 fill='depletion',
                 group='cells',
                )) +
      scale_x_log10(name='neutralization titer 50% (NT50)', 
-                   limits=[config['NT50_LOD'],fitparams_combined['NT50'].max()*3]) +
+                   limits=[config['NT50_LOD'],fitparams['NT50'].max()*3]) +
      geom_vline(xintercept=config['NT50_LOD'], 
                 linetype='dotted', 
                 size=1, 
@@ -352,17 +1279,11 @@ _ = p.draw()
 
 
     
-![png](virus_neutralization_files/virus_neutralization_25_0.png)
+![png](virus_neutralization_files/virus_neutralization_24_0.png)
     
 
 
 ## Plot neut curves for all samples
-
-
-```python
-frac_infect_2 = pd.concat(frac_infect)
-fits = neutcurve.CurveFits(frac_infect_2, fixbottom= False)
-```
 
 
 ```python
@@ -381,7 +1302,7 @@ fig, axes = fits.plotSera(
 
 
     
-![png](virus_neutralization_files/virus_neutralization_28_0.png)
+![png](virus_neutralization_files/virus_neutralization_26_0.png)
     
 
 
