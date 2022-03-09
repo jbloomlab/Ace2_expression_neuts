@@ -1,23 +1,18 @@
 # Analysis of SARS-COV-2 virus neutalization in different Ace2 clones
 
+This notebook analysis neutralization of SARS-COV-2/Wu-1 virus by sera from vaccinated individuals on 293T cell clones that express different levels of ACE2.
+
 ### Set up Analysis
 
 
 ```python
-import itertools
-import math
 import os
-import re
 import warnings
-
-from IPython.display import display, HTML
 
 import matplotlib
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-import natsort
 
-import numpy as np
 import pandas as pd
 from plotnine import *
 import seaborn
@@ -56,6 +51,7 @@ os.makedirs(resultsdir, exist_ok=True)
 ```
 
 ## Read in data
+We read in fraction infectivirty data for different cell lines and import sera information.
 
 
 ```python
@@ -67,17 +63,38 @@ for f in config['depletion_neuts'].keys():
 frac_infect = pd.concat(frac_infect)
 
 frac_infect['serum'] = frac_infect['serum'] + '__' + frac_infect['cells']
-fits = neutcurve.CurveFits(frac_infect, fixbottom= False)
-```
 
-## Fit Hill curve to data using [`neutcurve`](https://jbloomlab.github.io/neutcurve/)
+frac_infect['virus'] = frac_infect['virus'].str.replace('post-depletion','depleted')
+frac_infect['virus'] = frac_infect['virus'].str.replace('pre-depletion','not depleted')
+
+```
 
 
 ```python
+#read in sample info
+sample_information = (pd.read_csv(config['sample_information'])
+                      .drop_duplicates())
+
+sample_information['sorted']=sample_information['subject_name'].str[:-1].astype(int)
+sample_information = sample_information.sort_values('sorted')
+
+#store sera names in a list to later convert to factors for plotting
+cat_order_sera = sample_information['serum'].tolist()
+
+```
+
+## Fit Hill curve 
+
+We use [`neutcurve`](https://jbloomlab.github.io/neutcurve/) to fit Hill curve for neutralization data and calcualte IC50 and NT50 values.
+
+
+```python
+fits = neutcurve.CurveFits(frac_infect, fixbottom= False)
+
 fitparams = (
     fits.fitParams()
-    .rename(columns={'virus': 'depletion'})
-    [['serum', 'depletion', 'ic50', 'ic50_bound']]
+    .rename(columns={'virus': 'RBD-targeting antibodies'})
+    [['serum', 'RBD-targeting antibodies', 'ic50', 'ic50_bound']]
     .assign(NT50=lambda x: 1/x['ic50'])
 
     )
@@ -91,410 +108,30 @@ fitparams['ic50_is_bound'] = fitparams['ic50_bound'].apply(lambda x: True if x!=
 
 
 ```python
-#save data
-fitparams.to_csv(config['neuts'], index=False)
-
-```
-
-
-```python
 fitparams[['sample', 'cells']] = fitparams['serum'].str.split('__', 1, expand=True)
-
-fitparams = fitparams.rename(columns={"depletion": "RBD-targeting antibodies"})
 ```
 
 
 ```python
 #category for cell order so that ggplot does not use alphabetical
 cat_order = ['very low', 'low', 'medium', 'high']
-fitparams['category'] = pd.Categorical(fitparams['cells'], categories=cat_order, ordered=True)
+fitparams['cells'] = pd.Categorical(fitparams['cells'], categories=cat_order, ordered=True)
 
 cat_order_sera = ['63C-day-10', '64C-day-15', '99C-day-27', '108C-day-18']
 fitparams['sample'] = pd.Categorical(fitparams['sample'], categories=cat_order_sera, ordered=True)
-
-fitparams
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>serum</th>
-      <th>RBD-targeting antibodies</th>
-      <th>ic50</th>
-      <th>ic50_bound</th>
-      <th>NT50</th>
-      <th>ic50_is_bound</th>
-      <th>sample</th>
-      <th>cells</th>
-      <th>category</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>63C-day-10__very low</td>
-      <td>pre-depletion</td>
-      <td>0.000031</td>
-      <td>interpolated</td>
-      <td>31968.943613</td>
-      <td>False</td>
-      <td>63C-day-10</td>
-      <td>very low</td>
-      <td>very low</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>63C-day-10__very low</td>
-      <td>post-depletion</td>
-      <td>0.000454</td>
-      <td>interpolated</td>
-      <td>2200.799322</td>
-      <td>False</td>
-      <td>63C-day-10</td>
-      <td>very low</td>
-      <td>very low</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>64C-day-15__very low</td>
-      <td>pre-depletion</td>
-      <td>0.000064</td>
-      <td>interpolated</td>
-      <td>15594.993852</td>
-      <td>False</td>
-      <td>64C-day-15</td>
-      <td>very low</td>
-      <td>very low</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>64C-day-15__very low</td>
-      <td>post-depletion</td>
-      <td>0.000199</td>
-      <td>interpolated</td>
-      <td>5029.538042</td>
-      <td>False</td>
-      <td>64C-day-15</td>
-      <td>very low</td>
-      <td>very low</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>99C-day-27__very low</td>
-      <td>pre-depletion</td>
-      <td>0.000096</td>
-      <td>interpolated</td>
-      <td>10374.149491</td>
-      <td>False</td>
-      <td>99C-day-27</td>
-      <td>very low</td>
-      <td>very low</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>99C-day-27__very low</td>
-      <td>post-depletion</td>
-      <td>0.000435</td>
-      <td>interpolated</td>
-      <td>2296.488086</td>
-      <td>False</td>
-      <td>99C-day-27</td>
-      <td>very low</td>
-      <td>very low</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>108C-day-18__very low</td>
-      <td>pre-depletion</td>
-      <td>0.000038</td>
-      <td>interpolated</td>
-      <td>26336.105034</td>
-      <td>False</td>
-      <td>108C-day-18</td>
-      <td>very low</td>
-      <td>very low</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>108C-day-18__very low</td>
-      <td>post-depletion</td>
-      <td>0.000225</td>
-      <td>interpolated</td>
-      <td>4450.299723</td>
-      <td>False</td>
-      <td>108C-day-18</td>
-      <td>very low</td>
-      <td>very low</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>63C-day-10__low</td>
-      <td>pre-depletion</td>
-      <td>0.000040</td>
-      <td>interpolated</td>
-      <td>24852.475407</td>
-      <td>False</td>
-      <td>63C-day-10</td>
-      <td>low</td>
-      <td>low</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>63C-day-10__low</td>
-      <td>post-depletion</td>
-      <td>0.000704</td>
-      <td>interpolated</td>
-      <td>1420.647038</td>
-      <td>False</td>
-      <td>63C-day-10</td>
-      <td>low</td>
-      <td>low</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>64C-day-15__low</td>
-      <td>pre-depletion</td>
-      <td>0.000081</td>
-      <td>interpolated</td>
-      <td>12328.306795</td>
-      <td>False</td>
-      <td>64C-day-15</td>
-      <td>low</td>
-      <td>low</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>64C-day-15__low</td>
-      <td>post-depletion</td>
-      <td>0.000262</td>
-      <td>interpolated</td>
-      <td>3823.459538</td>
-      <td>False</td>
-      <td>64C-day-15</td>
-      <td>low</td>
-      <td>low</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>99C-day-27__low</td>
-      <td>pre-depletion</td>
-      <td>0.000110</td>
-      <td>interpolated</td>
-      <td>9071.489070</td>
-      <td>False</td>
-      <td>99C-day-27</td>
-      <td>low</td>
-      <td>low</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>99C-day-27__low</td>
-      <td>post-depletion</td>
-      <td>0.000418</td>
-      <td>interpolated</td>
-      <td>2392.117387</td>
-      <td>False</td>
-      <td>99C-day-27</td>
-      <td>low</td>
-      <td>low</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>108C-day-18__low</td>
-      <td>pre-depletion</td>
-      <td>0.000065</td>
-      <td>interpolated</td>
-      <td>15482.242047</td>
-      <td>False</td>
-      <td>108C-day-18</td>
-      <td>low</td>
-      <td>low</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>108C-day-18__low</td>
-      <td>post-depletion</td>
-      <td>0.000487</td>
-      <td>interpolated</td>
-      <td>2052.442693</td>
-      <td>False</td>
-      <td>108C-day-18</td>
-      <td>low</td>
-      <td>low</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>99C-day-27__medium</td>
-      <td>pre-depletion</td>
-      <td>0.000139</td>
-      <td>interpolated</td>
-      <td>7176.352127</td>
-      <td>False</td>
-      <td>99C-day-27</td>
-      <td>medium</td>
-      <td>medium</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>99C-day-27__medium</td>
-      <td>post-depletion</td>
-      <td>0.000913</td>
-      <td>interpolated</td>
-      <td>1095.373755</td>
-      <td>False</td>
-      <td>99C-day-27</td>
-      <td>medium</td>
-      <td>medium</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>108C-day-18__medium</td>
-      <td>pre-depletion</td>
-      <td>0.000069</td>
-      <td>interpolated</td>
-      <td>14551.386810</td>
-      <td>False</td>
-      <td>108C-day-18</td>
-      <td>medium</td>
-      <td>medium</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>108C-day-18__medium</td>
-      <td>post-depletion</td>
-      <td>0.000792</td>
-      <td>interpolated</td>
-      <td>1262.226126</td>
-      <td>False</td>
-      <td>108C-day-18</td>
-      <td>medium</td>
-      <td>medium</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>63C-day-10__high</td>
-      <td>pre-depletion</td>
-      <td>0.000102</td>
-      <td>interpolated</td>
-      <td>9830.591738</td>
-      <td>False</td>
-      <td>63C-day-10</td>
-      <td>high</td>
-      <td>high</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>63C-day-10__high</td>
-      <td>post-depletion</td>
-      <td>0.012598</td>
-      <td>interpolated</td>
-      <td>79.377273</td>
-      <td>False</td>
-      <td>63C-day-10</td>
-      <td>high</td>
-      <td>high</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>64C-day-15__high</td>
-      <td>pre-depletion</td>
-      <td>0.000377</td>
-      <td>interpolated</td>
-      <td>2656.009243</td>
-      <td>False</td>
-      <td>64C-day-15</td>
-      <td>high</td>
-      <td>high</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>64C-day-15__high</td>
-      <td>post-depletion</td>
-      <td>0.040000</td>
-      <td>lower</td>
-      <td>25.000000</td>
-      <td>True</td>
-      <td>64C-day-15</td>
-      <td>high</td>
-      <td>high</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>99C-day-27__high</td>
-      <td>pre-depletion</td>
-      <td>0.000377</td>
-      <td>interpolated</td>
-      <td>2655.584701</td>
-      <td>False</td>
-      <td>99C-day-27</td>
-      <td>high</td>
-      <td>high</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>99C-day-27__high</td>
-      <td>post-depletion</td>
-      <td>0.040000</td>
-      <td>lower</td>
-      <td>25.000000</td>
-      <td>True</td>
-      <td>99C-day-27</td>
-      <td>high</td>
-      <td>high</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>108C-day-18__high</td>
-      <td>pre-depletion</td>
-      <td>0.000208</td>
-      <td>interpolated</td>
-      <td>4814.580041</td>
-      <td>False</td>
-      <td>108C-day-18</td>
-      <td>high</td>
-      <td>high</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>108C-day-18__high</td>
-      <td>post-depletion</td>
-      <td>0.010558</td>
-      <td>interpolated</td>
-      <td>94.715361</td>
-      <td>False</td>
-      <td>108C-day-18</td>
-      <td>high</td>
-      <td>high</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
+```python
+#save data
+fitparams.to_csv(config['neuts'], index=False)
+```
 
 ## Plot IC50 values
 
 
 ```python
-IC50 = (ggplot(fitparams, aes(x='category', y='ic50', colour='RBD-targeting antibodies', group = 'RBD-targeting antibodies')) +
+IC50 = (ggplot(fitparams, aes(x='cells', y='ic50', colour='RBD-targeting antibodies', group = 'RBD-targeting antibodies')) +
               geom_point(size=3) +
         geom_line(alpha=1) +
              theme(figure_size=(15,1*df['serum'].nunique()),
@@ -517,7 +154,7 @@ IC50.save(f'./{resultsdir}/IC50.pdf')
 
 
     
-![png](virus_neutralization_files/virus_neutralization_18_0.png)
+![png](virus_neutralization_files/virus_neutralization_20_0.png)
     
 
 
@@ -525,7 +162,7 @@ IC50.save(f'./{resultsdir}/IC50.pdf')
 
 
 ```python
-NT50 = (ggplot(fitparams, aes(x='category', y='NT50', colour='RBD-targeting antibodies', group = 'RBD-targeting antibodies')) +
+NT50 = (ggplot(fitparams, aes(x='cells', y='NT50', colour='RBD-targeting antibodies', group = 'RBD-targeting antibodies')) +
               geom_point(size=3) +
              geom_line(alpha=1) +
              theme(figure_size=(15,1*df['serum'].nunique()),
@@ -549,13 +186,11 @@ NT50 = (ggplot(fitparams, aes(x='category', y='NT50', colour='RBD-targeting anti
 
 _ = NT50.draw()
 NT50.save(f'./{resultsdir}/NT50.pdf')
-NT50.save('NT50_all_samples.png', dpi=300)
-
 ```
 
 
     
-![png](virus_neutralization_files/virus_neutralization_20_0.png)
+![png](virus_neutralization_files/virus_neutralization_22_0.png)
     
 
 
@@ -571,14 +206,15 @@ fig, axes = fits.plotSera(
                           titlesize=25, labelsize=25, ticksize=15, legendfontsize=24, yticklocs=[0,0.5,1],
                           markersize=8, linewidth=2,
                           virus_to_color_marker={
-                          'pre-depletion': ('#56B4E9', 'o'),
-                          'post-depletion': ('#E69F00', 'o')}
+                          'depleted': ('#56B4E9', 'o'),
+                          'not depleted': ('#E69F00', 'o')},
+                          legendtitle='RBD-targeting antibodies'
                          )
 ```
 
 
     
-![png](virus_neutralization_files/virus_neutralization_22_0.png)
+![png](virus_neutralization_files/virus_neutralization_24_0.png)
     
 
 
