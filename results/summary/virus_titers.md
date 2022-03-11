@@ -228,6 +228,15 @@ display(HTML(average_titers.head().to_html(index=False)))
       <td>rep1</td>
       <td>200122</td>
       <td>293T_ACE2_Clone_A</td>
+      <td>Bernadeta_stock</td>
+      <td>amphoB</td>
+      <td>48910.933333</td>
+    </tr>
+    <tr>
+      <td>Wu_1</td>
+      <td>rep1</td>
+      <td>200122</td>
+      <td>293T_ACE2_Clone_A</td>
       <td>Maxi2020_48hpt</td>
       <td>no_amphoB</td>
       <td>5959.903333</td>
@@ -258,15 +267,6 @@ display(HTML(average_titers.head().to_html(index=False)))
       <td>Maxi2021_60hpt</td>
       <td>amphoB</td>
       <td>70423.453333</td>
-    </tr>
-    <tr>
-      <td>Wu_1</td>
-      <td>rep1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Clone_A</td>
-      <td>Maxi2021_60hpt</td>
-      <td>no_amphoB</td>
-      <td>7276.446667</td>
     </tr>
   </tbody>
 </table>
@@ -347,6 +347,19 @@ display(HTML(dilute_virus.to_html(index=False)))
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>Wu_1</td>
+      <td>200122</td>
+      <td>293T_ACE2_Clone_A</td>
+      <td>Bernadeta_stock</td>
+      <td>amphoB</td>
+      <td>48134.986667</td>
+      <td>200000.0</td>
+      <td>50</td>
+      <td>12.033747</td>
+      <td>664.797109</td>
+      <td>7335.202891</td>
+    </tr>
     <tr>
       <td>Wu_1</td>
       <td>200122</td>

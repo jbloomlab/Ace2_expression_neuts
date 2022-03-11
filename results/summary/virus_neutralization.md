@@ -117,7 +117,6 @@ fitparams[['sample', 'cells']] = fitparams['serum'].str.split('__', 1, expand=Tr
 cat_order = ['very low', 'low', 'medium', 'high']
 fitparams['cells'] = pd.Categorical(fitparams['cells'], categories=cat_order, ordered=True)
 
-cat_order_sera = ['63C-day-10', '64C-day-15', '99C-day-27', '108C-day-18']
 fitparams['sample'] = pd.Categorical(fitparams['sample'], categories=cat_order_sera, ordered=True)
 ```
 
@@ -142,7 +141,7 @@ IC50 = (ggplot(fitparams, aes(x='cells', y='ic50', colour='RBD-targeting antibod
                    axis_title_x=element_text(size=12),
                    strip_text = element_text(size=12)
                   ) +
-              facet_wrap('sample', ncol = 4)+
+              facet_wrap('sample', ncol = 3)+
               scale_y_log10(name='IC50') +
               xlab('ACE2 expression in target cells') +
              scale_color_manual(values=CBPALETTE[1:])
@@ -178,7 +177,7 @@ NT50 = (ggplot(fitparams, aes(x='cells', y='NT50', colour='RBD-targeting antibod
                 size=1, 
                 alpha=0.6, 
                 color=CBPALETTE[7]) +
-              facet_wrap('sample', ncol = 4)+
+              facet_wrap('sample', ncol = 3)+
               scale_y_log10(name='NT50') +
               xlab('ACE2 expression in target cells') +
              scale_color_manual(values=CBPALETTE[1:])
@@ -200,11 +199,11 @@ NT50.save(f'./{resultsdir}/NT50.pdf')
 ```python
 fig, axes = fits.plotSera(
                           xlabel='serum dilution',
-                          ncol=4,
-                          widthscale=2,
-                          heightscale=2,
-                          titlesize=25, labelsize=25, ticksize=15, legendfontsize=24, yticklocs=[0,0.5,1],
-                          markersize=8, linewidth=2,
+                          ncol=6,
+                          widthscale=4,
+                          heightscale=4,
+                          titlesize=60, labelsize=50, ticksize=50, legendfontsize=50, yticklocs=[0,0.5,1],
+                          markersize=10, linewidth=4,
                           virus_to_color_marker={
                           'depleted': ('#56B4E9', 'o'),
                           'not depleted': ('#E69F00', 'o')},
