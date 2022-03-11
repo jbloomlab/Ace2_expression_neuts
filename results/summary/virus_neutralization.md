@@ -102,6 +102,398 @@ fitparams = (
 
 
 ```python
+fitparams
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>serum</th>
+      <th>RBD-targeting antibodies</th>
+      <th>ic50</th>
+      <th>ic50_bound</th>
+      <th>NT50</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>63C-day-10__very low</td>
+      <td>not depleted</td>
+      <td>0.000031</td>
+      <td>interpolated</td>
+      <td>31968.943613</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>63C-day-10__very low</td>
+      <td>depleted</td>
+      <td>0.000454</td>
+      <td>interpolated</td>
+      <td>2200.799322</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>64C-day-15__very low</td>
+      <td>not depleted</td>
+      <td>0.000064</td>
+      <td>interpolated</td>
+      <td>15594.993852</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>64C-day-15__very low</td>
+      <td>depleted</td>
+      <td>0.000199</td>
+      <td>interpolated</td>
+      <td>5029.538042</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>99C-day-27__very low</td>
+      <td>not depleted</td>
+      <td>0.000096</td>
+      <td>interpolated</td>
+      <td>10374.149491</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>99C-day-27__very low</td>
+      <td>depleted</td>
+      <td>0.000435</td>
+      <td>interpolated</td>
+      <td>2296.488086</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>108C-day-18__very low</td>
+      <td>not depleted</td>
+      <td>0.000038</td>
+      <td>interpolated</td>
+      <td>26336.105034</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>108C-day-18__very low</td>
+      <td>depleted</td>
+      <td>0.000225</td>
+      <td>interpolated</td>
+      <td>4450.299723</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>120C-day-10__very low</td>
+      <td>not depleted</td>
+      <td>0.000027</td>
+      <td>interpolated</td>
+      <td>36527.531964</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>120C-day-10__very low</td>
+      <td>depleted</td>
+      <td>0.000218</td>
+      <td>interpolated</td>
+      <td>4588.546268</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>180C-day-36__very low</td>
+      <td>not depleted</td>
+      <td>0.000048</td>
+      <td>interpolated</td>
+      <td>21040.240657</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>180C-day-36__very low</td>
+      <td>depleted</td>
+      <td>0.000301</td>
+      <td>interpolated</td>
+      <td>3322.323929</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>63C-day-10__low</td>
+      <td>not depleted</td>
+      <td>0.000040</td>
+      <td>interpolated</td>
+      <td>24852.475407</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>63C-day-10__low</td>
+      <td>depleted</td>
+      <td>0.000704</td>
+      <td>interpolated</td>
+      <td>1420.647038</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>64C-day-15__low</td>
+      <td>not depleted</td>
+      <td>0.000081</td>
+      <td>interpolated</td>
+      <td>12328.306795</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>64C-day-15__low</td>
+      <td>depleted</td>
+      <td>0.000262</td>
+      <td>interpolated</td>
+      <td>3823.459538</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>99C-day-27__low</td>
+      <td>not depleted</td>
+      <td>0.000110</td>
+      <td>interpolated</td>
+      <td>9071.489070</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>99C-day-27__low</td>
+      <td>depleted</td>
+      <td>0.000418</td>
+      <td>interpolated</td>
+      <td>2392.117387</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>108C-day-18__low</td>
+      <td>not depleted</td>
+      <td>0.000065</td>
+      <td>interpolated</td>
+      <td>15482.242047</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>108C-day-18__low</td>
+      <td>depleted</td>
+      <td>0.000487</td>
+      <td>interpolated</td>
+      <td>2052.442693</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>120C-day-10__low</td>
+      <td>not depleted</td>
+      <td>0.000029</td>
+      <td>interpolated</td>
+      <td>34145.783623</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>120C-day-10__low</td>
+      <td>depleted</td>
+      <td>0.000287</td>
+      <td>interpolated</td>
+      <td>3483.067791</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>180C-day-36__low</td>
+      <td>not depleted</td>
+      <td>0.000048</td>
+      <td>interpolated</td>
+      <td>20940.398173</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>180C-day-36__low</td>
+      <td>depleted</td>
+      <td>0.000323</td>
+      <td>interpolated</td>
+      <td>3100.452186</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>99C-day-27__medium</td>
+      <td>not depleted</td>
+      <td>0.000139</td>
+      <td>interpolated</td>
+      <td>7176.352127</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>99C-day-27__medium</td>
+      <td>depleted</td>
+      <td>0.000913</td>
+      <td>interpolated</td>
+      <td>1095.373755</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>108C-day-18__medium</td>
+      <td>not depleted</td>
+      <td>0.000069</td>
+      <td>interpolated</td>
+      <td>14551.386810</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>108C-day-18__medium</td>
+      <td>depleted</td>
+      <td>0.000792</td>
+      <td>interpolated</td>
+      <td>1262.226126</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>120C-day-10__medium</td>
+      <td>not depleted</td>
+      <td>0.000043</td>
+      <td>interpolated</td>
+      <td>23525.687102</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>120C-day-10__medium</td>
+      <td>depleted</td>
+      <td>0.000458</td>
+      <td>interpolated</td>
+      <td>2185.240092</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>180C-day-36__medium</td>
+      <td>not depleted</td>
+      <td>0.000050</td>
+      <td>interpolated</td>
+      <td>20046.024435</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>180C-day-36__medium</td>
+      <td>depleted</td>
+      <td>0.000478</td>
+      <td>interpolated</td>
+      <td>2091.586425</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>63C-day-10__high</td>
+      <td>not depleted</td>
+      <td>0.000102</td>
+      <td>interpolated</td>
+      <td>9830.591738</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>63C-day-10__high</td>
+      <td>depleted</td>
+      <td>0.012598</td>
+      <td>interpolated</td>
+      <td>79.377273</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>64C-day-15__high</td>
+      <td>not depleted</td>
+      <td>0.000377</td>
+      <td>interpolated</td>
+      <td>2656.009243</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>64C-day-15__high</td>
+      <td>depleted</td>
+      <td>0.040000</td>
+      <td>lower</td>
+      <td>25.000000</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>99C-day-27__high</td>
+      <td>not depleted</td>
+      <td>0.000377</td>
+      <td>interpolated</td>
+      <td>2655.584701</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>99C-day-27__high</td>
+      <td>depleted</td>
+      <td>0.040000</td>
+      <td>lower</td>
+      <td>25.000000</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>108C-day-18__high</td>
+      <td>not depleted</td>
+      <td>0.000208</td>
+      <td>interpolated</td>
+      <td>4814.580041</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>108C-day-18__high</td>
+      <td>depleted</td>
+      <td>0.010558</td>
+      <td>interpolated</td>
+      <td>94.715361</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>120C-day-10__high</td>
+      <td>not depleted</td>
+      <td>0.000156</td>
+      <td>interpolated</td>
+      <td>6429.843480</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>120C-day-10__high</td>
+      <td>depleted</td>
+      <td>0.009512</td>
+      <td>interpolated</td>
+      <td>105.133687</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>180C-day-36__high</td>
+      <td>not depleted</td>
+      <td>0.000196</td>
+      <td>interpolated</td>
+      <td>5093.387369</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>180C-day-36__high</td>
+      <td>depleted</td>
+      <td>0.013110</td>
+      <td>interpolated</td>
+      <td>76.275648</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
 fitparams['ic50_is_bound'] = fitparams['ic50_bound'].apply(lambda x: True if x!='interpolated' else False)
 
 ```
@@ -113,11 +505,537 @@ fitparams[['sample', 'cells']] = fitparams['serum'].str.split('__', 1, expand=Tr
 
 
 ```python
+fitparams
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>serum</th>
+      <th>RBD-targeting antibodies</th>
+      <th>ic50</th>
+      <th>ic50_bound</th>
+      <th>NT50</th>
+      <th>ic50_is_bound</th>
+      <th>sample</th>
+      <th>cells</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>63C-day-10__very low</td>
+      <td>not depleted</td>
+      <td>0.000031</td>
+      <td>interpolated</td>
+      <td>31968.943613</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>63C-day-10__very low</td>
+      <td>depleted</td>
+      <td>0.000454</td>
+      <td>interpolated</td>
+      <td>2200.799322</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>64C-day-15__very low</td>
+      <td>not depleted</td>
+      <td>0.000064</td>
+      <td>interpolated</td>
+      <td>15594.993852</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>64C-day-15__very low</td>
+      <td>depleted</td>
+      <td>0.000199</td>
+      <td>interpolated</td>
+      <td>5029.538042</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>99C-day-27__very low</td>
+      <td>not depleted</td>
+      <td>0.000096</td>
+      <td>interpolated</td>
+      <td>10374.149491</td>
+      <td>False</td>
+      <td>99C-day-27</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>99C-day-27__very low</td>
+      <td>depleted</td>
+      <td>0.000435</td>
+      <td>interpolated</td>
+      <td>2296.488086</td>
+      <td>False</td>
+      <td>99C-day-27</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>108C-day-18__very low</td>
+      <td>not depleted</td>
+      <td>0.000038</td>
+      <td>interpolated</td>
+      <td>26336.105034</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>108C-day-18__very low</td>
+      <td>depleted</td>
+      <td>0.000225</td>
+      <td>interpolated</td>
+      <td>4450.299723</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>120C-day-10__very low</td>
+      <td>not depleted</td>
+      <td>0.000027</td>
+      <td>interpolated</td>
+      <td>36527.531964</td>
+      <td>False</td>
+      <td>120C-day-10</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>120C-day-10__very low</td>
+      <td>depleted</td>
+      <td>0.000218</td>
+      <td>interpolated</td>
+      <td>4588.546268</td>
+      <td>False</td>
+      <td>120C-day-10</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>180C-day-36__very low</td>
+      <td>not depleted</td>
+      <td>0.000048</td>
+      <td>interpolated</td>
+      <td>21040.240657</td>
+      <td>False</td>
+      <td>180C-day-36</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>180C-day-36__very low</td>
+      <td>depleted</td>
+      <td>0.000301</td>
+      <td>interpolated</td>
+      <td>3322.323929</td>
+      <td>False</td>
+      <td>180C-day-36</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>63C-day-10__low</td>
+      <td>not depleted</td>
+      <td>0.000040</td>
+      <td>interpolated</td>
+      <td>24852.475407</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>63C-day-10__low</td>
+      <td>depleted</td>
+      <td>0.000704</td>
+      <td>interpolated</td>
+      <td>1420.647038</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>64C-day-15__low</td>
+      <td>not depleted</td>
+      <td>0.000081</td>
+      <td>interpolated</td>
+      <td>12328.306795</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>64C-day-15__low</td>
+      <td>depleted</td>
+      <td>0.000262</td>
+      <td>interpolated</td>
+      <td>3823.459538</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>99C-day-27__low</td>
+      <td>not depleted</td>
+      <td>0.000110</td>
+      <td>interpolated</td>
+      <td>9071.489070</td>
+      <td>False</td>
+      <td>99C-day-27</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>99C-day-27__low</td>
+      <td>depleted</td>
+      <td>0.000418</td>
+      <td>interpolated</td>
+      <td>2392.117387</td>
+      <td>False</td>
+      <td>99C-day-27</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>108C-day-18__low</td>
+      <td>not depleted</td>
+      <td>0.000065</td>
+      <td>interpolated</td>
+      <td>15482.242047</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>108C-day-18__low</td>
+      <td>depleted</td>
+      <td>0.000487</td>
+      <td>interpolated</td>
+      <td>2052.442693</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>120C-day-10__low</td>
+      <td>not depleted</td>
+      <td>0.000029</td>
+      <td>interpolated</td>
+      <td>34145.783623</td>
+      <td>False</td>
+      <td>120C-day-10</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>120C-day-10__low</td>
+      <td>depleted</td>
+      <td>0.000287</td>
+      <td>interpolated</td>
+      <td>3483.067791</td>
+      <td>False</td>
+      <td>120C-day-10</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>180C-day-36__low</td>
+      <td>not depleted</td>
+      <td>0.000048</td>
+      <td>interpolated</td>
+      <td>20940.398173</td>
+      <td>False</td>
+      <td>180C-day-36</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>180C-day-36__low</td>
+      <td>depleted</td>
+      <td>0.000323</td>
+      <td>interpolated</td>
+      <td>3100.452186</td>
+      <td>False</td>
+      <td>180C-day-36</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>99C-day-27__medium</td>
+      <td>not depleted</td>
+      <td>0.000139</td>
+      <td>interpolated</td>
+      <td>7176.352127</td>
+      <td>False</td>
+      <td>99C-day-27</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>99C-day-27__medium</td>
+      <td>depleted</td>
+      <td>0.000913</td>
+      <td>interpolated</td>
+      <td>1095.373755</td>
+      <td>False</td>
+      <td>99C-day-27</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>108C-day-18__medium</td>
+      <td>not depleted</td>
+      <td>0.000069</td>
+      <td>interpolated</td>
+      <td>14551.386810</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>108C-day-18__medium</td>
+      <td>depleted</td>
+      <td>0.000792</td>
+      <td>interpolated</td>
+      <td>1262.226126</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>120C-day-10__medium</td>
+      <td>not depleted</td>
+      <td>0.000043</td>
+      <td>interpolated</td>
+      <td>23525.687102</td>
+      <td>False</td>
+      <td>120C-day-10</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>120C-day-10__medium</td>
+      <td>depleted</td>
+      <td>0.000458</td>
+      <td>interpolated</td>
+      <td>2185.240092</td>
+      <td>False</td>
+      <td>120C-day-10</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>180C-day-36__medium</td>
+      <td>not depleted</td>
+      <td>0.000050</td>
+      <td>interpolated</td>
+      <td>20046.024435</td>
+      <td>False</td>
+      <td>180C-day-36</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>180C-day-36__medium</td>
+      <td>depleted</td>
+      <td>0.000478</td>
+      <td>interpolated</td>
+      <td>2091.586425</td>
+      <td>False</td>
+      <td>180C-day-36</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>63C-day-10__high</td>
+      <td>not depleted</td>
+      <td>0.000102</td>
+      <td>interpolated</td>
+      <td>9830.591738</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>63C-day-10__high</td>
+      <td>depleted</td>
+      <td>0.012598</td>
+      <td>interpolated</td>
+      <td>79.377273</td>
+      <td>False</td>
+      <td>63C-day-10</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>64C-day-15__high</td>
+      <td>not depleted</td>
+      <td>0.000377</td>
+      <td>interpolated</td>
+      <td>2656.009243</td>
+      <td>False</td>
+      <td>64C-day-15</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>64C-day-15__high</td>
+      <td>depleted</td>
+      <td>0.040000</td>
+      <td>lower</td>
+      <td>25.000000</td>
+      <td>True</td>
+      <td>64C-day-15</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>99C-day-27__high</td>
+      <td>not depleted</td>
+      <td>0.000377</td>
+      <td>interpolated</td>
+      <td>2655.584701</td>
+      <td>False</td>
+      <td>99C-day-27</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>99C-day-27__high</td>
+      <td>depleted</td>
+      <td>0.040000</td>
+      <td>lower</td>
+      <td>25.000000</td>
+      <td>True</td>
+      <td>99C-day-27</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>108C-day-18__high</td>
+      <td>not depleted</td>
+      <td>0.000208</td>
+      <td>interpolated</td>
+      <td>4814.580041</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>108C-day-18__high</td>
+      <td>depleted</td>
+      <td>0.010558</td>
+      <td>interpolated</td>
+      <td>94.715361</td>
+      <td>False</td>
+      <td>108C-day-18</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>120C-day-10__high</td>
+      <td>not depleted</td>
+      <td>0.000156</td>
+      <td>interpolated</td>
+      <td>6429.843480</td>
+      <td>False</td>
+      <td>120C-day-10</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>120C-day-10__high</td>
+      <td>depleted</td>
+      <td>0.009512</td>
+      <td>interpolated</td>
+      <td>105.133687</td>
+      <td>False</td>
+      <td>120C-day-10</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>180C-day-36__high</td>
+      <td>not depleted</td>
+      <td>0.000196</td>
+      <td>interpolated</td>
+      <td>5093.387369</td>
+      <td>False</td>
+      <td>180C-day-36</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>180C-day-36__high</td>
+      <td>depleted</td>
+      <td>0.013110</td>
+      <td>interpolated</td>
+      <td>76.275648</td>
+      <td>False</td>
+      <td>180C-day-36</td>
+      <td>high</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
 #category for cell order so that ggplot does not use alphabetical
 cat_order = ['very low', 'low', 'medium', 'high']
 fitparams['cells'] = pd.Categorical(fitparams['cells'], categories=cat_order, ordered=True)
 
-cat_order_sera = ['63C-day-10', '64C-day-15', '99C-day-27', '108C-day-18']
 fitparams['sample'] = pd.Categorical(fitparams['sample'], categories=cat_order_sera, ordered=True)
 ```
 
@@ -154,7 +1072,7 @@ IC50.save(f'./{resultsdir}/IC50.pdf')
 
 
     
-![png](virus_neutralization_files/virus_neutralization_20_0.png)
+![png](virus_neutralization_files/virus_neutralization_22_0.png)
     
 
 
@@ -190,7 +1108,7 @@ NT50.save(f'./{resultsdir}/NT50.pdf')
 
 
     
-![png](virus_neutralization_files/virus_neutralization_22_0.png)
+![png](virus_neutralization_files/virus_neutralization_24_0.png)
     
 
 
@@ -200,9 +1118,9 @@ NT50.save(f'./{resultsdir}/NT50.pdf')
 ```python
 fig, axes = fits.plotSera(
                           xlabel='serum dilution',
-                          ncol=4,
-                          widthscale=2,
-                          heightscale=2,
+                          ncol=6,
+                          widthscale=4,
+                          heightscale=4,
                           titlesize=25, labelsize=25, ticksize=15, legendfontsize=24, yticklocs=[0,0.5,1],
                           markersize=8, linewidth=2,
                           virus_to_color_marker={
@@ -214,7 +1132,7 @@ fig, axes = fits.plotSera(
 
 
     
-![png](virus_neutralization_files/virus_neutralization_24_0.png)
+![png](virus_neutralization_files/virus_neutralization_26_0.png)
     
 
 
