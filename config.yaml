@@ -15,6 +15,8 @@ virus_titers: data/virus_titer_RLU/ACE2clones_Wu_1_RLU.csv
 
 sample_information: data/serum_sample_info/sample_information.csv
 
+ACE2_expression_df: data/ACE2_expression/ACE2_expression_data.csv
+
 resultsdir: results/
 
 summary_dir: results/summary
