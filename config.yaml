@@ -13,7 +13,7 @@ mAb_neuts: data/mAb_neuts/mAB_neuts_frac_infectivity.csv
 
 virus_titers: data/virus_titer_RLU/ACE2clones_Wu_1_RLU.csv
 
-ACE2_expression_df: data/graphic.csv
+ACE2_expression_df: data/ACE2_expression_vs_infectivity/ACE2_expression_vs_infectivity.csv
 
 sample_information: data/serum_sample_info/sample_information.csv
 
