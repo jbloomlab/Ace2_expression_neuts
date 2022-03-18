@@ -101,40 +101,40 @@ frac_infect
       <td>LyCoV555</td>
       <td>consensus_Kozak</td>
       <td>1</td>
-      <td>6.000000</td>
-      <td>0.000047</td>
+      <td>0.500000</td>
+      <td>0.000003</td>
     </tr>
     <tr>
       <th>1</th>
       <td>LyCoV555</td>
       <td>consensus_Kozak</td>
       <td>1</td>
-      <td>2.000000</td>
-      <td>0.000037</td>
+      <td>0.166667</td>
+      <td>0.000992</td>
     </tr>
     <tr>
       <th>2</th>
       <td>LyCoV555</td>
       <td>consensus_Kozak</td>
       <td>1</td>
-      <td>0.666667</td>
-      <td>0.000803</td>
+      <td>0.055556</td>
+      <td>0.012796</td>
     </tr>
     <tr>
       <th>3</th>
       <td>LyCoV555</td>
       <td>consensus_Kozak</td>
       <td>1</td>
-      <td>0.222222</td>
-      <td>0.000670</td>
+      <td>0.018519</td>
+      <td>0.096506</td>
     </tr>
     <tr>
       <th>4</th>
       <td>LyCoV555</td>
       <td>consensus_Kozak</td>
       <td>1</td>
-      <td>0.074074</td>
-      <td>0.008842</td>
+      <td>0.006173</td>
+      <td>0.356711</td>
     </tr>
     <tr>
       <th>...</th>
@@ -149,40 +149,40 @@ frac_infect
       <td>4A8</td>
       <td>clone_A</td>
       <td>2</td>
-      <td>0.008230</td>
-      <td>0.163645</td>
+      <td>0.000686</td>
+      <td>0.672363</td>
     </tr>
     <tr>
       <th>260</th>
       <td>4A8</td>
       <td>clone_A</td>
       <td>2</td>
-      <td>0.002743</td>
-      <td>0.296861</td>
+      <td>0.000229</td>
+      <td>0.789911</td>
     </tr>
     <tr>
       <th>261</th>
       <td>4A8</td>
       <td>clone_A</td>
       <td>2</td>
-      <td>0.000914</td>
-      <td>0.528512</td>
+      <td>0.000076</td>
+      <td>0.775086</td>
     </tr>
     <tr>
       <th>262</th>
       <td>4A8</td>
       <td>clone_A</td>
       <td>2</td>
-      <td>0.000305</td>
-      <td>0.613362</td>
+      <td>0.000025</td>
+      <td>0.888502</td>
     </tr>
     <tr>
       <th>263</th>
       <td>4A8</td>
       <td>clone_A</td>
       <td>2</td>
-      <td>0.000102</td>
-      <td>0.642189</td>
+      <td>0.000008</td>
+      <td>0.838611</td>
     </tr>
   </tbody>
 </table>
@@ -195,7 +195,8 @@ frac_infect
 
 
 ```python
-fits = neutcurve.CurveFits(frac_infect, fixbottom= False,fixtop = False)
+fits = neutcurve.CurveFits(frac_infect, fixbottom= False, fixtop= False
+                           )
 ```
 
 
