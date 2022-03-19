@@ -33,7 +33,8 @@ rule all:
         'results/summary/virus_titers.md',
         'results/summary/rbd_depletions.md',
         'results/summary/virus_neutralization.md',
-        'results/summary/virus_neutralization_mAbs.md'
+        'results/summary/virus_neutralization_mAbs.md',
+        'results/summary/ACE2_expression_vs_infectivity.md'
         
 
 
@@ -81,6 +82,17 @@ rule plot_mAb_neuts:
         nb_markdown=nb_markdown('virus_neutralization_mAbs.ipynb')
     params:
         nb='virus_neutralization_mAbs.ipynb'
+    shell:
+        "python scripts/run_nb.py {params.nb} {output.nb_markdown}"
+
+rule plot_RLU_vs_ACE2:
+    """plot infection vs ACE2 expression"""
+    input:
+        depletion_neuts=config['ACE2_expression_df']
+    output:
+        nb_markdown=nb_markdown('ACE2_expression_vs_infectivity.ipynb')
+    params:
+        nb='ACE2_expression_vs_infectivity.ipynb'
     shell:
         "python scripts/run_nb.py {params.nb} {output.nb_markdown}"
 
