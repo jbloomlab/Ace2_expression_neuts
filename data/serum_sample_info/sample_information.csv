@@ -5,5 +5,5 @@ day,age,vaccine,subject_name,serum,gender
 18,>55y,Pfizer,108C,108C-day-18,Female
 10,18-55y,Pfizer,120C,120C-day-10,Female
 36,18-55y,Moderna,180C,180C-day-36,Female
-9,18-55y,Pfizer,192C,192C-day-9,Female
-8,18-55y,Pfizer,194C,194C-day-8,Male
+19,18-55y,Pfizer,215C,215C-day-19,Male
+29,18-55y,Pfizer,229C,229C-day-29,Female
