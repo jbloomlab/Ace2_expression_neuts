@@ -360,13 +360,20 @@ fitparams['ic50_is_bound'] = fitparams['ic50_bound'].apply(lambda x: True if x!=
 
 
 ```python
+#not sure about color, but at least I managed to change them! When I indicate colors this way, does it pick from the cbpalatte?
 fig, axes = fits.plotSera(
+                          viruses=['very low', 'low', 'medium', 'high'],
                           xlabel='concentration (ug/ml)',
                           ncol=6,
                           widthscale=2,
                           heightscale=2,
                           titlesize=28, labelsize=28, ticksize=18, legendfontsize=24, yticklocs=[0,0.5,1],
                           markersize=8, linewidth=2,
+                          virus_to_color_marker={
+                              'very low': ('red', 'o'),
+                              'low': ('blue', '^'),
+                              'medium': ('purple', 's'),
+                              'high': ('black', 'd')},
                           sharex=False
                          )
 ```
