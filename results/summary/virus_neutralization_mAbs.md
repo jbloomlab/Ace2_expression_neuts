@@ -99,42 +99,42 @@ frac_infect
     <tr>
       <th>0</th>
       <td>LyCoV555</td>
-      <td>high</td>
+      <td>very low</td>
       <td>1</td>
       <td>0.500000</td>
-      <td>0.000003</td>
+      <td>0.000005</td>
     </tr>
     <tr>
       <th>1</th>
       <td>LyCoV555</td>
-      <td>high</td>
+      <td>very low</td>
       <td>1</td>
       <td>0.166667</td>
-      <td>0.000992</td>
+      <td>0.000012</td>
     </tr>
     <tr>
       <th>2</th>
       <td>LyCoV555</td>
-      <td>high</td>
+      <td>very low</td>
       <td>1</td>
       <td>0.055556</td>
-      <td>0.012796</td>
+      <td>0.000058</td>
     </tr>
     <tr>
       <th>3</th>
       <td>LyCoV555</td>
-      <td>high</td>
+      <td>very low</td>
       <td>1</td>
       <td>0.018519</td>
-      <td>0.096506</td>
+      <td>0.015295</td>
     </tr>
     <tr>
       <th>4</th>
       <td>LyCoV555</td>
-      <td>high</td>
+      <td>very low</td>
       <td>1</td>
       <td>0.006173</td>
-      <td>0.356711</td>
+      <td>0.091381</td>
     </tr>
     <tr>
       <th>...</th>
@@ -147,42 +147,42 @@ frac_infect
     <tr>
       <th>259</th>
       <td>4A8</td>
-      <td>very low</td>
+      <td>high</td>
       <td>2</td>
       <td>0.000686</td>
-      <td>0.672363</td>
+      <td>0.770867</td>
     </tr>
     <tr>
       <th>260</th>
       <td>4A8</td>
-      <td>very low</td>
+      <td>high</td>
       <td>2</td>
       <td>0.000229</td>
-      <td>0.789911</td>
+      <td>0.711955</td>
     </tr>
     <tr>
       <th>261</th>
       <td>4A8</td>
-      <td>very low</td>
+      <td>high</td>
       <td>2</td>
       <td>0.000076</td>
-      <td>0.775086</td>
+      <td>0.769362</td>
     </tr>
     <tr>
       <th>262</th>
       <td>4A8</td>
-      <td>very low</td>
+      <td>high</td>
       <td>2</td>
       <td>0.000025</td>
-      <td>0.888502</td>
+      <td>0.653560</td>
     </tr>
     <tr>
       <th>263</th>
       <td>4A8</td>
-      <td>very low</td>
+      <td>high</td>
       <td>2</td>
       <td>0.000008</td>
-      <td>0.838611</td>
+      <td>0.650991</td>
     </tr>
   </tbody>
 </table>
@@ -251,21 +251,13 @@ fitparams
     <tr>
       <th>0</th>
       <td>LyCoV555</td>
-      <td>0.004304</td>
+      <td>0.001076</td>
       <td>interpolated</td>
-      <td>high</td>
-      <td>232.332685</td>
+      <td>very low</td>
+      <td>929.396039</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>LyCoV555</td>
-      <td>0.001075</td>
-      <td>interpolated</td>
-      <td>medium</td>
-      <td>930.656270</td>
-    </tr>
-    <tr>
-      <th>2</th>
       <td>LyCoV555</td>
       <td>0.001048</td>
       <td>interpolated</td>
@@ -273,39 +265,23 @@ fitparams
       <td>954.629329</td>
     </tr>
     <tr>
+      <th>2</th>
+      <td>LyCoV555</td>
+      <td>0.001075</td>
+      <td>interpolated</td>
+      <td>medium</td>
+      <td>930.656270</td>
+    </tr>
+    <tr>
       <th>3</th>
       <td>LyCoV555</td>
-      <td>0.001076</td>
+      <td>0.004304</td>
       <td>interpolated</td>
-      <td>very low</td>
-      <td>929.396039</td>
+      <td>high</td>
+      <td>232.332685</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>S309</td>
-      <td>2.211712</td>
-      <td>interpolated</td>
-      <td>high</td>
-      <td>0.452138</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>S309</td>
-      <td>0.016705</td>
-      <td>interpolated</td>
-      <td>medium</td>
-      <td>59.860800</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>S309</td>
-      <td>0.014038</td>
-      <td>interpolated</td>
-      <td>low</td>
-      <td>71.237133</td>
-    </tr>
-    <tr>
-      <th>7</th>
       <td>S309</td>
       <td>0.012557</td>
       <td>interpolated</td>
@@ -313,23 +289,39 @@ fitparams
       <td>79.636579</td>
     </tr>
     <tr>
-      <th>8</th>
-      <td>4A8</td>
-      <td>0.410878</td>
+      <th>5</th>
+      <td>S309</td>
+      <td>0.014038</td>
+      <td>interpolated</td>
+      <td>low</td>
+      <td>71.237133</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>S309</td>
+      <td>0.016705</td>
+      <td>interpolated</td>
+      <td>medium</td>
+      <td>59.860800</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>S309</td>
+      <td>2.211712</td>
       <td>interpolated</td>
       <td>high</td>
-      <td>2.433810</td>
+      <td>0.452138</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>4A8</td>
+      <td>0.001612</td>
+      <td>interpolated</td>
+      <td>very low</td>
+      <td>620.192223</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>4A8</td>
-      <td>0.001695</td>
-      <td>interpolated</td>
-      <td>medium</td>
-      <td>590.119880</td>
-    </tr>
-    <tr>
-      <th>10</th>
       <td>4A8</td>
       <td>0.001842</td>
       <td>interpolated</td>
@@ -337,12 +329,20 @@ fitparams
       <td>542.792735</td>
     </tr>
     <tr>
+      <th>10</th>
+      <td>4A8</td>
+      <td>0.001695</td>
+      <td>interpolated</td>
+      <td>medium</td>
+      <td>590.119880</td>
+    </tr>
+    <tr>
       <th>11</th>
       <td>4A8</td>
-      <td>0.001612</td>
+      <td>0.410878</td>
       <td>interpolated</td>
-      <td>very low</td>
-      <td>620.192223</td>
+      <td>high</td>
+      <td>2.433810</td>
     </tr>
   </tbody>
 </table>
