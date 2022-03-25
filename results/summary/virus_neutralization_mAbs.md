@@ -101,40 +101,40 @@ frac_infect
       <td>LyCoV555</td>
       <td>very low</td>
       <td>1</td>
-      <td>0.500000</td>
-      <td>0.000005</td>
+      <td>0.166667</td>
+      <td>0.000002</td>
     </tr>
     <tr>
       <th>1</th>
       <td>LyCoV555</td>
       <td>very low</td>
       <td>1</td>
-      <td>0.166667</td>
-      <td>0.000012</td>
+      <td>0.041667</td>
+      <td>0.003510</td>
     </tr>
     <tr>
       <th>2</th>
       <td>LyCoV555</td>
       <td>very low</td>
       <td>1</td>
-      <td>0.055556</td>
-      <td>0.000058</td>
+      <td>0.010417</td>
+      <td>0.099252</td>
     </tr>
     <tr>
       <th>3</th>
       <td>LyCoV555</td>
       <td>very low</td>
       <td>1</td>
-      <td>0.018519</td>
-      <td>0.015295</td>
+      <td>0.002604</td>
+      <td>0.513108</td>
     </tr>
     <tr>
       <th>4</th>
       <td>LyCoV555</td>
       <td>very low</td>
       <td>1</td>
-      <td>0.006173</td>
-      <td>0.091381</td>
+      <td>0.000651</td>
+      <td>0.850309</td>
     </tr>
     <tr>
       <th>...</th>
@@ -145,48 +145,48 @@ frac_infect
       <td>...</td>
     </tr>
     <tr>
-      <th>259</th>
+      <th>187</th>
       <td>4A8</td>
       <td>high</td>
       <td>2</td>
-      <td>0.000686</td>
-      <td>0.770867</td>
+      <td>0.002604</td>
+      <td>1.140743</td>
     </tr>
     <tr>
-      <th>260</th>
+      <th>188</th>
       <td>4A8</td>
       <td>high</td>
       <td>2</td>
-      <td>0.000229</td>
-      <td>0.711955</td>
+      <td>0.000651</td>
+      <td>0.979990</td>
     </tr>
     <tr>
-      <th>261</th>
+      <th>189</th>
       <td>4A8</td>
       <td>high</td>
       <td>2</td>
-      <td>0.000076</td>
-      <td>0.769362</td>
+      <td>0.000163</td>
+      <td>0.950808</td>
     </tr>
     <tr>
-      <th>262</th>
+      <th>190</th>
       <td>4A8</td>
       <td>high</td>
       <td>2</td>
-      <td>0.000025</td>
-      <td>0.653560</td>
+      <td>0.000041</td>
+      <td>0.985863</td>
     </tr>
     <tr>
-      <th>263</th>
+      <th>191</th>
       <td>4A8</td>
       <td>high</td>
       <td>2</td>
-      <td>0.000008</td>
-      <td>0.650991</td>
+      <td>0.000010</td>
+      <td>0.923761</td>
     </tr>
   </tbody>
 </table>
-<p>264 rows × 5 columns</p>
+<p>192 rows × 5 columns</p>
 </div>
 
 
@@ -195,7 +195,7 @@ frac_infect
 
 
 ```python
-fits = neutcurve.CurveFits(frac_infect, fixbottom= False, fixtop= False)
+fits = neutcurve.CurveFits(frac_infect, fixbottom= False, fixtop= True)
 ```
 
 
@@ -251,98 +251,98 @@ fitparams
     <tr>
       <th>0</th>
       <td>LyCoV555</td>
-      <td>0.001076</td>
+      <td>0.002520</td>
       <td>interpolated</td>
       <td>very low</td>
-      <td>929.396039</td>
+      <td>396.764998</td>
     </tr>
     <tr>
       <th>1</th>
       <td>LyCoV555</td>
-      <td>0.001048</td>
+      <td>0.003043</td>
       <td>interpolated</td>
       <td>low</td>
-      <td>954.629329</td>
+      <td>328.656981</td>
     </tr>
     <tr>
       <th>2</th>
       <td>LyCoV555</td>
-      <td>0.001075</td>
+      <td>0.004048</td>
       <td>interpolated</td>
       <td>medium</td>
-      <td>930.656270</td>
+      <td>247.026726</td>
     </tr>
     <tr>
       <th>3</th>
       <td>LyCoV555</td>
-      <td>0.004304</td>
+      <td>0.015075</td>
       <td>interpolated</td>
       <td>high</td>
-      <td>232.332685</td>
+      <td>66.334383</td>
     </tr>
     <tr>
       <th>4</th>
       <td>S309</td>
-      <td>0.012557</td>
+      <td>0.011144</td>
       <td>interpolated</td>
       <td>very low</td>
-      <td>79.636579</td>
+      <td>89.731906</td>
     </tr>
     <tr>
       <th>5</th>
       <td>S309</td>
-      <td>0.014038</td>
+      <td>0.022513</td>
       <td>interpolated</td>
       <td>low</td>
-      <td>71.237133</td>
+      <td>44.419146</td>
     </tr>
     <tr>
       <th>6</th>
       <td>S309</td>
-      <td>0.016705</td>
+      <td>0.031744</td>
       <td>interpolated</td>
       <td>medium</td>
-      <td>59.860800</td>
+      <td>31.501638</td>
     </tr>
     <tr>
       <th>7</th>
       <td>S309</td>
-      <td>2.211712</td>
-      <td>interpolated</td>
+      <td>6.000000</td>
+      <td>lower</td>
       <td>high</td>
-      <td>0.452138</td>
+      <td>0.166667</td>
     </tr>
     <tr>
       <th>8</th>
       <td>4A8</td>
-      <td>0.001612</td>
+      <td>0.005148</td>
       <td>interpolated</td>
       <td>very low</td>
-      <td>620.192223</td>
+      <td>194.232873</td>
     </tr>
     <tr>
       <th>9</th>
       <td>4A8</td>
-      <td>0.001842</td>
+      <td>0.006607</td>
       <td>interpolated</td>
       <td>low</td>
-      <td>542.792735</td>
+      <td>151.363779</td>
     </tr>
     <tr>
       <th>10</th>
       <td>4A8</td>
-      <td>0.001695</td>
+      <td>0.007905</td>
       <td>interpolated</td>
       <td>medium</td>
-      <td>590.119880</td>
+      <td>126.494615</td>
     </tr>
     <tr>
       <th>11</th>
       <td>4A8</td>
-      <td>0.410878</td>
-      <td>interpolated</td>
+      <td>0.166667</td>
+      <td>lower</td>
       <td>high</td>
-      <td>2.433810</td>
+      <td>6.000000</td>
     </tr>
   </tbody>
 </table>
@@ -365,16 +365,16 @@ fig, axes = fits.plotSera(
                           viruses=['very low', 'low', 'medium', 'high'],
                           xlabel='concentration (ug/ml)',
                           ncol=6,
-                          widthscale=2,
-                          heightscale=2,
-                          titlesize=28, labelsize=28, ticksize=18, legendfontsize=24, yticklocs=[0,0.5,1],
-                          markersize=8, linewidth=2,
+                          widthscale=1,
+                          heightscale=1,
+                          titlesize=14, labelsize=14, ticksize=11, legendfontsize=12, yticklocs=[0,0.5,1],
+                          markersize=5, linewidth=1,
                           virus_to_color_marker={
-                              'very low': ('#F0E442', 'o'),
-                              'low': ('#009E73', '^'),
-                              'medium': ('#0072B2', 's'),
-                              'high': ('black', 'd')},
-                          sharex=False
+                              'very low': ('#882255', 'o'),
+                              'low': ('#44AA99', '^'),
+                              'medium': ('#DDCC77', 's'),
+                              'high': ('#332288', 'd')},
+                          sharex=True
                          )
 ```
 
