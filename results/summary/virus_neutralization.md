@@ -96,7 +96,7 @@ We use [`neutcurve`](https://jbloomlab.github.io/neutcurve/) to fit Hill curve f
 
 
 ```python
-fits = neutcurve.CurveFits(frac_infect, fixbottom=False)
+fits = neutcurve.CurveFits(frac_infect, fixbottom=0)
 
 fitparams = (
     fits.fitParams()
@@ -186,7 +186,7 @@ fitparams
       <td>not depleted</td>
       <td>0.000036</td>
       <td>interpolated</td>
-      <td>27722.423638</td>
+      <td>27704.327914</td>
       <td>False</td>
       <td>63C-day-10</td>
       <td>very low</td>
@@ -197,9 +197,9 @@ fitparams
       <th>1</th>
       <td>63C-day-10__very low</td>
       <td>depleted</td>
-      <td>0.000857</td>
+      <td>0.000896</td>
       <td>interpolated</td>
-      <td>1166.622681</td>
+      <td>1116.350361</td>
       <td>False</td>
       <td>63C-day-10</td>
       <td>very low</td>
@@ -210,40 +210,40 @@ fitparams
       <th>2</th>
       <td>64C-day-15__very low</td>
       <td>not depleted</td>
-      <td>0.000059</td>
+      <td>0.000058</td>
       <td>interpolated</td>
-      <td>17037.797799</td>
+      <td>17250.386352</td>
       <td>False</td>
       <td>64C-day-15</td>
       <td>very low</td>
-      <td>82</td>
-      <td>82%</td>
+      <td>86</td>
+      <td>86%</td>
     </tr>
     <tr>
       <th>3</th>
       <td>64C-day-15__very low</td>
       <td>depleted</td>
-      <td>0.000341</td>
+      <td>0.000416</td>
       <td>interpolated</td>
-      <td>2929.899361</td>
+      <td>2404.654223</td>
       <td>False</td>
       <td>64C-day-15</td>
       <td>very low</td>
-      <td>82</td>
-      <td>82%</td>
+      <td>86</td>
+      <td>86%</td>
     </tr>
     <tr>
       <th>4</th>
       <td>99C-day-27__very low</td>
       <td>not depleted</td>
-      <td>0.000096</td>
+      <td>0.000095</td>
       <td>interpolated</td>
-      <td>10374.149491</td>
+      <td>10482.828819</td>
       <td>False</td>
       <td>99C-day-27</td>
       <td>very low</td>
-      <td>77</td>
-      <td>77%</td>
+      <td>83</td>
+      <td>83%</td>
     </tr>
     <tr>
       <th>...</th>
@@ -259,25 +259,25 @@ fitparams
       <td>...</td>
     </tr>
     <tr>
-      <th>59</th>
-      <td>180C-day-36__high</td>
+      <th>75</th>
+      <td>194C-day-8__high</td>
       <td>depleted</td>
-      <td>0.013110</td>
-      <td>interpolated</td>
-      <td>76.275648</td>
-      <td>False</td>
-      <td>180C-day-36</td>
+      <td>0.040000</td>
+      <td>lower</td>
+      <td>25.000000</td>
+      <td>True</td>
+      <td>194C-day-8</td>
       <td>high</td>
-      <td>98</td>
-      <td>98%</td>
+      <td>99</td>
+      <td>99%</td>
     </tr>
     <tr>
-      <th>60</th>
+      <th>76</th>
       <td>215C-day-19__high</td>
       <td>not depleted</td>
-      <td>0.000544</td>
+      <td>0.000550</td>
       <td>interpolated</td>
-      <td>1836.921925</td>
+      <td>1817.157984</td>
       <td>False</td>
       <td>215C-day-19</td>
       <td>high</td>
@@ -285,7 +285,7 @@ fitparams
       <td>98%</td>
     </tr>
     <tr>
-      <th>61</th>
+      <th>77</th>
       <td>215C-day-19__high</td>
       <td>depleted</td>
       <td>0.040000</td>
@@ -298,34 +298,34 @@ fitparams
       <td>98%</td>
     </tr>
     <tr>
-      <th>62</th>
+      <th>78</th>
       <td>229C-day-29__high</td>
       <td>not depleted</td>
       <td>0.000301</td>
       <td>interpolated</td>
-      <td>3317.114196</td>
+      <td>3317.975700</td>
       <td>False</td>
       <td>229C-day-29</td>
       <td>high</td>
-      <td>98</td>
-      <td>98%</td>
+      <td>99</td>
+      <td>99%</td>
     </tr>
     <tr>
-      <th>63</th>
+      <th>79</th>
       <td>229C-day-29__high</td>
       <td>depleted</td>
-      <td>0.015856</td>
+      <td>0.039109</td>
       <td>interpolated</td>
-      <td>63.068472</td>
+      <td>25.569526</td>
       <td>False</td>
       <td>229C-day-29</td>
       <td>high</td>
-      <td>98</td>
-      <td>98%</td>
+      <td>99</td>
+      <td>99%</td>
     </tr>
   </tbody>
 </table>
-<p>64 rows × 10 columns</p>
+<p>80 rows × 10 columns</p>
 </div>
 
 
@@ -416,11 +416,11 @@ _ = NT50.draw()
 ```python
 fig, axes = fits.plotSera(
                           xlabel='serum dilution',
-                          ncol=8,
-                          widthscale=4,
-                          heightscale=4,
-                          titlesize=60, labelsize=50, ticksize=40, legendfontsize=50, yticklocs=[0,0.5,1],
-                          markersize=10, linewidth=6,
+                          ncol=10,
+                          widthscale=5,
+                          heightscale=5,
+                          titlesize=80, labelsize=80, ticksize=50, legendfontsize=80, yticklocs=[0,0.5,1],
+                          markersize=20, linewidth=8,
                           virus_to_color_marker={
                           'depleted': ('#56B4E9', 'o'),
                           'not depleted': ('#E69F00', 'o')},

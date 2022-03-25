@@ -370,9 +370,9 @@ fig, axes = fits.plotSera(
                           titlesize=28, labelsize=28, ticksize=18, legendfontsize=24, yticklocs=[0,0.5,1],
                           markersize=8, linewidth=2,
                           virus_to_color_marker={
-                              'very low': ('red', 'o'),
-                              'low': ('blue', '^'),
-                              'medium': ('purple', 's'),
+                              'very low': ('#F0E442', 'o'),
+                              'low': ('#009E73', '^'),
+                              'medium': ('#0072B2', 's'),
                               'high': ('black', 'd')},
                           sharex=False
                          )
