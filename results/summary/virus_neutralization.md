@@ -96,6 +96,92 @@ We use [`neutcurve`](https://jbloomlab.github.io/neutcurve/) to fit Hill curve f
 
 
 ```python
+frac_infect.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>serum</th>
+      <th>virus</th>
+      <th>replicate</th>
+      <th>concentration</th>
+      <th>fraction infectivity</th>
+      <th>cells</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>63C-day-10__very low</td>
+      <td>not depleted</td>
+      <td>1</td>
+      <td>0.040000</td>
+      <td>0.000018</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>63C-day-10__very low</td>
+      <td>not depleted</td>
+      <td>1</td>
+      <td>0.010000</td>
+      <td>0.000027</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>63C-day-10__very low</td>
+      <td>not depleted</td>
+      <td>1</td>
+      <td>0.002500</td>
+      <td>-0.000010</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>63C-day-10__very low</td>
+      <td>not depleted</td>
+      <td>1</td>
+      <td>0.000625</td>
+      <td>-0.000006</td>
+      <td>very low</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>63C-day-10__very low</td>
+      <td>not depleted</td>
+      <td>1</td>
+      <td>0.000156</td>
+      <td>0.058871</td>
+      <td>very low</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
 fits = neutcurve.CurveFits(frac_infect, fixbottom=0)
 
 fitparams = (
@@ -368,7 +454,7 @@ _ = IC50.draw()
 
 
     
-![png](virus_neutralization_files/virus_neutralization_23_0.png)
+![png](virus_neutralization_files/virus_neutralization_24_0.png)
     
 
 
@@ -406,7 +492,52 @@ _ = NT50.draw()
 
 
     
-![png](virus_neutralization_files/virus_neutralization_25_0.png)
+![png](virus_neutralization_files/virus_neutralization_26_0.png)
+    
+
+
+
+```python
+df_merged = pd.merge(fitparams, ACE2_expression_df, on='cells')
+
+```
+
+
+```python
+plot = (
+    ggplot(df_merged) +
+    aes(x="relative MFI", y="NT50", group='RBD-targeting antibodies', color='RBD-targeting antibodies')+
+    geom_point(size=2) +
+    geom_line() +
+    theme(figure_size=(16,6),
+          axis_ticks_minor_x=None,
+          axis_text=element_text(size=14),
+          axis_text_x=element_text(size=14),
+          legend_text=element_text(size=14),
+          legend_title=element_text(size=12),
+          axis_title_x=element_text(size=18),
+          strip_text = element_text(size=14)) +
+    scale_color_manual(values= ['#56B4E9','#E69F00']) +
+    labs(title="Neutralization Titer vs ACE2 Expression", x="ACE2 expression relative\nto highest ACE2 cells", y="Neutralization Titer (NT50)") +
+    scale_x_log10() +
+    scale_y_log10() +
+    facet_wrap('sample', ncol=5) +
+    geom_hline(yintercept=25,
+                linetype='dotted', 
+                size=1, 
+                alpha=0.6, 
+                color=CBPALETTE[7])
+   
+
+)
+
+plot.draw()
+plot.save(f'{resultsdir}/NT50_vs_ACE2_expression.pdf')
+```
+
+
+    
+![png](virus_neutralization_files/virus_neutralization_28_0.png)
     
 
 
@@ -416,11 +547,11 @@ _ = NT50.draw()
 ```python
 fig, axes = fits.plotSera(
                           xlabel='serum dilution',
-                          ncol=10,
-                          widthscale=5,
-                          heightscale=5,
-                          titlesize=80, labelsize=80, ticksize=50, legendfontsize=80, yticklocs=[0,0.5,1],
-                          markersize=20, linewidth=8,
+                          ncol=8,
+                          widthscale=2.5,
+                          heightscale=2.5,
+                          titlesize=55, labelsize=55, ticksize=45, legendfontsize=55, yticklocs=[0,0.5,1],
+                          markersize=10, linewidth=6,
                           virus_to_color_marker={
                           'depleted': ('#56B4E9', 'o'),
                           'not depleted': ('#E69F00', 'o')},
@@ -431,7 +562,7 @@ fig, axes = fits.plotSera(
 
 
     
-![png](virus_neutralization_files/virus_neutralization_27_0.png)
+![png](virus_neutralization_files/virus_neutralization_30_0.png)
     
 
 
