@@ -141,7 +141,7 @@ df['cells'] = pd.Categorical(df['cells'], categories=cat_order, ordered=True)
 
 
 
-    <ggplot: (8742755072497)>
+    <ggplot: (8773016780942)>
 
 
 
@@ -181,7 +181,7 @@ df['cells'] = pd.Categorical(df['cells'], categories=cat_order, ordered=True)
 
 
 
-    <ggplot: (8742746535500)>
+    <ggplot: (8773008274426)>
 
 
 
