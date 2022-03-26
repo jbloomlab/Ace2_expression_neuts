@@ -62,10 +62,6 @@ for f in config['depletion_neuts'].keys():
     frac_infect.append(df)  
 frac_infect = pd.concat(frac_infect)
 
-frac_infect['serum'] = frac_infect['serum'] + '__' + frac_infect['cells']
-
-frac_infect['virus'] = frac_infect['virus'].str.replace('post-depletion','depleted')
-frac_infect['virus'] = frac_infect['virus'].str.replace('pre-depletion','not depleted')
 
 ```
 
@@ -85,18 +81,7 @@ cat_order_sera = sample_information['serum'].tolist()
 
 
 ```python
-#read in ACE2 expression info
-ACE2_expression_df = (pd.read_csv(config['ACE2_expression_df'])
-                      .drop_duplicates())
-```
-
-## Fit Hill curve 
-
-We use [`neutcurve`](https://jbloomlab.github.io/neutcurve/) to fit Hill curve for neutralization data and calcualte IC50 and NT50 values.
-
-
-```python
-frac_infect.head()
+sample_information
 ```
 
 
@@ -120,65 +105,163 @@ frac_infect.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>day</th>
+      <th>age</th>
+      <th>vaccine</th>
+      <th>subject_name</th>
+      <th>serum_org</th>
+      <th>gender</th>
       <th>serum</th>
-      <th>virus</th>
-      <th>replicate</th>
-      <th>concentration</th>
-      <th>fraction infectivity</th>
-      <th>cells</th>
+      <th>sorted</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>63C-day-10__very low</td>
-      <td>not depleted</td>
-      <td>1</td>
-      <td>0.040000</td>
-      <td>0.000018</td>
-      <td>very low</td>
+      <td>10</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>63C</td>
+      <td>63C-day-10</td>
+      <td>Female</td>
+      <td>serum 1</td>
+      <td>63</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>63C-day-10__very low</td>
-      <td>not depleted</td>
-      <td>1</td>
-      <td>0.010000</td>
-      <td>0.000027</td>
-      <td>very low</td>
+      <td>15</td>
+      <td>&gt;55y</td>
+      <td>Pfizer</td>
+      <td>64C</td>
+      <td>64C-day-15</td>
+      <td>Female</td>
+      <td>serum 2</td>
+      <td>64</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>63C-day-10__very low</td>
-      <td>not depleted</td>
-      <td>1</td>
-      <td>0.002500</td>
-      <td>-0.000010</td>
-      <td>very low</td>
+      <td>27</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>99C</td>
+      <td>99C-day-27</td>
+      <td>Male</td>
+      <td>serum 3</td>
+      <td>99</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>63C-day-10__very low</td>
-      <td>not depleted</td>
-      <td>1</td>
-      <td>0.000625</td>
-      <td>-0.000006</td>
-      <td>very low</td>
+      <td>18</td>
+      <td>&gt;55y</td>
+      <td>Pfizer</td>
+      <td>108C</td>
+      <td>108C-day-18</td>
+      <td>Female</td>
+      <td>serum 4</td>
+      <td>108</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>63C-day-10__very low</td>
-      <td>not depleted</td>
-      <td>1</td>
-      <td>0.000156</td>
-      <td>0.058871</td>
-      <td>very low</td>
+      <td>10</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>120C</td>
+      <td>120C-day-10</td>
+      <td>Female</td>
+      <td>serum 5</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>36</td>
+      <td>18-55y</td>
+      <td>Moderna</td>
+      <td>180C</td>
+      <td>180C-day-36</td>
+      <td>Female</td>
+      <td>serum 6</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>9</td>
+      <td>&gt;55y</td>
+      <td>Pfizer</td>
+      <td>192C</td>
+      <td>192C-day-9</td>
+      <td>Female</td>
+      <td>serum 7</td>
+      <td>192</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>194C</td>
+      <td>194C-day-8</td>
+      <td>Male</td>
+      <td>serum 8</td>
+      <td>194</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>19</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>215C</td>
+      <td>215C-day-19</td>
+      <td>Male</td>
+      <td>serum 9</td>
+      <td>215</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>29</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>229C</td>
+      <td>229C-day-29</td>
+      <td>Female</td>
+      <td>serum 10</td>
+      <td>229</td>
     </tr>
   </tbody>
 </table>
 </div>
 
 
+
+
+```python
+frac_infect = pd.merge(frac_infect, sample_information,
+                    left_on='serum', right_on='serum_org')
+frac_infect.drop('serum_x', axis=1, inplace=True)
+frac_infect = frac_infect.rename(columns={"serum_y": "serum"}, errors="raise")
+
+
+
+```
+
+
+```python
+frac_infect['serum'] = frac_infect['serum'] + '__' + frac_infect['cells']
+
+frac_infect['virus'] = frac_infect['virus'].str.replace('post-depletion','depleted')
+frac_infect['virus'] = frac_infect['virus'].str.replace('pre-depletion','not depleted')
+
+```
+
+
+```python
+#read in ACE2 expression info
+ACE2_expression_df = (pd.read_csv(config['ACE2_expression_df'])
+                      .drop_duplicates())
+```
+
+## Fit Hill curve 
+
+We use [`neutcurve`](https://jbloomlab.github.io/neutcurve/) to fit Hill curve for neutralization data and calcualte IC50 and NT50 values.
 
 
 ```python
@@ -225,200 +308,15 @@ fitparams.to_csv(config['neuts'], index=False)
 df_pre = fitparams.loc[fitparams['RBD-targeting antibodies'] == 'not depleted']
 df_post = fitparams.loc[fitparams['RBD-targeting antibodies'] == 'depleted']
 df_mege = pd.merge(df_pre, df_post, on="serum")
-df_mege['percent_RBD'] = (df_mege['NT50_x']-df_mege['NT50_y'])/df_mege['NT50_x']*100
-df_mege['percent_RBD'] = df_mege['percent_RBD'].astype(int)
-fitparams = pd.merge(fitparams,df_mege[['serum','percent_RBD']],on='serum', how='left')
-fitparams['percent_RBD_str'] = fitparams['percent_RBD'].astype(str) +'%'
-fitparams
+df_mege['NT50_fc'] = df_mege['NT50_x']/df_mege['NT50_y']
+df_mege['NT50_fc'] = df_mege['NT50_fc'].astype(int)
+fitparams = pd.merge(fitparams,df_mege[['serum','NT50_fc']],on='serum', how='left')
+fitparams['NT50_fc_str'] = fitparams['NT50_fc'].astype(str)
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>serum</th>
-      <th>RBD-targeting antibodies</th>
-      <th>ic50</th>
-      <th>ic50_bound</th>
-      <th>NT50</th>
-      <th>ic50_is_bound</th>
-      <th>sample</th>
-      <th>cells</th>
-      <th>percent_RBD</th>
-      <th>percent_RBD_str</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>63C-day-10__very low</td>
-      <td>not depleted</td>
-      <td>0.000036</td>
-      <td>interpolated</td>
-      <td>27704.327914</td>
-      <td>False</td>
-      <td>63C-day-10</td>
-      <td>very low</td>
-      <td>95</td>
-      <td>95%</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>63C-day-10__very low</td>
-      <td>depleted</td>
-      <td>0.000896</td>
-      <td>interpolated</td>
-      <td>1116.350361</td>
-      <td>False</td>
-      <td>63C-day-10</td>
-      <td>very low</td>
-      <td>95</td>
-      <td>95%</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>64C-day-15__very low</td>
-      <td>not depleted</td>
-      <td>0.000058</td>
-      <td>interpolated</td>
-      <td>17250.386352</td>
-      <td>False</td>
-      <td>64C-day-15</td>
-      <td>very low</td>
-      <td>86</td>
-      <td>86%</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>64C-day-15__very low</td>
-      <td>depleted</td>
-      <td>0.000416</td>
-      <td>interpolated</td>
-      <td>2404.654223</td>
-      <td>False</td>
-      <td>64C-day-15</td>
-      <td>very low</td>
-      <td>86</td>
-      <td>86%</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>99C-day-27__very low</td>
-      <td>not depleted</td>
-      <td>0.000095</td>
-      <td>interpolated</td>
-      <td>10482.828819</td>
-      <td>False</td>
-      <td>99C-day-27</td>
-      <td>very low</td>
-      <td>83</td>
-      <td>83%</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>75</th>
-      <td>194C-day-8__high</td>
-      <td>depleted</td>
-      <td>0.040000</td>
-      <td>lower</td>
-      <td>25.000000</td>
-      <td>True</td>
-      <td>194C-day-8</td>
-      <td>high</td>
-      <td>99</td>
-      <td>99%</td>
-    </tr>
-    <tr>
-      <th>76</th>
-      <td>215C-day-19__high</td>
-      <td>not depleted</td>
-      <td>0.000550</td>
-      <td>interpolated</td>
-      <td>1817.157984</td>
-      <td>False</td>
-      <td>215C-day-19</td>
-      <td>high</td>
-      <td>98</td>
-      <td>98%</td>
-    </tr>
-    <tr>
-      <th>77</th>
-      <td>215C-day-19__high</td>
-      <td>depleted</td>
-      <td>0.040000</td>
-      <td>lower</td>
-      <td>25.000000</td>
-      <td>True</td>
-      <td>215C-day-19</td>
-      <td>high</td>
-      <td>98</td>
-      <td>98%</td>
-    </tr>
-    <tr>
-      <th>78</th>
-      <td>229C-day-29__high</td>
-      <td>not depleted</td>
-      <td>0.000301</td>
-      <td>interpolated</td>
-      <td>3317.975700</td>
-      <td>False</td>
-      <td>229C-day-29</td>
-      <td>high</td>
-      <td>99</td>
-      <td>99%</td>
-    </tr>
-    <tr>
-      <th>79</th>
-      <td>229C-day-29__high</td>
-      <td>depleted</td>
-      <td>0.039109</td>
-      <td>interpolated</td>
-      <td>25.569526</td>
-      <td>False</td>
-      <td>229C-day-29</td>
-      <td>high</td>
-      <td>99</td>
-      <td>99%</td>
-    </tr>
-  </tbody>
-</table>
-<p>80 rows × 10 columns</p>
-</div>
-
-
-
-
 ```python
-rbd = fitparams.loc[fitparams['RBD-targeting antibodies'] == 'depleted']
+NT50_fc = fitparams.loc[fitparams['RBD-targeting antibodies'] == 'depleted']
 ```
 
 ## Plot IC50 values
@@ -430,20 +328,22 @@ IC50 = (ggplot(fitparams, aes(x='cells',
                               colour='RBD-targeting antibodies',
                               group = 'RBD-targeting antibodies',
                               )) +
-              geom_point(size=3) +
-              geom_line(alpha=1) +
-         geom_text(rbd, aes(label = 'percent_RBD_str',
-                            y=rbd['ic50'].max()*1.5),
+              geom_point(size=4) +
+              geom_line(size = 1) +
+         geom_text(NT50_fc, aes(label = 'NT50_fc_str',
+                            y=NT50_fc['ic50'].max()*1.5),
+                   size = 20,
                   colour = CBPALETTE[0]) +
-             theme(figure_size=(15,1*df['serum'].nunique()),
-                   axis_text=element_text(size=12),
-                   axis_text_x=element_text(size=12, angle= 45),
-                   legend_text=element_text(size=12),
-                   legend_title=element_text(size=12),
-                   axis_title_x=element_text(size=18),
-                   strip_text = element_text(size=12)
+             theme(figure_size=(25,12),
+                   axis_text=element_text(size=20),
+                   axis_text_x=element_text(size=16),
+                   legend_text=element_text(size=20),
+                   legend_title=element_text(size=20),
+                   axis_title_x=element_text(size=20),
+                   axis_title_y=element_text(size=20),
+                   strip_text = element_text(size=20)
                   ) +
-              facet_wrap('sample', ncol = 4)+
+              facet_wrap('sample', ncol = 5)+
               scale_y_log10(name='Inhibitory Concentration 50%') +
               xlab('ACE2 expression in target cells') +
              scale_color_manual(values=CBPALETTE[1:])
@@ -454,8 +354,47 @@ _ = IC50.draw()
 
 
     
-![png](virus_neutralization_files/virus_neutralization_24_0.png)
+![png](virus_neutralization_files/virus_neutralization_26_0.png)
     
+
+
+
+```python
+(
+    ggplot(fitparams, aes(x='cells',
+                              y='NT50_fc')) +
+              geom_point(size=1) +
+              stat_summary(geom = "point",
+                           fun_data='mean_cl_boot',
+                           size=3,
+                           shape = "_",
+                          colour = '#D55E00')+
+             theme(figure_size=(5,4),
+                   axis_text=element_text(size=14),
+                   axis_text_x=element_text(size=14),
+                   legend_text=element_text(size=14),
+                   legend_title=element_text(size=14),
+                   axis_title_x=element_text(size=14),
+                   axis_title_y=element_text(size=14),
+                   strip_text = element_text(size=14)
+                  ) +
+              scale_y_log10(name='50% neutralization titer') +
+              xlab('ACE2 expression in target cells') +
+             scale_color_manual(values=CBPALETTE[1:])
+             )
+```
+
+
+    
+![png](virus_neutralization_files/virus_neutralization_27_0.png)
+    
+
+
+
+
+
+    <ggplot: (8780270113443)>
+
 
 
 ## Plot NT50 values
@@ -463,25 +402,27 @@ _ = IC50.draw()
 
 ```python
 NT50 = (ggplot(fitparams, aes(x='cells', y='NT50', colour='RBD-targeting antibodies', group = 'RBD-targeting antibodies')) +
-              geom_point(size=3) +
-             geom_line(alpha=1) +
-             geom_text(rbd, aes(label = 'percent_RBD_str',
-                        y=rbd['NT50'].max()*12),
-              colour = CBPALETTE[0]) +
-             theme(figure_size=(15,1*df['serum'].nunique()),
-                   axis_text=element_text(size=12),
-                   axis_text_x=element_text(size=12, angle= 45),
-                   legend_text=element_text(size=12),
-                   legend_title=element_text(size=12),
-                   axis_title_x=element_text(size=18),
-                   strip_text = element_text(size=12)
+              geom_point(size=4) +
+              geom_line(size = 1) +
+         geom_text(NT50_fc, aes(label = 'NT50_fc_str',
+                            y=NT50_fc['NT50'].max()*12),
+                   size = 20,
+                  colour = CBPALETTE[0]) +
+             theme(figure_size=(25,12),
+                   axis_text=element_text(size=20),
+                   axis_text_x=element_text(size=16),
+                   legend_text=element_text(size=20),
+                   legend_title=element_text(size=20),
+                   axis_title_x=element_text(size=20),
+                   axis_title_y=element_text(size=20),
+                   strip_text = element_text(size=20)
                   ) +
                 geom_hline(yintercept=config['NT50_LOD'], 
                 linetype='dotted', 
                 size=1, 
                 alpha=0.6, 
                 color=CBPALETTE[7]) +
-              facet_wrap('sample', ncol = 4)+
+              facet_wrap('sample', ncol = 5)+
               scale_y_log10(name='Neutralization Titer (NT50)') +
               xlab('ACE2 expression in target cells') +
              scale_color_manual(values=CBPALETTE[1:])
@@ -492,19 +433,18 @@ _ = NT50.draw()
 
 
     
-![png](virus_neutralization_files/virus_neutralization_26_0.png)
+![png](virus_neutralization_files/virus_neutralization_29_0.png)
     
 
 
 
 ```python
 df_merged = pd.merge(fitparams, ACE2_expression_df, on='cells')
-
 ```
 
 
 ```python
-plot = (
+(
     ggplot(df_merged) +
     aes(x="relative MFI", y="NT50", group='RBD-targeting antibodies', color='RBD-targeting antibodies')+
     geom_point(size=2) +
@@ -527,18 +467,20 @@ plot = (
                 size=1, 
                 alpha=0.6, 
                 color=CBPALETTE[7])
-   
-
 )
-
-plot.draw()
-plot.save(f'{resultsdir}/NT50_vs_ACE2_expression.pdf')
 ```
 
 
     
-![png](virus_neutralization_files/virus_neutralization_28_0.png)
+![png](virus_neutralization_files/virus_neutralization_31_0.png)
     
+
+
+
+
+
+    <ggplot: (8780271430590)>
+
 
 
 ## Plot neut curves for all samples
@@ -547,11 +489,13 @@ plot.save(f'{resultsdir}/NT50_vs_ACE2_expression.pdf')
 ```python
 fig, axes = fits.plotSera(
                           xlabel='serum dilution',
-                          ncol=8,
-                          widthscale=2.5,
-                          heightscale=2.5,
-                          titlesize=55, labelsize=55, ticksize=45, legendfontsize=55, yticklocs=[0,0.5,1],
-                          markersize=10, linewidth=6,
+                          widthscale=0.75, 
+                          heightscale=1,
+                          titlesize=15, 
+                          labelsize=15, 
+                          ticksize=15, 
+                          legendfontsize=15, 
+                          ncol=4,
                           virus_to_color_marker={
                           'depleted': ('#56B4E9', 'o'),
                           'not depleted': ('#E69F00', 'o')},
@@ -562,14 +506,9 @@ fig, axes = fits.plotSera(
 
 
     
-![png](virus_neutralization_files/virus_neutralization_30_0.png)
+![png](virus_neutralization_files/virus_neutralization_33_0.png)
     
 
-
-
-```python
-
-```
 
 
 ```python
