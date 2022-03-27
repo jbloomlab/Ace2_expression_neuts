@@ -517,20 +517,21 @@ IC50 = (ggplot(fitparams, aes(x='cells',
                               colour='RBD-targeting antibodies',
                               group = 'RBD-targeting antibodies',
                               )) +
-              geom_point(size=4) +
-              geom_line(size = 1) +
+              geom_point(size=3.5) +
+              geom_line(size = 1.5) +
          geom_text(NT50_fc, aes(label = 'NT50_fc_str',
                             y=NT50_fc['ic50'].max()*1.5),
                    size = 20,
                   colour = CBPALETTE[0]) +
-             theme(figure_size=(25,12),
-                   axis_text=element_text(size=20),
-                   axis_text_x=element_text(size=16),
-                   legend_text=element_text(size=20),
-                   legend_title=element_text(size=20),
-                   axis_title_x=element_text(size=20),
-                   axis_title_y=element_text(size=20),
-                   strip_text = element_text(size=20)
+             theme(figure_size=(20,10),
+                   axis_text=element_text(size=25),
+                   axis_text_x=element_text(size=25, angle=90),
+                   legend_text=element_text(size=25),
+                   legend_title=element_text(size=25),
+                   axis_title_x=element_text(size=30),
+                   axis_title_y=element_text(size=30),
+                   strip_text = element_text(size=25, alpha=0.8),
+                   strip_background=element_blank()
                   ) +
               facet_wrap('sample', ncol = 5)+
               scale_y_log10(name='Inhibitory Concentration 50%') +
@@ -553,26 +554,27 @@ NT50_foldchange = (
               ggplot(fitparams, aes(x='cells',
                           y='NT50_fc',
                           group= 'sample')) +
-              geom_point(size=0.5) +
-              geom_line (size=0.5) +
+              geom_point(size=2.5, alpha=0.25) +
+              geom_line (alpha=0.25) +
               #stat_summary(geom = "point",
                            #fun_data='mean_cl_boot',
                            #size=3,
                            #shape = "_",
                           #colour = 'black')+
-             theme(figure_size=(2,2),
+             theme(
+                   figure_size=(3,3),
                    axis_text=element_text(size=10),
-                   axis_text_x=element_text(size=8),
+                   axis_text_x=element_text(size=10),
                    legend_text=element_text(size=10),
                    legend_title=element_text(size=10),
-                   axis_title_x=element_text(size=10),
-                   axis_title_y=element_text(size=10),
-                   strip_text = element_text(size=10)
+                   axis_title_x=element_text(size=13),
+                   axis_title_y=element_text(size=13),
+                   strip_text=element_text(size=10)
                   ) +
-              scale_y_log10(name='NT50 fold change \npre- to post-depletion') +
-              xlab('ACE2 expression in target cells') +
-             scale_color_manual(values=CBPALETTE[1:])
-             )
+              scale_y_log10(name='fold reduction in neutralization titer (NT50) \nafter RBD antibody depletion') +
+              xlab('ACE2 expression \nin target cells') +
+              scale_color_manual(values=CBPALETTE[1:])
+                   )
 
 NT50_foldchange
 ```
@@ -586,7 +588,7 @@ NT50_foldchange
 
 
 
-    <ggplot: (8792244728061)>
+    <ggplot: (8778093542202)>
 
 
 
@@ -595,31 +597,33 @@ NT50_foldchange
 
 ```python
 NT50 = (ggplot(fitparams, aes(x='cells', y='NT50', colour='RBD-targeting antibodies', group = 'RBD-targeting antibodies')) +
-              geom_point(size=4) +
-              geom_line(size = 1) +
+              geom_point(size=3.5) +
+              geom_line(size = 1.5) +
          geom_text(NT50_fc, aes(label = 'NT50_fc_str',
-                            y=NT50_fc['NT50'].max()*12),
+                   y=NT50_fc['NT50'].max()*12),
                    size = 20,
-                  colour = CBPALETTE[0]) +
-             theme(figure_size=(25,12),
-                   axis_text=element_text(size=20),
-                   axis_text_x=element_text(size=20),
+                   colour = CBPALETTE[0]) +
+         theme(figure_size=(20,10),
+                   axis_text=element_text(size=25),
+                   axis_text_x=element_text(size=25, angle=90),
                    legend_text=element_text(size=25),
                    legend_title=element_text(size=25),
-                   axis_title_x=element_text(size=25),
-                   axis_title_y=element_text(size=25),
-                   strip_text = element_text(size=20)
-                  ) +
-                geom_hline(yintercept=config['NT50_LOD'], 
-                linetype='dotted', 
-                size=1, 
-                alpha=0.6, 
-                color=CBPALETTE[7]) +
-              facet_wrap('sample', ncol = 5)+
-              scale_y_log10(name='Neutralization Titer (NT50)') +
-              xlab('ACE2 expression in target cells') +
-             scale_color_manual(values=CBPALETTE[1:])
-                 )
+                   axis_title_x=element_text(size=30),
+                   axis_title_y=element_text(size=30),
+                   strip_text = element_text(size=25, alpha=0.8),
+                   strip_background=element_blank()
+                   ) +
+          geom_hline(yintercept=config['NT50_LOD'], 
+                    linetype='dotted', 
+                    size=1, 
+                    alpha=0.6, 
+                    color=CBPALETTE[7]
+                    ) +
+          facet_wrap('sample', ncol = 5)+
+          scale_y_log10(name='Neutralization Titer (NT50)') +
+          xlab('ACE2 expression in target cells') +
+          scale_color_manual(values=CBPALETTE[1:])
+                )
 
 _ = NT50.draw()
 ```
@@ -634,47 +638,6 @@ _ = NT50.draw()
 ```python
 df_merged = pd.merge(fitparams, ACE2_expression_df, on='cells')
 ```
-
-
-```python
-(
-    ggplot(df_merged) +
-    aes(x="relative MFI", y="NT50", group='RBD-targeting antibodies', color='RBD-targeting antibodies')+
-    geom_point(size=2) +
-    geom_line() +
-    theme(figure_size=(16,6),
-          axis_ticks_major_x=None,
-          axis_text=element_text(size=14),
-          axis_text_x=element_text(size=14),
-          legend_text=element_text(size=14),
-          legend_title=element_text(size=12),
-          axis_title_x=element_text(size=18),
-          strip_text = element_text(size=14)) +
-    scale_color_manual(values= ['#56B4E9','#E69F00']) +
-    labs(title="Neutralization Titer vs ACE2 Expression", x="ACE2 expression relative\nto highest ACE2 cells", y="Neutralization Titer (NT50)") +
-    scale_x_log10() +
-    scale_y_log10() +
-    facet_wrap('sample', ncol=5) +
-    geom_hline(yintercept=25,
-                linetype='dotted', 
-                size=1, 
-                alpha=0.6, 
-                color=CBPALETTE[7])
-)
-```
-
-
-    
-![png](virus_neutralization_files/virus_neutralization_32_0.png)
-    
-
-
-
-
-
-    <ggplot: (8792244145652)>
-
-
 
 ## Plot neut curves for all samples
 
@@ -702,9 +665,14 @@ fig, axes = fits.plotSera(
 
 
     
-![png](virus_neutralization_files/virus_neutralization_34_0.png)
+![png](virus_neutralization_files/virus_neutralization_33_0.png)
     
 
+
+
+```python
+
+```
 
 
 ```python

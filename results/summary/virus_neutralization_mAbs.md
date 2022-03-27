@@ -381,10 +381,10 @@ fig, axes = fits.plotSera(
                           markersize=5, linewidth=1.5,
                           legendtitle='ACE2 expression in target cells' ,
                           virus_to_color_marker={
-                              'very low': ('#882255', 'o'),
-                              'low': ('#117733', 'o'),
-                              'medium': ('#DDCC77', 'o'),
-                              'high': ('#332288', 'o')},
+                              'very low': ('#F0E442', 'o'),
+                              'low': ('#CC79A7', 'o'),
+                              'medium': ('#009E73', 'o'),
+                              'high': ('#0072B2', 'o')},
                           sharex=False
                          )
 ```
