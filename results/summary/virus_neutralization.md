@@ -550,6 +550,7 @@ _ = IC50.draw()
 
 
 ```python
+#how do I shrink Title font size?
 NT50_foldchange = (
               ggplot(fitparams, aes(x='cells',
                           y='NT50_fc',
@@ -571,8 +572,10 @@ NT50_foldchange = (
                    axis_title_y=element_text(size=13),
                    strip_text=element_text(size=10)
                   ) +
-              scale_y_log10(name='fold reduction in neutralization titer (NT50) \nafter RBD antibody depletion') +
-              xlab('ACE2 expression \nin target cells') +
+              labs(x='ACE2 expression',
+                   y='fold change in \nneutralization titer (NT50)'
+                    ) +
+              scale_y_log10() +
               scale_color_manual(values=CBPALETTE[1:])
                    )
 
@@ -588,7 +591,7 @@ NT50_foldchange
 
 
 
-    <ggplot: (8741995624689)>
+    <ggplot: (8736898691310)>
 
 
 

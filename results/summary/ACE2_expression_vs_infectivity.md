@@ -141,7 +141,7 @@ df['cells'] = pd.Categorical(df['cells'], categories=cat_order, ordered=True)
 
 
 
-    <ggplot: (8775131844837)>
+    <ggplot: (8789731966510)>
 
 
 
@@ -181,9 +181,11 @@ df['cells'] = pd.Categorical(df['cells'], categories=cat_order, ordered=True)
 
 
 
-    <ggplot: (8775123312890)>
+    <ggplot: (8789723460087)>
 
 
+
+# Make figure for ACE2 expression (Figure 1)
 
 
 ```python
@@ -193,25 +195,25 @@ df['cells'] = pd.Categorical(df['cells'], categories=cat_order, ordered=True)
     aes(x="cells", y="MFI (mode)") +
     geom_point(size=2) +
     theme_classic()+
-    theme(figure_size=(3,3))+
+    theme(figure_size=(3,3.5))+
     scale_y_log10(limits=[1,1.1e6])+
-    xlab('ACE2 cell clone') +
-    scale_y_log10(limits=[1,1.1e6]) +
+    xlab('cell clone') +
+    scale_y_log10(limits=[1.1e2,1.1e5]) +
     labs(y ='Relative fluorescence (mode)',
-        title ='ACE2 expression in cell clones')
+        title ='Cell ACE2 Expression')
 )
 ```
 
 
     
-![png](ACE2_expression_vs_infectivity_files/ACE2_expression_vs_infectivity_9_0.png)
+![png](ACE2_expression_vs_infectivity_files/ACE2_expression_vs_infectivity_10_0.png)
     
 
 
 
 
 
-    <ggplot: (8775131908054)>
+    <ggplot: (8789723394374)>
 
 
 
