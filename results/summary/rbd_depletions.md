@@ -198,9 +198,447 @@ display(titration_df.head())  # display first few lines
 
 
 ```python
+#read in sample info
+sample_information = (pd.read_csv(config['sample_information'])
+                      .drop_duplicates())
+
+sample_information['sorted']=sample_information['subject_name'].str[:-1].astype(int)
+sample_information = sample_information.sort_values('sorted')
+sample_information
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>day</th>
+      <th>age</th>
+      <th>vaccine</th>
+      <th>subject_name</th>
+      <th>serum_org</th>
+      <th>gender</th>
+      <th>serum</th>
+      <th>sorted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>63C</td>
+      <td>63C-day-10</td>
+      <td>Female</td>
+      <td>serum 1</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15</td>
+      <td>&gt;55y</td>
+      <td>Pfizer</td>
+      <td>64C</td>
+      <td>64C-day-15</td>
+      <td>Female</td>
+      <td>serum 2</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>27</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>99C</td>
+      <td>99C-day-27</td>
+      <td>Male</td>
+      <td>serum 3</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>18</td>
+      <td>&gt;55y</td>
+      <td>Pfizer</td>
+      <td>108C</td>
+      <td>108C-day-18</td>
+      <td>Female</td>
+      <td>serum 4</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>120C</td>
+      <td>120C-day-10</td>
+      <td>Female</td>
+      <td>serum 5</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>36</td>
+      <td>18-55y</td>
+      <td>Moderna</td>
+      <td>180C</td>
+      <td>180C-day-36</td>
+      <td>Female</td>
+      <td>serum 6</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>9</td>
+      <td>&gt;55y</td>
+      <td>Pfizer</td>
+      <td>192C</td>
+      <td>192C-day-9</td>
+      <td>Female</td>
+      <td>serum 7</td>
+      <td>192</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>194C</td>
+      <td>194C-day-8</td>
+      <td>Male</td>
+      <td>serum 8</td>
+      <td>194</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>19</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>215C</td>
+      <td>215C-day-19</td>
+      <td>Male</td>
+      <td>serum 9</td>
+      <td>215</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>29</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>229C</td>
+      <td>229C-day-29</td>
+      <td>Female</td>
+      <td>serum 10</td>
+      <td>229</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+titration_df = pd.merge(titration_df, sample_information,
+                    left_on='serum', right_on='serum_org')
+titration_df.drop('serum_x', axis=1, inplace=True)
+titration_df = titration_df.rename(columns={"serum_y": "serum"}, errors="raise")
+titration_df
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject</th>
+      <th>timepoint</th>
+      <th>depleted</th>
+      <th>round</th>
+      <th>ligand</th>
+      <th>date</th>
+      <th>dilution_factor</th>
+      <th>OD450</th>
+      <th>dilution</th>
+      <th>day</th>
+      <th>age</th>
+      <th>vaccine</th>
+      <th>subject_name</th>
+      <th>serum_org</th>
+      <th>gender</th>
+      <th>serum</th>
+      <th>sorted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>63C</td>
+      <td>10</td>
+      <td>pre</td>
+      <td>no_depletion</td>
+      <td>RBD</td>
+      <td>4122</td>
+      <td>100</td>
+      <td>3.8844</td>
+      <td>0.010000</td>
+      <td>10</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>63C</td>
+      <td>63C-day-10</td>
+      <td>Female</td>
+      <td>serum 1</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>63C</td>
+      <td>10</td>
+      <td>post</td>
+      <td>round_1</td>
+      <td>RBD</td>
+      <td>4122</td>
+      <td>100</td>
+      <td>3.5529</td>
+      <td>0.010000</td>
+      <td>10</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>63C</td>
+      <td>63C-day-10</td>
+      <td>Female</td>
+      <td>serum 1</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>63C</td>
+      <td>10</td>
+      <td>post</td>
+      <td>round_2</td>
+      <td>RBD</td>
+      <td>4122</td>
+      <td>100</td>
+      <td>0.5100</td>
+      <td>0.010000</td>
+      <td>10</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>63C</td>
+      <td>63C-day-10</td>
+      <td>Female</td>
+      <td>serum 1</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>63C</td>
+      <td>10</td>
+      <td>post</td>
+      <td>round_3</td>
+      <td>RBD</td>
+      <td>4122</td>
+      <td>100</td>
+      <td>0.3863</td>
+      <td>0.010000</td>
+      <td>10</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>63C</td>
+      <td>63C-day-10</td>
+      <td>Female</td>
+      <td>serum 1</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>63C</td>
+      <td>10</td>
+      <td>post</td>
+      <td>round_4</td>
+      <td>RBD</td>
+      <td>4122</td>
+      <td>100</td>
+      <td>0.3559</td>
+      <td>0.010000</td>
+      <td>10</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>63C</td>
+      <td>63C-day-10</td>
+      <td>Female</td>
+      <td>serum 1</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>245</th>
+      <td>229C</td>
+      <td>29</td>
+      <td>pre</td>
+      <td>no_depletion</td>
+      <td>RBD</td>
+      <td>181221</td>
+      <td>8100</td>
+      <td>2.0167</td>
+      <td>0.000123</td>
+      <td>29</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>229C</td>
+      <td>229C-day-29</td>
+      <td>Female</td>
+      <td>serum 10</td>
+      <td>229</td>
+    </tr>
+    <tr>
+      <th>246</th>
+      <td>229C</td>
+      <td>29</td>
+      <td>post</td>
+      <td>round_1</td>
+      <td>RBD</td>
+      <td>181221</td>
+      <td>8100</td>
+      <td>0.0946</td>
+      <td>0.000123</td>
+      <td>29</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>229C</td>
+      <td>229C-day-29</td>
+      <td>Female</td>
+      <td>serum 10</td>
+      <td>229</td>
+    </tr>
+    <tr>
+      <th>247</th>
+      <td>229C</td>
+      <td>29</td>
+      <td>post</td>
+      <td>round_2</td>
+      <td>RBD</td>
+      <td>181221</td>
+      <td>8100</td>
+      <td>0.0871</td>
+      <td>0.000123</td>
+      <td>29</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>229C</td>
+      <td>229C-day-29</td>
+      <td>Female</td>
+      <td>serum 10</td>
+      <td>229</td>
+    </tr>
+    <tr>
+      <th>248</th>
+      <td>229C</td>
+      <td>29</td>
+      <td>post</td>
+      <td>round_3</td>
+      <td>RBD</td>
+      <td>181221</td>
+      <td>8100</td>
+      <td>0.0984</td>
+      <td>0.000123</td>
+      <td>29</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>229C</td>
+      <td>229C-day-29</td>
+      <td>Female</td>
+      <td>serum 10</td>
+      <td>229</td>
+    </tr>
+    <tr>
+      <th>249</th>
+      <td>229C</td>
+      <td>29</td>
+      <td>post</td>
+      <td>round_4</td>
+      <td>RBD</td>
+      <td>181221</td>
+      <td>8100</td>
+      <td>0.0897</td>
+      <td>0.000123</td>
+      <td>29</td>
+      <td>18-55y</td>
+      <td>Pfizer</td>
+      <td>229C</td>
+      <td>229C-day-29</td>
+      <td>Female</td>
+      <td>serum 10</td>
+      <td>229</td>
+    </tr>
+  </tbody>
+</table>
+<p>250 rows × 17 columns</p>
+</div>
+
+
+
+
+```python
 nconditions = df['serum'].nunique()
 ncol = np.minimum(6, nconditions)
 nrow = math.ceil(nconditions / ncol)
+
+colours = ('#E69F00','#0072B2','#009E73','#F0E442','#56B4E9',)
 
 p = (
     ggplot((titration_df
@@ -220,7 +658,7 @@ p = (
           axis_text_x=element_text(angle=90),
           subplots_adjust={'hspace':0.35},
          ) +
-    scale_color_manual(values=CBPALETTE[1:]) +
+    scale_color_manual(values=colours) +
     scale_shape_manual(values=['o', 'x']) +
     ylab('arbitrary binding units (OD450)')
     )
@@ -230,7 +668,7 @@ _ = p.draw()
 
 
     
-![png](rbd_depletions_files/rbd_depletions_11_0.png)
+![png](rbd_depletions_files/rbd_depletions_13_0.png)
     
 
 
