@@ -239,8 +239,6 @@ frac_infect = pd.merge(frac_infect, sample_information,
 frac_infect.drop('serum_x', axis=1, inplace=True)
 frac_infect = frac_infect.rename(columns={"serum_y": "serum"}, errors="raise")
 
-
-
 ```
 
 
@@ -307,10 +305,10 @@ fitparams.to_csv(config['neuts'], index=False)
 # add % RBD-targetting antibodies
 df_pre = fitparams.loc[fitparams['RBD-targeting antibodies'] == 'not depleted']
 df_post = fitparams.loc[fitparams['RBD-targeting antibodies'] == 'depleted']
-df_mege = pd.merge(df_pre, df_post, on="serum")
-df_mege['NT50_fc'] = df_mege['NT50_x']/df_mege['NT50_y']
-df_mege['NT50_fc'] = df_mege['NT50_fc'].astype(int)
-fitparams = pd.merge(fitparams,df_mege[['serum','NT50_fc']],on='serum', how='left')
+df_merge = pd.merge(df_pre, df_post, on="serum")
+df_merge['NT50_fc'] = df_merge['NT50_x']/df_merge['NT50_y']
+df_merge['NT50_fc'] = df_merge['NT50_fc'].astype(int)
+fitparams = pd.merge(fitparams,df_merge[['serum','NT50_fc']],on='serum', how='left')
 fitparams['NT50_fc_str'] = fitparams['NT50_fc'].astype(str)
 ```
 
@@ -328,23 +326,26 @@ IC50 = (ggplot(fitparams, aes(x='cells',
                               colour='RBD-targeting antibodies',
                               group = 'RBD-targeting antibodies',
                               )) +
-              geom_point(size=4) +
+              geom_point(size=3.5) +
               geom_line(size = 1) +
          geom_text(NT50_fc, aes(label = 'NT50_fc_str',
-                            y=NT50_fc['ic50'].max()*1.5),
+                            y=NT50_fc['ic50'].max()*2),
                    size = 20,
                   colour = CBPALETTE[0]) +
-             theme(figure_size=(25,12),
-                   axis_text=element_text(size=20),
-                   axis_text_x=element_text(size=16),
-                   legend_text=element_text(size=20),
-                   legend_title=element_text(size=20),
-                   axis_title_x=element_text(size=20),
-                   axis_title_y=element_text(size=20),
-                   strip_text = element_text(size=20)
+             theme(figure_size=(20,10),
+                   axis_text=element_text(size=25),
+                   axis_text_x=element_text(size=25, angle=90),
+                   legend_text=element_text(size=25),
+                   legend_title=element_text(size=25),
+                   axis_title_x=element_text(size=30),
+                   axis_title_y=element_text(size=30),
+                   strip_text = element_text(size=25, alpha=0.8),
+                   strip_background=element_rect(colour = "black", fill = "white")
                   ) +
               facet_wrap('sample', ncol = 5)+
-              scale_y_log10(name='Inhibitory Concentration 50%') +
+              
+              scale_y_log10(expand=(0, 0.3)) +
+              ylab('Inhibitory Concentration 50%') +
               xlab('ACE2 expression in target cells') +
              scale_color_manual(values=CBPALETTE[1:])
                  )
@@ -360,28 +361,26 @@ _ = IC50.draw()
 
 
 ```python
-(
-    ggplot(fitparams, aes(x='cells',
-                              y='NT50_fc')) +
-              geom_point(size=1) +
-              stat_summary(geom = "point",
-                           fun_data='mean_cl_boot',
-                           size=3,
-                           shape = "_",
-                          colour = '#D55E00')+
-             theme(figure_size=(5,4),
-                   axis_text=element_text(size=14),
-                   axis_text_x=element_text(size=14),
-                   legend_text=element_text(size=14),
-                   legend_title=element_text(size=14),
-                   axis_title_x=element_text(size=14),
-                   axis_title_y=element_text(size=14),
-                   strip_text = element_text(size=14)
+NT50_foldchange = (
+              ggplot(fitparams, aes(x='cells',
+                          y='NT50_fc',
+                          group= 'sample')) +
+              geom_point(size=2.5, alpha=0.25) +
+              geom_line(alpha=0.25) +
+             theme(
+                   figure_size=(3,3),
+                   axis_text=element_text(size=10),
+                   axis_text_x=element_text(size=10),
+                   legend_text=element_text(size=10),
+                   axis_title_x=element_text(size=12),
+                   axis_title_y=element_text(size=12),
+                   strip_text=element_text(size=10) 
                   ) +
-              scale_y_log10(name='50% neutralization titer') +
-              xlab('ACE2 expression in target cells') +
-             scale_color_manual(values=CBPALETTE[1:])
-             )
+              scale_y_log10(name='Fold change in \n50% neutralization titer') +
+              xlab('Cell ACE2 expression')
+)
+
+NT50_foldchange
 ```
 
 
@@ -393,7 +392,7 @@ _ = IC50.draw()
 
 
 
-    <ggplot: (8780270113443)>
+    <ggplot: (8728569782754)>
 
 
 
@@ -402,31 +401,34 @@ _ = IC50.draw()
 
 ```python
 NT50 = (ggplot(fitparams, aes(x='cells', y='NT50', colour='RBD-targeting antibodies', group = 'RBD-targeting antibodies')) +
-              geom_point(size=4) +
+              geom_point(size=3.5) +
               geom_line(size = 1) +
          geom_text(NT50_fc, aes(label = 'NT50_fc_str',
-                            y=NT50_fc['NT50'].max()*12),
+                   y=NT50_fc['NT50'].max()*12),
                    size = 20,
-                  colour = CBPALETTE[0]) +
-             theme(figure_size=(25,12),
-                   axis_text=element_text(size=20),
-                   axis_text_x=element_text(size=16),
-                   legend_text=element_text(size=20),
-                   legend_title=element_text(size=20),
-                   axis_title_x=element_text(size=20),
-                   axis_title_y=element_text(size=20),
-                   strip_text = element_text(size=20)
-                  ) +
-                geom_hline(yintercept=config['NT50_LOD'], 
-                linetype='dotted', 
-                size=1, 
-                alpha=0.6, 
-                color=CBPALETTE[7]) +
-              facet_wrap('sample', ncol = 5)+
-              scale_y_log10(name='Neutralization Titer (NT50)') +
-              xlab('ACE2 expression in target cells') +
-             scale_color_manual(values=CBPALETTE[1:])
-                 )
+                   colour = CBPALETTE[0]) +
+         theme(figure_size=(20,10),
+                   axis_text=element_text(size=25),
+                   axis_text_x=element_text(size=25, angle=90),
+                   legend_text=element_text(size=25),
+                   legend_title=element_text(size=25),
+                   axis_title_x=element_text(size=30),
+                   axis_title_y=element_text(size=30),
+                   strip_text = element_text(size=25, alpha=0.8),
+                   strip_background=element_rect(colour = "black", fill = "white")
+                   ) +
+          geom_hline(yintercept=config['NT50_LOD'], 
+                    linetype='dotted', 
+                    size=1, 
+                    alpha=0.6, 
+                    color=CBPALETTE[7]
+                    ) +
+          facet_wrap('sample', ncol = 5)+
+          scale_y_log10(expand=(0.03, .2)) +
+              ylab('Neutralization Titer (NT50)') +
+          xlab('ACE2 expression in target cells') +
+          scale_color_manual(values=CBPALETTE[1:])
+                )
 
 _ = NT50.draw()
 ```
@@ -442,57 +444,19 @@ _ = NT50.draw()
 df_merged = pd.merge(fitparams, ACE2_expression_df, on='cells')
 ```
 
-
-```python
-(
-    ggplot(df_merged) +
-    aes(x="relative MFI", y="NT50", group='RBD-targeting antibodies', color='RBD-targeting antibodies')+
-    geom_point(size=2) +
-    geom_line() +
-    theme(figure_size=(16,6),
-          axis_ticks_minor_x=None,
-          axis_text=element_text(size=14),
-          axis_text_x=element_text(size=14),
-          legend_text=element_text(size=14),
-          legend_title=element_text(size=12),
-          axis_title_x=element_text(size=18),
-          strip_text = element_text(size=14)) +
-    scale_color_manual(values= ['#56B4E9','#E69F00']) +
-    labs(title="Neutralization Titer vs ACE2 Expression", x="ACE2 expression relative\nto highest ACE2 cells", y="Neutralization Titer (NT50)") +
-    scale_x_log10() +
-    scale_y_log10() +
-    facet_wrap('sample', ncol=5) +
-    geom_hline(yintercept=25,
-                linetype='dotted', 
-                size=1, 
-                alpha=0.6, 
-                color=CBPALETTE[7])
-)
-```
-
-
-    
-![png](virus_neutralization_files/virus_neutralization_31_0.png)
-    
-
-
-
-
-
-    <ggplot: (8780271430590)>
-
-
-
 ## Plot neut curves for all samples
 
 
 ```python
 fig, axes = fits.plotSera(
                           xlabel='serum dilution',
-                          widthscale=0.75, 
+                          widthscale=1, 
                           heightscale=1,
-                          titlesize=15, 
-                          labelsize=15, 
+                          titlesize=15,
+                          yticklocs=[0,0.5,1],
+                          markersize=3, 
+                          linewidth=1, 
+                          labelsize=20,
                           ticksize=15, 
                           legendfontsize=15, 
                           ncol=4,
@@ -506,7 +470,7 @@ fig, axes = fits.plotSera(
 
 
     
-![png](virus_neutralization_files/virus_neutralization_33_0.png)
+![png](virus_neutralization_files/virus_neutralization_32_0.png)
     
 
 
