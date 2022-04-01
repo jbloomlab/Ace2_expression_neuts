@@ -653,10 +653,15 @@ p = (
     geom_point(size=3) +
     geom_path(aes(color='round', linetype='depleted'), size=0.75) +
     scale_x_log10(name='serum dilution', labels=scientific_format(digits=0)) +
-    facet_wrap('~ serum', ncol=ncol) +
+    facet_wrap('~ serum', ncol=5) +
     theme(figure_size=(3 * ncol, 3 * nrow),
-          axis_text_x=element_text(angle=90),
+          axis_text_x=element_text(size=25,angle=90),
           subplots_adjust={'hspace':0.35},
+          strip_background_x=element_blank(),
+          legend_text=element_text(size=25),
+          legend_title=element_text(size=25),
+          axis_title_x=element_text(size=25),
+          axis_title_y=element_text(size=25),
          ) +
     scale_color_manual(values=colours) +
     scale_shape_manual(values=['o', 'x']) +
