@@ -328,10 +328,10 @@ IC50 = (ggplot(fitparams, aes(x='cells',
                               )) +
               geom_point(size=3.5) +
               geom_line(size = 1) +
-         geom_text(NT50_fc, aes(label = 'NT50_fc_str',
-                            y=NT50_fc['ic50'].max()*2),
-                   size = 20,
-                  colour = CBPALETTE[0]) +
+         #geom_text(NT50_fc, aes(label = 'NT50_fc_str',
+                            #y=NT50_fc['ic50'].max()*2),
+                   #size = 20,
+                  #colour = CBPALETTE[0]) +
              theme(figure_size=(20,10),
                    axis_text=element_text(size=25),
                    axis_text_x=element_text(size=25, angle=90),
@@ -340,7 +340,8 @@ IC50 = (ggplot(fitparams, aes(x='cells',
                    axis_title_x=element_text(size=30),
                    axis_title_y=element_text(size=30),
                    strip_text = element_text(size=25, alpha=0.8),
-                   strip_background=element_rect(colour = "black", fill = "white")
+                   strip_background=element_rect(colour = "black", fill = "white"),
+                   
                   ) +
               facet_wrap('sample', ncol = 5)+
               
@@ -376,7 +377,7 @@ NT50_foldchange = (
                    axis_title_y=element_text(size=12),
                    strip_text=element_text(size=10) 
                   ) +
-              scale_y_log10(name='Fold change in \n50% neutralization titer') +
+              scale_y_log10(name='Fold decrease in neutralization') +
               xlab('Cell ACE2 expression')
 )
 
@@ -392,7 +393,7 @@ NT50_foldchange
 
 
 
-    <ggplot: (8728569782754)>
+    <ggplot: (8731565288617)>
 
 
 
@@ -403,10 +404,10 @@ NT50_foldchange
 NT50 = (ggplot(fitparams, aes(x='cells', y='NT50', colour='RBD-targeting antibodies', group = 'RBD-targeting antibodies')) +
               geom_point(size=3.5) +
               geom_line(size = 1) +
-         geom_text(NT50_fc, aes(label = 'NT50_fc_str',
-                   y=NT50_fc['NT50'].max()*12),
-                   size = 20,
-                   colour = CBPALETTE[0]) +
+         #geom_text(NT50_fc, aes(label = 'NT50_fc_str',
+                   #y=NT50_fc['NT50'].max()*12),
+                  #size = 20,
+                   #colour = CBPALETTE[0]) +
          theme(figure_size=(20,10),
                    axis_text=element_text(size=25),
                    axis_text_x=element_text(size=25, angle=90),
@@ -449,11 +450,12 @@ df_merged = pd.merge(fitparams, ACE2_expression_df, on='cells')
 
 ```python
 fig, axes = fits.plotSera(
-                          xlabel='serum dilution',
+                          xlabel='log10(serum dilution)',
                           widthscale=1, 
                           heightscale=1,
                           titlesize=15,
                           yticklocs=[0,0.5,1],
+                          fix_lims={'ymax':1.25},
                           markersize=3, 
                           linewidth=1, 
                           labelsize=20,
@@ -466,6 +468,10 @@ fig, axes = fits.plotSera(
                           legendtitle='RBD-targeting antibodies',
                     
                          )
+
+_ = axes.ravel()[-1].set_xticks([1e-5, 1e-4, 1e-3, 1e-2])
+_ = axes.ravel()[-1].set_xticklabels(['-5', '-4', '-3', '-2',])
+
 ```
 
 
