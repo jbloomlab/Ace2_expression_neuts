@@ -352,6 +352,7 @@ IC50 = (ggplot(fitparams, aes(x='cells',
                  )
 
 _ = IC50.draw()
+plt.savefig('IC50.pdf')
 ```
 
 
@@ -382,19 +383,11 @@ NT50_foldchange = (
 )
 
 NT50_foldchange
+plt.savefig('NT50_change.pdf')
 ```
 
 
-    
-![png](virus_neutralization_files/virus_neutralization_27_0.png)
-    
-
-
-
-
-
-    <ggplot: (8765617650616)>
-
+    <Figure size 432x288 with 0 Axes>
 
 
 ## Plot NT50 values
@@ -432,6 +425,8 @@ NT50 = (ggplot(fitparams, aes(x='cells', y='NT50', colour='RBD-targeting antibod
                 )
 
 _ = NT50.draw()
+
+plt.savefig('NT50.pdf')
 ```
 
 
@@ -472,6 +467,7 @@ fig, axes = fits.plotSera(
 _ = axes.ravel()[-1].set_xticks([1e-5, 1e-4, 1e-3, 1e-2])
 _ = axes.ravel()[-1].set_xticklabels(['-5', '-4', '-3', '-2',])
 
+plt.savefig('neutcurves.pdf')
 ```
 
 

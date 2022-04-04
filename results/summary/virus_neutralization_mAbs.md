@@ -387,6 +387,7 @@ fig, axes = fits.plotSera(
                               'high': ('#0072B2', 'o')},
                           sharex=False
                          )
+plt.savefig('mAb_neuts.pdf')
 ```
 
 
