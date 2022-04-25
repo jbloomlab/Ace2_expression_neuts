@@ -1,7 +1,8 @@
 # Specify configuration
 
 elisa_input_files:
-  - data/RBD_depletion_RLU/RBDdepletion_ELISAlayout_091121.csv
+  - data/RBD_depletion_RLU/RBDdepletion_ELISAlayout.csv
+  - data/RBD_depletion_RLU/RBDdepletion_ELISAlayout_LV.csv
 
 depletion_neuts:
    data/RBD_depletion_neuts/depletion_neuts_clone_A.csv: very
