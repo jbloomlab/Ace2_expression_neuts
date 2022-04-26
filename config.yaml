@@ -1,8 +1,10 @@
 # Specify configuration
 
-elisa_input_files:
-  - data/RBD_depletion_RLU/RBDdepletion_ELISAlayout.csv
-  - data/RBD_depletion_RLU/RBDdepletion_ELISAlayout_LV.csv
+elisa_pseudovirus_dil1: data/RBD_depletion_RLU/RBDdepletion_ELISAlayout1.csv
+
+elisa_pseudovirus_dil2: data/RBD_depletion_RLU/RBDdepletion_ELISAlayout2.csv
+
+elisa_livevirus: data/RBD_depletion_RLU/RBDdepletion_ELISAlayout_LV.csv
 
 depletion_neuts:
    data/RBD_depletion_neuts/depletion_neuts_clone_A.csv: very
