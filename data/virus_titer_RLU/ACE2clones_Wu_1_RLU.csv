@@ -1,294 +1,63 @@
 ﻿plasmid,replicate,virus,dilution,uL_virus,RLU_per_well,date,cells,2727_plasmid,amphoB
-2800,rep1,Wu_1,0.5,50,7380696,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.25,25,1875214,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.125,12.5,385228,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.0625,6.25,91940,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.03125,3.125,27958,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.015625,1.5625,15532,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,8202,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,5331,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.5,50,7568543,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.25,25,2002403,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.125,12.5,469003,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.0625,6.25,104250,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.03125,3.125,35941,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.015625,1.5625,13784,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,7816,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,3926,200122,high,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.5,50,6379749,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.25,25,1600456,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.125,12.5,300410,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.0625,6.25,62929,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.03125,3.125,24538,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.015625,1.5625,13546,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,4256,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,5009,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.5,50,6518378,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.25,25,1690467,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.125,12.5,344425,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.0625,6.25,76976,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.03125,3.125,29863,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.015625,1.5625,12365,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,6544,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,3999,200122,high,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.5,50,8817555,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.25,25,2436763,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.125,12.5,490291,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.0625,6.25,123281,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.03125,3.125,44319,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.015625,1.5625,17449,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,12542,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,5252,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.5,50,7813218,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.25,25,2132673,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.125,12.5,478041,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.0625,6.25,113042,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.03125,3.125,32467,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.015625,1.5625,19244,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,8886,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,7135,200122,high,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.5,50,8338634,200122,high,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.25,25,3977849,200122,high,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.125,12.5,1853887,200122,high,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.0625,6.25,922613,200122,high,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.03125,3.125,445621,200122,high,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.015625,1.5625,244784,200122,high,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,116965,200122,high,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,73097,200122,high,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.5,50,7758268,200122,high,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.25,25,4250266,200122,high,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.125,12.5,1948898,200122,high,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.0625,6.25,889106,200122,high,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.03125,3.125,450417,200122,high,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.015625,1.5625,237222,200122,high,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,131554,200122,high,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,76634,200122,high,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.25,25,5861201,200122,high,Maxi2021_60hpt,amphoB
-2800,rep1,Wu_1,0.125,12.5,2767884,200122,high,Maxi2021_60hpt,amphoB
-2800,rep1,Wu_1,0.0625,6.25,1430849,200122,high,Maxi2021_60hpt,amphoB
-2800,rep1,Wu_1,0.03125,3.125,694382,200122,high,Maxi2021_60hpt,amphoB
-2800,rep1,Wu_1,0.015625,1.5625,381188,200122,high,Maxi2021_60hpt,amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,199756,200122,high,Maxi2021_60hpt,amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,120341,200122,high,Maxi2021_60hpt,amphoB
-2800,rep2,Wu_1,0.25,25,5688968,200122,high,Maxi2021_60hpt,amphoB
-2800,rep2,Wu_1,0.125,12.5,2755612,200122,high,Maxi2021_60hpt,amphoB
-2800,rep2,Wu_1,0.0625,6.25,1432684,200122,high,Maxi2021_60hpt,amphoB
-2800,rep2,Wu_1,0.03125,3.125,702610,200122,high,Maxi2021_60hpt,amphoB
-2800,rep2,Wu_1,0.015625,1.5625,368736,200122,high,Maxi2021_60hpt,amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,193421,200122,high,Maxi2021_60hpt,amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,119130,200122,high,Maxi2021_60hpt,amphoB
-2800,rep1,Wu_1,0.5,50,372887,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.25,25,181786,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.125,12.5,72208,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.0625,6.25,27463,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.03125,3.125,20630,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.015625,1.5625,6653,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,5048,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,2164,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.5,50,488844,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.25,25,180816,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.125,12.5,71169,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.0625,6.25,34881,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.03125,3.125,12642,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.015625,1.5625,6781,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,1553,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,1581,200122,very low,Maxi2020_48hpt,no_amphoB
-2800,rep1,Wu_1,0.5,50,396069,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.25,25,165860,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.125,12.5,63479,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.0625,6.25,17402,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.03125,3.125,14487,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.015625,1.5625,7241,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,1635,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,1356,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.5,50,443317,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.25,25,157750,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.125,12.5,57492,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.0625,6.25,24362,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.03125,3.125,11712,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.015625,1.5625,7869,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,6311,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,2583,200122,very low,Maxi2020_60hpt,no_amphoB
-2800,rep1,Wu_1,0.5,50,562572,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.25,25,212519,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.125,12.5,97203,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.0625,6.25,37814,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.03125,3.125,14726,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.015625,1.5625,8387,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,6712,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,1940,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.5,50,506248,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.25,25,203299,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.125,12.5,97603,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.0625,6.25,50343,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.03125,3.125,21009,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.015625,1.5625,10306,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,5953,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,1289,200122,very low,Maxi2021_60hpt,no_amphoB
-2800,rep1,Wu_1,0.5,50,2506525,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.25,25,1197843,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.125,12.5,575401,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.0625,6.25,275493,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.03125,3.125,145526,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.015625,1.5625,81592,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,33567,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,16581,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.5,50,2445803,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.25,25,1263673,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.125,12.5,545898,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.0625,6.25,308461,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.03125,3.125,139963,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.015625,1.5625,71068,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,47344,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,18782,200122,very low,Maxi2020_60hpt,amphoB
-2800,rep1,Wu_1,0.5,50,3141092,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep1,Wu_1,0.25,25,1605778,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep1,Wu_1,0.125,12.5,879715,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep1,Wu_1,0.0625,6.25,444773,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep1,Wu_1,0.03125,3.125,210688,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep1,Wu_1,0.015625,1.5625,135198,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,56074,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,20343,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep2,Wu_1,0.5,50,2972281,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep2,Wu_1,0.25,25,1798234,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep2,Wu_1,0.125,12.5,848390,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep2,Wu_1,0.0625,6.25,448111,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep2,Wu_1,0.03125,3.125,231903,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep2,Wu_1,0.015625,1.5625,134167,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,63710,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,19538,200122,very low,Maxi2021_60hpt,amphoB
-2800,rep1,Wu_1,0.5,50,3635096,200122,very low,Bernadeta_stock,amphoB
-2800,rep1,Wu_1,0.25,25,1396068,200122,very low,Bernadeta_stock,amphoB
-2800,rep1,Wu_1,0.125,12.5,625494,200122,very low,Bernadeta_stock,amphoB
-2800,rep1,Wu_1,0.0625,6.25,284267,200122,very low,Bernadeta_stock,amphoB
-2800,rep1,Wu_1,0.03125,3.125,103849,200122,very low,Bernadeta_stock,amphoB
-2800,rep1,Wu_1,0.015625,1.5625,56511,200122,very low,Bernadeta_stock,amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,26453,200122,very low,Bernadeta_stock,amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,31461,200122,very low,Bernadeta_stock,amphoB
-2800,rep2,Wu_1,0.5,50,3542390,200122,very low,Bernadeta_stock,amphoB
-2800,rep2,Wu_1,0.25,25,1221193,200122,very low,Bernadeta_stock,amphoB
-2800,rep2,Wu_1,0.125,12.5,580906,200122,very low,Bernadeta_stock,amphoB
-2800,rep2,Wu_1,0.0625,6.25,257290,200122,very low,Bernadeta_stock,amphoB
-2800,rep2,Wu_1,0.03125,3.125,121244,200122,very low,Bernadeta_stock,amphoB
-2800,rep2,Wu_1,0.015625,1.5625,59409,200122,very low,Bernadeta_stock,amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,39683,200122,very low,Bernadeta_stock,amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,18772,200122,very low,Bernadeta_stock,amphoB
-2800,rep1,Wu_1,0.5,50,1109650,80422,very low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.25,25,485510,80422,very low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.125,12.5,233493,80422,very low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.0625,6.25,119454,80422,very low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.03125,3.125,74037,80422,very low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.015625,1.5625,25605,80422,very low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,12905,80422,very low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,4876,80422,very low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.5,50,1025216,80422,very low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.25,25,376558,80422,very low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.125,12.5,166973,80422,very low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.0625,6.25,76897,80422,very low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.03125,3.125,49551,80422,very low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.015625,1.5625,28730,80422,very low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,9682,80422,very low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,5224,80422,very low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.5,50,1645190,80422,low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.25,25,564460,80422,low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.125,12.5,270681,80422,low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.0625,6.25,100505,80422,low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.03125,3.125,52512,80422,low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.015625,1.5625,27260,80422,low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,12808,80422,low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,15324,80422,low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.5,50,1666737,80422,low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.25,25,517388,80422,low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.125,12.5,261073,80422,low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.0625,6.25,105907,80422,low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.03125,3.125,50937,80422,low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.015625,1.5625,28368,80422,low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,10228,80422,low,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,8797,80422,low,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.5,50,3140990,80422,medium,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.25,25,762342,80422,medium,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.125,12.5,266359,80422,medium,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.0625,6.25,125182,80422,medium,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.03125,3.125,54419,80422,medium,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.015625,1.5625,33233,80422,medium,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,12712,80422,medium,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,6757,80422,medium,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.5,50,3082420,80422,medium,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.25,25,861385,80422,medium,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.125,12.5,284736,80422,medium,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.0625,6.25,128519,80422,medium,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.03125,3.125,69752,80422,medium,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.015625,1.5625,35288,80422,medium,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,18111,80422,medium,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,11509,80422,medium,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.5,50,1823920,80422,high,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.25,25,479968,80422,high,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.125,12.5,186229,80422,high,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.0625,6.25,92099,80422,high,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.03125,3.125,45292,80422,high,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.015625,1.5625,17238,80422,high,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,10424,80422,high,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,4018,80422,high,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.5,50,2401564,80422,high,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.25,25,603940,80422,high,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.125,12.5,233992,80422,high,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.0625,6.25,97137,80422,high,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.03125,3.125,47221,80422,high,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.015625,1.5625,31239,80422,high,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,14036,80422,high,10cm_pooled,no_amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,5692,80422,high,10cm_pooled,no_amphoB
-2800,rep1,Wu_1,0.25,25,5916437,80422,very low,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.125,12.5,2519084,80422,very low,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.0625,6.25,1114474,80422,very low,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.03125,3.125,634106,80422,very low,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.015625,1.5625,278804,80422,very low,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,141757,80422,very low,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,62471,80422,very low,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.25,25,5115361,80422,very low,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.125,12.5,2361420,80422,very low,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.0625,6.25,1113624,80422,very low,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.03125,3.125,592782,80422,very low,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.015625,1.5625,301130,80422,very low,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,119798,80422,very low,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,58990,80422,very low,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.25,25,5686817,80422,low,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.125,12.5,2924485,80422,low,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.0625,6.25,1390248,80422,low,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.03125,3.125,632805,80422,low,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.015625,1.5625,339423,80422,low,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,140388,80422,low,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,71552,80422,low,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.25,25,5595256,80422,low,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.125,12.5,2811937,80422,low,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.0625,6.25,1358587,80422,low,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.03125,3.125,646926,80422,low,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.015625,1.5625,344510,80422,low,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,128797,80422,low,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,64028,80422,low,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.25,25,8684238,80422,medium,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.125,12.5,4686615,80422,medium,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.0625,6.25,2261222,80422,medium,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.03125,3.125,1181142,80422,medium,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.015625,1.5625,525688,80422,medium,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,239776,80422,medium,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,111307,80422,medium,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.125,12.5,5207530,80422,medium,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.0625,6.25,2378928,80422,medium,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.03125,3.125,1224080,80422,medium,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.015625,1.5625,641173,80422,medium,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,269663,80422,medium,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,142393,80422,medium,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.25,25,5359024,80422,high,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.125,12.5,2397457,80422,high,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.0625,6.25,1041614,80422,high,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.03125,3.125,518519,80422,high,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.015625,1.5625,262969,80422,high,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.0078125,0.78125,115732,80422,high,10cm_pooled,amphoB
-2800,rep1,Wu_1,0.00390625,0.390625,62888,80422,high,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.25,25,6002796,80422,high,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.125,12.5,2738120,80422,high,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.0625,6.25,1215316,80422,high,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.03125,3.125,604710,80422,high,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.015625,1.5625,325758,80422,high,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.0078125,0.78125,139218,80422,high,10cm_pooled,amphoB
-2800,rep2,Wu_1,0.00390625,0.390625,74641,80422,high,10cm_pooled,amphoB
+2800,rep1,Wu_1,0.5,50,2355075,220512,very low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.25,25,983529,220512,very low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.125,12.5,414824,220512,very low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.0625,6.25,206776,220512,very low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.03125,3.125,100609,220512,very low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.015625,1.5625,52694,220512,very low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.0078125,0.78125,27828,220512,very low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.00390625,0.390625,15777,220512,very low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.5,50,2286550,220512,very low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.25,25,911990,220512,very low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.125,12.5,459336,220512,very low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.0625,6.25,247043,220512,very low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.03125,3.125,122692,220512,very low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.015625,1.5625,53775,220512,very low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.0078125,0.78125,30393,220512,very low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.00390625,0.390625,12782,220512,very low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.5,50,5861082,220512,low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.25,25,2245067,220512,low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.125,12.5,1240155,220512,low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.0625,6.25,664646,220512,low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.03125,3.125,322755,220512,low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.015625,1.5625,158886,220512,low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.0078125,0.78125,68179,220512,low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.00390625,0.390625,38784,220512,low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.5,50,6559505,220512,low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.25,25,2360860,220512,low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.125,12.5,1376824,220512,low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.0625,6.25,610410,220512,low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.03125,3.125,315258,220512,low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.015625,1.5625,184642,220512,low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.0078125,0.78125,71512,220512,low,6well_pooled,amphoB
+2800,rep2,Wu_1,0.00390625,0.390625,31426,220512,low,6well_pooled,amphoB
+2800,rep1,Wu_1,0.5,50,7890830,220512,medium,6well_pooled,amphoB
+2800,rep1,Wu_1,0.25,25,3913653,220512,medium,6well_pooled,amphoB
+2800,rep1,Wu_1,0.125,12.5,1943610,220512,medium,6well_pooled,amphoB
+2800,rep1,Wu_1,0.0625,6.25,1053787,220512,medium,6well_pooled,amphoB
+2800,rep1,Wu_1,0.03125,3.125,506784,220512,medium,6well_pooled,amphoB
+2800,rep1,Wu_1,0.015625,1.5625,255324,220512,medium,6well_pooled,amphoB
+2800,rep1,Wu_1,0.0078125,0.78125,104262,220512,medium,6well_pooled,amphoB
+2800,rep1,Wu_1,0.00390625,0.390625,65596,220512,medium,6well_pooled,amphoB
+2800,rep2,Wu_1,0.5,50,7738215,220512,medium,6well_pooled,amphoB
+2800,rep2,Wu_1,0.25,25,3791927,220512,medium,6well_pooled,amphoB
+2800,rep2,Wu_1,0.125,12.5,1961591,220512,medium,6well_pooled,amphoB
+2800,rep2,Wu_1,0.0625,6.25,1068798,220512,medium,6well_pooled,amphoB
+2800,rep2,Wu_1,0.03125,3.125,546085,220512,medium,6well_pooled,amphoB
+2800,rep2,Wu_1,0.015625,1.5625,236575,220512,medium,6well_pooled,amphoB
+2800,rep2,Wu_1,0.0078125,0.78125,126231,220512,medium,6well_pooled,amphoB
+2800,rep2,Wu_1,0.00390625,0.390625,58062,220512,medium,6well_pooled,amphoB
+2800,rep1,Wu_1,0.25,25,7941372,220512,high,6well_pooled,amphoB
+2800,rep1,Wu_1,0.125,12.5,3633121,220512,high,6well_pooled,amphoB
+2800,rep1,Wu_1,0.0625,6.25,2103764,220512,high,6well_pooled,amphoB
+2800,rep1,Wu_1,0.03125,3.125,1022623,220512,high,6well_pooled,amphoB
+2800,rep1,Wu_1,0.015625,1.5625,456069,220512,high,6well_pooled,amphoB
+2800,rep1,Wu_1,0.0078125,0.78125,265712,220512,high,6well_pooled,amphoB
+2800,rep1,Wu_1,0.00390625,0.390625,134992,220512,high,6well_pooled,amphoB
+2800,rep2,Wu_1,0.25,25,7975062,220512,high,6well_pooled,amphoB
+2800,rep2,Wu_1,0.125,12.5,3767078,220512,high,6well_pooled,amphoB
+2800,rep2,Wu_1,0.0625,6.25,1998288,220512,high,6well_pooled,amphoB
+2800,rep2,Wu_1,0.03125,3.125,853368,220512,high,6well_pooled,amphoB
+2800,rep2,Wu_1,0.015625,1.5625,467664,220512,high,6well_pooled,amphoB
+2800,rep2,Wu_1,0.0078125,0.78125,264626,220512,high,6well_pooled,amphoB
+2800,rep2,Wu_1,0.00390625,0.390625,173963,220512,high,6well_pooled,amphoB
