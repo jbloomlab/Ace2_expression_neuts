@@ -4,13 +4,13 @@ In this project we want to understand how Ace2 expression on target cell surface
 
 We are using ACE2 expressing HEK-293T from Kenneth Matreyek. We have several clones of these cells ('high', 'medium', 'low', 'very low'), which have [differential Ace2 surface expression](https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1009715) due to modifications in Kozak sequence upstream of ACE2 gene.
 
-In these experiments we use Wuhan-1+614G luciferase reporter virus.
+In these experiments we use Wu-1-Hu-614G virus.
 
 The experimental steps are as follows:
 - test ability of this virus to infect different HEK-293T-Ace2 clones. Notebook: [virus_titers.ipynb](virus_titers.ipynb)
 - test ACE2 expression in different cell clones. Notebook: [ACE2_expression_vs_infectivity.ipynb](ACE2_expression_vs_infectivity.ipynb)
 - perform mock and RBD-binding antibody depletion on human sera. Notebook: [rbd_ELISA.ipynb](rbd_ELISA.ipynb)
-- perform virus neutralization experiments with depleted and mock sera. Notebook: [virus_neutralization.ipynb](virus_neutralization.ipynb)
+- perform virus neutralization experiments with RBD-binding antibody depleted and nondepleted sera. Notebook: [virus_neutralization.ipynb](virus_neutralization.ipynb)
 - perform virus neutralization experiments monoclonal antibodies targetting different Spike epitopes. Notebook: [virus_neutralization_mAbs.ipynb](virus_neutralization_mAbs.ipynb)
 
 
