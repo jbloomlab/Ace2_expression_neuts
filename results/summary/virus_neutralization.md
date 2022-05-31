@@ -50,7 +50,7 @@ resultsdir=config['resultsdir']
 os.makedirs(resultsdir, exist_ok=True)
 ```
 
-## Read in data
+## Read in data and sample information
 We read in fraction infectivirty data for different cell lines and import sera information.
 
 
@@ -61,8 +61,6 @@ for f in config['depletion_neuts'].keys():
     df = (pd.read_csv(f, index_col=0))
     frac_infect.append(df)  
 frac_infect = pd.concat(frac_infect)
-
-
 ```
 
 
@@ -302,7 +300,7 @@ fitparams.to_csv(config['neuts'], index=False)
 
 
 ```python
-# add % RBD-targetting antibodies
+#add % RBD-targetting antibodies
 df_pre = fitparams.loc[fitparams['RBD-targeting antibodies'] == 'not depleted']
 df_post = fitparams.loc[fitparams['RBD-targeting antibodies'] == 'depleted']
 df_merge = pd.merge(df_pre, df_post, on="serum")
@@ -315,6 +313,24 @@ fitparams['NT50_fc_str'] = fitparams['NT50_fc'].astype(str)
 
 ```python
 NT50_fc = fitparams.loc[fitparams['RBD-targeting antibodies'] == 'depleted']
+```
+
+
+```python
+# add % RBD-targetting antibodies
+df_pre = fitparams.loc[fitparams['RBD-targeting antibodies'] == 'not depleted']
+df_post = fitparams.loc[fitparams['RBD-targeting antibodies'] == 'depleted']
+df_merge = pd.merge(df_pre, df_post, on="serum")
+df_merge['percent_RBD'] = (df_merge['NT50_x']-df_merge['NT50_y'])/df_merge['NT50_x']*100
+df_merge['percent_RBD'] = df_merge['percent_RBD'].astype(int)
+fitparams = pd.merge(fitparams,df_merge[['serum','percent_RBD']],on='serum', how='left')
+fitparams['percent_RBD_str'] = fitparams['percent_RBD'].astype(str) +'%'
+
+```
+
+
+```python
+rbd = fitparams.loc[fitparams['RBD-targeting antibodies'] == 'depleted']
 ```
 
 ## Plot IC50 values
@@ -352,12 +368,54 @@ IC50 = (ggplot(fitparams, aes(x='cells',
                  )
 
 _ = IC50.draw()
-plt.savefig('IC50.pdf')
 ```
 
 
     
-![png](virus_neutralization_files/virus_neutralization_26_0.png)
+![png](virus_neutralization_files/virus_neutralization_28_0.png)
+    
+
+
+## Plot NT50 values
+
+
+```python
+NT50 = (ggplot(fitparams, aes(x='cells', y='NT50', colour='RBD-targeting antibodies', group = 'RBD-targeting antibodies')) +
+              geom_point(size=3.5) +
+              geom_line(size = 1) +
+         geom_text(rbd, aes(label = 'percent_RBD_str',
+                   y=rbd['NT50'].max()*12),
+                  size = 20,
+                   colour = CBPALETTE[0]) +
+         theme(figure_size=(20,10),
+                   axis_text=element_text(size=25),
+                   axis_text_x=element_text(size=25, angle=90),
+                   legend_text=element_text(size=25),
+                   legend_title=element_text(size=25),
+                   axis_title_x=element_text(size=30),
+                   axis_title_y=element_text(size=30),
+                   strip_text = element_text(size=25, alpha=0.8),
+                   strip_background=element_rect(colour = "black", fill = "white")
+                   ) +
+          geom_hline(yintercept=config['NT50_LOD'], 
+                    linetype='dotted', 
+                    size=1, 
+                    alpha=0.8, 
+                    color=CBPALETTE[7]
+                    ) +
+          facet_wrap('sample', ncol = 5)+
+          scale_y_log10(expand=(0.03, .2)) +
+              ylab('Neutralization Titer (NT50)') +
+          xlab('ACE2 expression in target cells') +
+          scale_color_manual(values=CBPALETTE[1:])
+                )
+
+_ = NT50.draw()
+```
+
+
+    
+![png](virus_neutralization_files/virus_neutralization_30_0.png)
     
 
 
@@ -382,63 +440,44 @@ NT50_foldchange = (
               xlab('Cell ACE2 expression')
 )
 
-NT50_foldchange
-plt.savefig('NT50_change.pdf')
-```
-
-
-    <Figure size 432x288 with 0 Axes>
-
-
-## Plot NT50 values
-
-
-```python
-NT50 = (ggplot(fitparams, aes(x='cells', y='NT50', colour='RBD-targeting antibodies', group = 'RBD-targeting antibodies')) +
-              geom_point(size=3.5) +
-              geom_line(size = 1) +
-         #geom_text(NT50_fc, aes(label = 'NT50_fc_str',
-                   #y=NT50_fc['NT50'].max()*12),
-                  #size = 20,
-                   #colour = CBPALETTE[0]) +
-         theme(figure_size=(20,10),
-                   axis_text=element_text(size=25),
-                   axis_text_x=element_text(size=25, angle=90),
-                   legend_text=element_text(size=25),
-                   legend_title=element_text(size=25),
-                   axis_title_x=element_text(size=30),
-                   axis_title_y=element_text(size=30),
-                   strip_text = element_text(size=25, alpha=0.8),
-                   strip_background=element_rect(colour = "black", fill = "white")
-                   ) +
-          geom_hline(yintercept=config['NT50_LOD'], 
-                    linetype='dotted', 
-                    size=1, 
-                    alpha=0.6, 
-                    color=CBPALETTE[7]
-                    ) +
-          facet_wrap('sample', ncol = 5)+
-          scale_y_log10(expand=(0.03, .2)) +
-              ylab('Neutralization Titer (NT50)') +
-          xlab('ACE2 expression in target cells') +
-          scale_color_manual(values=CBPALETTE[1:])
-                )
-
-_ = NT50.draw()
-
-plt.savefig('NT50.pdf')
+_= NT50_foldchange.draw()
 ```
 
 
     
-![png](virus_neutralization_files/virus_neutralization_29_0.png)
+![png](virus_neutralization_files/virus_neutralization_31_0.png)
     
 
 
 
 ```python
-df_merged = pd.merge(fitparams, ACE2_expression_df, on='cells')
+## Calculate percent RBD targetting antibodies
+RBD_percentage = (
+    ggplot(rbd, aes(x='cells',
+                              y='percent_RBD')) +
+              geom_boxplot(width=0.65,
+                  position=position_dodge(width=0.7),
+                  outlier_shape='') +
+     geom_jitter(position=position_dodge(width=0.7),
+                 alpha=0.4, size=2.5) +
+     theme(figure_size=(4, 3),
+           strip_background=element_blank()
+           ) +
+     scale_y_continuous(limits=[0, 100])+
+              ylab('% neutralization from \n RBD-targeting antibodies')+
+              xlab('Cell ACE2 expression') +
+             scale_color_manual(values=CBPALETTE[1:])
+             )
+
+
+_= RBD_percentage.draw()
 ```
+
+
+    
+![png](virus_neutralization_files/virus_neutralization_32_0.png)
+    
+
 
 ## Plot neut curves for all samples
 
@@ -450,7 +489,7 @@ fig, axes = fits.plotSera(
                           heightscale=1,
                           titlesize=15,
                           yticklocs=[0,0.5,1],
-                          fix_lims={'ymax':1.25},
+                          fix_lims={'ymax':1.5},
                           markersize=3, 
                           linewidth=1, 
                           labelsize=20,
@@ -466,13 +505,11 @@ fig, axes = fits.plotSera(
 
 _ = axes.ravel()[-1].set_xticks([1e-5, 1e-4, 1e-3, 1e-2])
 _ = axes.ravel()[-1].set_xticklabels(['-5', '-4', '-3', '-2',])
-
-plt.savefig('neutcurves.pdf')
 ```
 
 
     
-![png](virus_neutralization_files/virus_neutralization_32_0.png)
+![png](virus_neutralization_files/virus_neutralization_34_0.png)
     
 
 

@@ -1,27 +1,32 @@
 # Specify configuration
 
+
+# ELISA depletion data
 elisa_pseudovirus_dil1: data/RBD_depletion_RLU/RBDdepletion_ELISAlayout1.csv
-
 elisa_pseudovirus_dil2: data/RBD_depletion_RLU/RBDdepletion_ELISAlayout2.csv
-
 elisa_livevirus: data/RBD_depletion_RLU/RBDdepletion_ELISAlayout_LV.csv
 
+
+# Serum neutralization data
 depletion_neuts:
    data/RBD_depletion_neuts/depletion_neuts_clone_A.csv: very
    data/RBD_depletion_neuts/depletion_neuts_clone_C.csv: low
    data/RBD_depletion_neuts/depletion_neuts_clone_G.csv: medium
    data/RBD_depletion_neuts/depletion_neuts_consensus_kozak.csv: high
 
+# mAb neutralization data
 mAb_neuts: data/mAb_neuts/mAB_neuts_frac_infectivity.csv
 
+# Virus titration
 virus_titers: data/virus_titer_RLU/ACE2clones_Wu_1_RLU.csv
 
+
+# ACE2 expression
 ACE2_expression_df: data/ACE2_expression_vs_infectivity/ACE2_expression_vs_infectivity.csv
 
 sample_information: data/serum_sample_info/sample_information.csv
 
 resultsdir: results/
-
 summary_dir: results/summary
 
 neuts: results/neuts.csv

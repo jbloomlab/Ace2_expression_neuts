@@ -54,7 +54,9 @@ rule get_virus_titers:
 rule get_RBD_depletions:
     """plot RBD depletion data"""
     input:
-        config['elisa_input_files']
+        elisa_pv_1 = config['elisa_pseudovirus_dil1'],
+        elisa_pv_2 = config['elisa_pseudovirus_dil2'],
+        elisa_lv = config['elisa_livevirus']
     output:
         nb_markdown=nb_markdown('rbd_depletions.ipynb')
     params:
