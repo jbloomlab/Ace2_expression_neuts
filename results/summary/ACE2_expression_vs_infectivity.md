@@ -58,7 +58,7 @@ df
     <tr style="text-align: right;">
       <th></th>
       <th>cells</th>
-      <th>MFI (mode)</th>
+      <th>MFI (mean)</th>
       <th>RLU/ul</th>
       <th>relative MFI</th>
       <th>relative RLU/ul</th>
@@ -68,34 +68,42 @@ df
     <tr>
       <th>0</th>
       <td>high</td>
-      <td>60904</td>
-      <td>50877.35</td>
+      <td>49768</td>
+      <td>307650.78400</td>
       <td>1.000000</td>
       <td>1.000000</td>
     </tr>
     <tr>
       <th>1</th>
       <td>medium</td>
-      <td>6344</td>
-      <td>39923.31</td>
-      <td>0.104164</td>
-      <td>0.784697</td>
+      <td>5130</td>
+      <td>160380.60100</td>
+      <td>0.103078</td>
+      <td>0.521307</td>
     </tr>
     <tr>
       <th>2</th>
       <td>low</td>
-      <td>2255</td>
-      <td>8123.15</td>
-      <td>0.037025</td>
-      <td>0.159661</td>
+      <td>2929</td>
+      <td>105836.51500</td>
+      <td>0.058853</td>
+      <td>0.344015</td>
     </tr>
     <tr>
       <th>3</th>
       <td>very low</td>
-      <td>1119</td>
-      <td>1830.92</td>
-      <td>0.018373</td>
-      <td>0.035987</td>
+      <td>1481</td>
+      <td>37566.13167</td>
+      <td>0.029758</td>
+      <td>0.122106</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>vero</td>
+      <td>1340</td>
+      <td>NaN</td>
+      <td>0.026925</td>
+      <td>NaN</td>
     </tr>
   </tbody>
 </table>
@@ -105,13 +113,89 @@ df
 
 
 ```python
-cat_order = ['very low', 'low', 'medium', 'high']
+cat_order = ['vero', 'very low', 'low', 'medium', 'high']
 df['cells'] = pd.Categorical(df['cells'], categories=cat_order, ordered=True)
+df
 ```
 
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cells</th>
+      <th>MFI (mean)</th>
+      <th>RLU/ul</th>
+      <th>relative MFI</th>
+      <th>relative RLU/ul</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>high</td>
+      <td>49768</td>
+      <td>307650.78400</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>medium</td>
+      <td>5130</td>
+      <td>160380.60100</td>
+      <td>0.103078</td>
+      <td>0.521307</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>low</td>
+      <td>2929</td>
+      <td>105836.51500</td>
+      <td>0.058853</td>
+      <td>0.344015</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>very low</td>
+      <td>1481</td>
+      <td>37566.13167</td>
+      <td>0.029758</td>
+      <td>0.122106</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>vero</td>
+      <td>1340</td>
+      <td>NaN</td>
+      <td>0.026925</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
 ```python
-(
+ACE2_infectivity=(
     ggplot(df) +
     aes(x="relative MFI", y="relative RLU/ul") +
     geom_point(size=2) +
@@ -130,6 +214,7 @@ df['cells'] = pd.Categorical(df['cells'], categories=cat_order, ordered=True)
     scale_x_log10()
 )
 
+_ = ACE2_infectivity.draw()
 ```
 
 
@@ -139,16 +224,9 @@ df['cells'] = pd.Categorical(df['cells'], categories=cat_order, ordered=True)
 
 
 
-
-
-    <ggplot: (8760876402860)>
-
-
-
-
 ```python
 # version with Y axis as log scale
-(
+ACE2_infectivity_log=(
     ggplot(df)+
     aes(x="relative MFI", y="relative RLU/ul") +
     geom_point(size=2) +
@@ -161,15 +239,15 @@ df['cells'] = pd.Categorical(df['cells'], categories=cat_order, ordered=True)
     theme_classic()+
     theme(figure_size=(3,3)) +
     labs(
-        title = "Infectivity vs ACE2 Expression",
+        #title = "Infectivity vs ACE2 Expression",
         x="Relative ACE2 expression",
         y="Relative infectivity"
-    ) +
-    scale_x_log10() +
-    scale_y_log10() +
-    coord_fixed(ratio = 1)
-)
+         ) +
+    scale_x_log10(breaks = (0.0625, 0.25, 1)) +
+    scale_y_log10(breaks = (0.0625, 0.125, 0.25, 0.5, 1)) 
+                      )
 
+_ = ACE2_infectivity_log.draw()
 ```
 
 
@@ -179,27 +257,23 @@ df['cells'] = pd.Categorical(df['cells'], categories=cat_order, ordered=True)
 
 
 
-
-
-    <ggplot: (8760867896570)>
-
-
-
-
 ```python
 #ACE2 expression plot for figure 1
-(
+ACE2_expression=(
     ggplot(df)+
-    aes(x="cells", y="MFI (mode)") +
+    aes(x="cells", y="MFI (mean)") +
     geom_point(size=2) +
     theme_classic()+
-    theme(figure_size=(3,3))+
+    theme(figure_size=(3,3),
+          axis_text_x=element_text(size=10, angle=90)
+          )+
     scale_y_log10(limits=[1,1.1e6])+
-    xlab('ACE2 cell clone') +
-    scale_y_log10(limits=[1,1.1e6]) +
-    labs(y ='Relative fluorescence (mode)',
-        title ='ACE2 expression in cell clones')
+    xlab('Cell line') +
+    scale_y_log10(limits=[1e2,1e5]) +
+    labs(y ='Mean ACE2 expression')
 )
+
+_ = ACE2_expression.draw()
 ```
 
 
@@ -207,18 +281,6 @@ df['cells'] = pd.Categorical(df['cells'], categories=cat_order, ordered=True)
 ![png](ACE2_expression_vs_infectivity_files/ACE2_expression_vs_infectivity_9_0.png)
     
 
-
-
-
-
-    <ggplot: (8760867826607)>
-
-
-
-
-```python
-
-```
 
 
 ```python

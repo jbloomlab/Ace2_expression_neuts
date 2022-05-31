@@ -78,12 +78,12 @@ display(HTML(titers.head().to_html(index=False)))
       <td>Wu_1</td>
       <td>0.50000</td>
       <td>50.000</td>
-      <td>7380696</td>
-      <td>200122</td>
-      <td>293T_ACE2_Consensus_Kozak</td>
-      <td>Maxi2020_48hpt</td>
-      <td>no_amphoB</td>
-      <td>147613.92</td>
+      <td>2355075</td>
+      <td>220512</td>
+      <td>very low</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>47101.50</td>
     </tr>
     <tr>
       <td>2800</td>
@@ -91,12 +91,12 @@ display(HTML(titers.head().to_html(index=False)))
       <td>Wu_1</td>
       <td>0.25000</td>
       <td>25.000</td>
-      <td>1875214</td>
-      <td>200122</td>
-      <td>293T_ACE2_Consensus_Kozak</td>
-      <td>Maxi2020_48hpt</td>
-      <td>no_amphoB</td>
-      <td>75008.56</td>
+      <td>983529</td>
+      <td>220512</td>
+      <td>very low</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>39341.16</td>
     </tr>
     <tr>
       <td>2800</td>
@@ -104,12 +104,12 @@ display(HTML(titers.head().to_html(index=False)))
       <td>Wu_1</td>
       <td>0.12500</td>
       <td>12.500</td>
-      <td>385228</td>
-      <td>200122</td>
-      <td>293T_ACE2_Consensus_Kozak</td>
-      <td>Maxi2020_48hpt</td>
-      <td>no_amphoB</td>
-      <td>30818.24</td>
+      <td>414824</td>
+      <td>220512</td>
+      <td>very low</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>33185.92</td>
     </tr>
     <tr>
       <td>2800</td>
@@ -117,12 +117,12 @@ display(HTML(titers.head().to_html(index=False)))
       <td>Wu_1</td>
       <td>0.06250</td>
       <td>6.250</td>
-      <td>91940</td>
-      <td>200122</td>
-      <td>293T_ACE2_Consensus_Kozak</td>
-      <td>Maxi2020_48hpt</td>
-      <td>no_amphoB</td>
-      <td>14710.40</td>
+      <td>206776</td>
+      <td>220512</td>
+      <td>very low</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>33084.16</td>
     </tr>
     <tr>
       <td>2800</td>
@@ -130,12 +130,12 @@ display(HTML(titers.head().to_html(index=False)))
       <td>Wu_1</td>
       <td>0.03125</td>
       <td>3.125</td>
-      <td>27958</td>
-      <td>200122</td>
-      <td>293T_ACE2_Consensus_Kozak</td>
-      <td>Maxi2020_48hpt</td>
-      <td>no_amphoB</td>
-      <td>8946.56</td>
+      <td>100609</td>
+      <td>220512</td>
+      <td>very low</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>32194.88</td>
     </tr>
   </tbody>
 </table>
@@ -151,12 +151,12 @@ p = (ggplot(titers.dropna()
      aes('uL_virus', 'RLU_per_well', group='replicate') +
      geom_point(size=1.5) +
      geom_line() +
-     facet_wrap('~virus+date+cells+2727_plasmid+amphoB', ncol=ncol) +
+     facet_wrap('~virus+date+cells+2727_plasmid+amphoB', ncol=4) +
      scale_y_log10(name='RLU per well') +
      scale_x_log10(name='uL virus per well') +
      theme_classic() +
-     theme(axis_text_x=element_text(angle=90),
-           figure_size=(5 * ncol, 40 * nrow),
+     theme(axis_text_x=element_text(),
+           figure_size=(6,3),
            )
      )
 
@@ -176,12 +176,12 @@ p = (ggplot(titers.dropna()
      aes('uL_virus', 'RLUperuL', group='replicate') +
      geom_point(size=1.5) +
      geom_line() +
-     facet_wrap('~virus+date+cells+2727_plasmid+amphoB', ncol=ncol) +
+     facet_wrap('~virus+date+cells+2727_plasmid+amphoB', ncol=4) +
      scale_y_log10(name='RLU per uL') +
      scale_x_log10(name='uL virus per well') +
      theme_classic() +
-     theme(axis_text_x=element_text(angle=90),
-           figure_size=(4 * ncol, 40 * nrow),
+     theme(axis_text_x=element_text(),
+           figure_size=(5,2),
            ) 
      )
 
@@ -195,6 +195,89 @@ _ = p.draw()
 
 
 From visual inspection of the above plots, it appears that only the 5 highest dilutions (i.e., >1uL of virus per well) are reliable enough to calculate titers. 
+
+
+```python
+#new
+average_titers1 = (titers
+                  .dropna() # missing values for some replicates
+                  .query('uL_virus > 1') # drop lowest concentration of virus
+                  .groupby(['virus', 'replicate', 'date', 'cells', '2727_plasmid', 'amphoB','dilution'])
+                  .agg(mean_RLUperuL=pd.NamedAgg(column='RLUperuL', aggfunc=np.mean))
+                  .reset_index()
+                 )
+
+display(HTML(average_titers1.head().to_html(index=False)))
+```
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>virus</th>
+      <th>replicate</th>
+      <th>date</th>
+      <th>cells</th>
+      <th>2727_plasmid</th>
+      <th>amphoB</th>
+      <th>dilution</th>
+      <th>mean_RLUperuL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Wu_1</td>
+      <td>rep1</td>
+      <td>220512</td>
+      <td>high</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>0.015625</td>
+      <td>291884.16</td>
+    </tr>
+    <tr>
+      <td>Wu_1</td>
+      <td>rep1</td>
+      <td>220512</td>
+      <td>high</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>0.031250</td>
+      <td>327239.36</td>
+    </tr>
+    <tr>
+      <td>Wu_1</td>
+      <td>rep1</td>
+      <td>220512</td>
+      <td>high</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>0.062500</td>
+      <td>336602.24</td>
+    </tr>
+    <tr>
+      <td>Wu_1</td>
+      <td>rep1</td>
+      <td>220512</td>
+      <td>high</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>0.125000</td>
+      <td>290649.68</td>
+    </tr>
+    <tr>
+      <td>Wu_1</td>
+      <td>rep1</td>
+      <td>220512</td>
+      <td>high</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>0.250000</td>
+      <td>317654.88</td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 ```python
@@ -226,50 +309,175 @@ display(HTML(average_titers.head().to_html(index=False)))
     <tr>
       <td>Wu_1</td>
       <td>rep1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Clone_A</td>
-      <td>Bernadeta_stock</td>
+      <td>220512</td>
+      <td>high</td>
+      <td>6well_pooled</td>
       <td>amphoB</td>
-      <td>48910.933333</td>
+      <td>312806.064000</td>
     </tr>
     <tr>
       <td>Wu_1</td>
       <td>rep1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Clone_A</td>
-      <td>Maxi2020_48hpt</td>
-      <td>no_amphoB</td>
-      <td>5959.903333</td>
-    </tr>
-    <tr>
-      <td>Wu_1</td>
-      <td>rep1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Clone_A</td>
-      <td>Maxi2020_60hpt</td>
+      <td>220512</td>
+      <td>low</td>
+      <td>6well_pooled</td>
       <td>amphoB</td>
-      <td>47823.730000</td>
+      <td>102924.786667</td>
     </tr>
     <tr>
       <td>Wu_1</td>
       <td>rep1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Clone_A</td>
-      <td>Maxi2020_60hpt</td>
-      <td>no_amphoB</td>
-      <td>5281.416667</td>
-    </tr>
-    <tr>
-      <td>Wu_1</td>
-      <td>rep1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Clone_A</td>
-      <td>Maxi2021_60hpt</td>
+      <td>220512</td>
+      <td>medium</td>
+      <td>6well_pooled</td>
       <td>amphoB</td>
-      <td>70423.453333</td>
+      <td>160672.613333</td>
+    </tr>
+    <tr>
+      <td>Wu_1</td>
+      <td>rep1</td>
+      <td>220512</td>
+      <td>very low</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>36438.630000</td>
+    </tr>
+    <tr>
+      <td>Wu_1</td>
+      <td>rep2</td>
+      <td>220512</td>
+      <td>high</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>302495.504000</td>
     </tr>
   </tbody>
 </table>
+
+
+
+```python
+cat_order = ['very low', 'low', 'medium', 'high']
+average_titers['cells'] = pd.Categorical(average_titers['cells'], categories=cat_order, ordered=True)
+
+average_titers
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>virus</th>
+      <th>replicate</th>
+      <th>date</th>
+      <th>cells</th>
+      <th>2727_plasmid</th>
+      <th>amphoB</th>
+      <th>mean_RLUperuL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Wu_1</td>
+      <td>rep1</td>
+      <td>220512</td>
+      <td>high</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>312806.064000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Wu_1</td>
+      <td>rep1</td>
+      <td>220512</td>
+      <td>low</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>102924.786667</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Wu_1</td>
+      <td>rep1</td>
+      <td>220512</td>
+      <td>medium</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>160672.613333</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Wu_1</td>
+      <td>rep1</td>
+      <td>220512</td>
+      <td>very low</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>36438.630000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Wu_1</td>
+      <td>rep2</td>
+      <td>220512</td>
+      <td>high</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>302495.504000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Wu_1</td>
+      <td>rep2</td>
+      <td>220512</td>
+      <td>low</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>108748.243333</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Wu_1</td>
+      <td>rep2</td>
+      <td>220512</td>
+      <td>medium</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>160088.590000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Wu_1</td>
+      <td>rep2</td>
+      <td>220512</td>
+      <td>very low</td>
+      <td>6well_pooled</td>
+      <td>amphoB</td>
+      <td>38693.633333</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 
@@ -283,7 +491,7 @@ p = (ggplot(average_titers,
            figure_size=(average_titers['virus'].nunique()*3,2),
            axis_title_x=element_blank(),
           ) +
-     scale_y_log10(limits=[1,1.1e6]) +
+     scale_y_log10(limits=[5e3,1.1e6]) +
      ylab('relative luciferase units\nper uL')+
      labs(title='pseudovirus entry titers') +
      scale_color_manual(values=CBPALETTE)
@@ -294,7 +502,7 @@ _ = p.draw()
 
 
     
-![png](virus_titers_files/virus_titers_12_0.png)
+![png](virus_titers_files/virus_titers_14_0.png)
     
 
 
@@ -349,157 +557,56 @@ display(HTML(dilute_virus.to_html(index=False)))
   <tbody>
     <tr>
       <td>Wu_1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Clone_A</td>
-      <td>Bernadeta_stock</td>
+      <td>220512</td>
+      <td>very low</td>
+      <td>6well_pooled</td>
       <td>amphoB</td>
-      <td>48134.986667</td>
+      <td>37566.131667</td>
       <td>200000.0</td>
       <td>50</td>
-      <td>12.033747</td>
-      <td>664.797109</td>
-      <td>7335.202891</td>
+      <td>9.391533</td>
+      <td>851.831120</td>
+      <td>7148.168880</td>
     </tr>
     <tr>
       <td>Wu_1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Clone_A</td>
-      <td>Maxi2020_48hpt</td>
-      <td>no_amphoB</td>
-      <td>6035.725000</td>
-      <td>200000.0</td>
-      <td>50</td>
-      <td>1.508931</td>
-      <td>5301.765737</td>
-      <td>2698.234263</td>
-    </tr>
-    <tr>
-      <td>Wu_1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Clone_A</td>
-      <td>Maxi2020_60hpt</td>
+      <td>220512</td>
+      <td>low</td>
+      <td>6well_pooled</td>
       <td>amphoB</td>
-      <td>47475.220000</td>
+      <td>105836.515000</td>
       <td>200000.0</td>
       <td>50</td>
-      <td>11.868805</td>
-      <td>674.035844</td>
-      <td>7325.964156</td>
+      <td>26.459129</td>
+      <td>302.353115</td>
+      <td>7697.646885</td>
     </tr>
     <tr>
       <td>Wu_1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Clone_A</td>
-      <td>Maxi2020_60hpt</td>
-      <td>no_amphoB</td>
-      <td>5345.510000</td>
-      <td>200000.0</td>
-      <td>50</td>
-      <td>1.336378</td>
-      <td>5986.332455</td>
-      <td>2013.667545</td>
-    </tr>
-    <tr>
-      <td>Wu_1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Clone_A</td>
-      <td>Maxi2021_60hpt</td>
+      <td>220512</td>
+      <td>medium</td>
+      <td>6well_pooled</td>
       <td>amphoB</td>
-      <td>71130.041667</td>
+      <td>160380.601667</td>
       <td>200000.0</td>
       <td>50</td>
-      <td>17.782510</td>
-      <td>449.880237</td>
-      <td>7550.119763</td>
+      <td>40.095150</td>
+      <td>199.525377</td>
+      <td>7800.474623</td>
     </tr>
     <tr>
       <td>Wu_1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Clone_A</td>
-      <td>Maxi2021_60hpt</td>
-      <td>no_amphoB</td>
-      <td>7591.453333</td>
-      <td>200000.0</td>
-      <td>50</td>
-      <td>1.897863</td>
-      <td>4215.266642</td>
-      <td>3784.733358</td>
-    </tr>
-    <tr>
-      <td>Wu_1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Consensus_Kozak</td>
-      <td>Maxi2020_48hpt</td>
-      <td>no_amphoB</td>
-      <td>49419.021667</td>
-      <td>200000.0</td>
-      <td>50</td>
-      <td>12.354755</td>
-      <td>647.523948</td>
-      <td>7352.476052</td>
-    </tr>
-    <tr>
-      <td>Wu_1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Consensus_Kozak</td>
-      <td>Maxi2020_60hpt</td>
+      <td>220512</td>
+      <td>high</td>
+      <td>6well_pooled</td>
       <td>amphoB</td>
-      <td>153364.706667</td>
+      <td>307650.784000</td>
       <td>200000.0</td>
       <td>50</td>
-      <td>38.341177</td>
-      <td>208.652960</td>
-      <td>7791.347040</td>
-    </tr>
-    <tr>
-      <td>Wu_1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Consensus_Kozak</td>
-      <td>Maxi2020_60hpt</td>
-      <td>no_amphoB</td>
-      <td>41463.535000</td>
-      <td>200000.0</td>
-      <td>50</td>
-      <td>10.365884</td>
-      <td>771.762466</td>
-      <td>7228.237534</td>
-    </tr>
-    <tr>
-      <td>Wu_1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Consensus_Kozak</td>
-      <td>Maxi2021_60hpt</td>
-      <td>amphoB</td>
-      <td>228904.052000</td>
-      <td>200000.0</td>
-      <td>50</td>
-      <td>57.226013</td>
-      <td>139.796564</td>
-      <td>7860.203436</td>
-    </tr>
-    <tr>
-      <td>Wu_1</td>
-      <td>200122</td>
-      <td>293T_ACE2_Consensus_Kozak</td>
-      <td>Maxi2021_60hpt</td>
-      <td>no_amphoB</td>
-      <td>56560.515000</td>
-      <td>200000.0</td>
-      <td>50</td>
-      <td>14.140129</td>
-      <td>565.765711</td>
-      <td>7434.234289</td>
+      <td>76.912696</td>
+      <td>104.014037</td>
+      <td>7895.985963</td>
     </tr>
   </tbody>
 </table>
 
-
-
-```python
-# !jupyter nbconvert calculate_titer.ipynb --to HTML
-```
-
-
-```python
-
-```
