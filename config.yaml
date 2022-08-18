@@ -4,7 +4,6 @@
 # ELISA depletion data
 elisa_pseudovirus_dil1: data/RBD_depletion_RLU/RBDdepletion_ELISAlayout1.csv
 elisa_pseudovirus_dil2: data/RBD_depletion_RLU/RBDdepletion_ELISAlayout2.csv
-elisa_livevirus: data/RBD_depletion_RLU/RBDdepletion_ELISAlayout_LV.csv
 
 
 # Serum neutralization data
